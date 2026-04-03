@@ -139,10 +139,10 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                   {/* スマホ: 画像下に「大ラベル + 小ラベル」→ 区切り線 → キャッチ → 本文 */}
                   <div className="lg:hidden">
                     <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                      <span className="text-[32px] font-semibold leading-none tracking-[0.06em] text-[#444]">
+                      <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
                         {card.phaseJp}
                       </span>
-                      <span className="font-inter text-[12px] capitalize tracking-[0.18em] text-[#444]">
+                      <span className="font-inter text-[12px] capitalize tracking-[0.1em] text-[#444]">
                         {card.phaseEn}
                       </span>
                     </div>
@@ -163,7 +163,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                   <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-normal lg:leading-[1.45] lg:tracking-[0.1em]">
                     {card.title}
                   </h3>
-                  <p className="max-w-[560px] text-[15px] leading-[1.9] tracking-[0.08em] text-[#444] lg:text-[16px] lg:leading-[2] lg:tracking-[0.12em]">
+                  <p className="max-w-[560px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 lg:text-[16px] lg:leading-[2] lg:tracking-[0.12em] lg:text-[#444]">
                     {card.description}
                   </p>
                 </div>
@@ -402,10 +402,10 @@ export default function Home() {
               <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
                 about the program
               </p>
-              <h2 className="mt-3 text-[26px] leading-[1.15] tracking-[0.08em] text-[#444] md:text-[34px]">
+              <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px] lg:text-[#444]">
                 佐渡Kids生き物調査隊とは
               </h2>
-              <p className="mt-8 max-w-[680px] text-[16px] leading-[2] tracking-[0.12em] text-[#444]">
+              <p className="mt-4 max-w-[680px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-8 md:text-[16px] md:leading-[2] md:tracking-[0.12em] md:text-[#444]">
                 佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。
               </p>
             </Reveal>
@@ -425,13 +425,13 @@ export default function Home() {
           className="rounded-t-[40px] bg-white px-5 py-20 shadow-[0_32px_100px_-24px_rgba(30,55,90,0.12)] md:px-10 md:py-24"
         >
           <div className="mx-auto max-w-[1540px] text-center">
-            <p className="font-inter text-[14px] lowercase tracking-[0.2em] text-[#999] md:text-[15px]">
+            <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#999] md:text-[15px]">
               staff
             </p>
-            <h2 className="mt-2 text-[28px] font-semibold leading-[1.2] tracking-[0.08em] text-[#222] md:mt-3 md:text-[40px] md:font-bold">
+            <h2 className="mt-3 text-[30px] font-semibold leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px] md:font-bold md:text-[#222]">
               スタッフ紹介
             </h2>
-            <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-[1.9] tracking-[0.08em] text-[#444] md:mt-6 md:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[640px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-6 md:text-[16px] md:leading-[1.9] md:tracking-[0.08em] md:text-[#444]">
               佐渡Kids生き物調査隊を一緒に支えるスタッフをご紹介します。（写真・プロフィールは仮です）
             </p>
           </div>

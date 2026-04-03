@@ -11,10 +11,10 @@ export default function UseCasePage() {
               <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]/70">
                 Scroll Jack
               </p>
-              <h1 className="mt-4 text-[32px] leading-[1.2] tracking-[0.08em] text-[#444] md:text-[46px]">
+              <h1 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#444] md:text-[46px] md:leading-[1.2]">
                 前のページが止まって、次がせり上がる
               </h1>
-              <p className="mt-6 text-[15px] leading-[2] tracking-[0.12em] text-[#444]/80">
+              <p className="mt-6 text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:leading-[2] md:tracking-[0.12em] md:text-[#444]/80">
                 下にスクロールすると、次のセクションが連続的に上がってきて前の面を覆います。
               </p>
             </div>

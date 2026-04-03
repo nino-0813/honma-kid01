@@ -35,10 +35,10 @@ export default function UseCaseCardPanel({ card, showRecommended = true }: { car
       <div className="flex flex-col justify-between gap-8 lg:col-span-6">
         {showRecommended ? (
           <div className="rounded-[40px] border border-white/40 px-6 py-5 md:px-8">
-            <p className="font-inter text-[14px] uppercase tracking-[0.16em] text-white/80">
+            <p className="font-inter text-[15px] uppercase leading-[1.85] tracking-[0.1em] text-white/80 md:text-[14px] md:leading-normal md:tracking-[0.16em]">
               Recommended for
             </p>
-            <ul className="mt-3 grid gap-x-10 gap-y-2 text-[14px] leading-[1.9] tracking-[0.1em] text-white/95 md:grid-cols-2 md:text-[16px]">
+            <ul className="mt-3 grid gap-x-10 gap-y-2 text-[15px] leading-[1.85] tracking-[0.1em] text-white/95 md:grid-cols-2 md:text-[16px] md:leading-[1.9]">
               {card.bullets.map((bullet) => (
                 <li key={bullet}>・{bullet}</li>
               ))}
@@ -47,10 +47,10 @@ export default function UseCaseCardPanel({ card, showRecommended = true }: { car
         ) : null}
 
         <div>
-          <h3 className="text-[28px] leading-[1.2] tracking-[0.12em] text-[#ff8b78] md:text-[34px]">
+          <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#ff8b78] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
             {card.title}
           </h3>
-          <p className="mt-5 max-w-[720px] text-[16px] leading-[2.1] tracking-[0.12em] text-white/96">
+          <p className="mt-5 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88 md:text-[16px] md:leading-[2.1] md:tracking-[0.12em] md:text-white/96">
             {card.description}
           </p>
         </div>

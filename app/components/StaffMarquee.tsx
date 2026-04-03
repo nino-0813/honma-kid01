@@ -36,7 +36,7 @@ function StaffCard({
             （{reading}）
           </span>
         </p>
-        <p className="mt-3 text-[13px] leading-[1.85] tracking-[0.06em] text-[#444] md:text-[14px] md:leading-[1.9]">
+        <p className="mt-3 text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:text-[14px] md:tracking-[0.06em] md:text-[#444] md:leading-[1.9]">
           {bio}
         </p>
       </div>
