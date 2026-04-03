@@ -55,10 +55,10 @@ export default function UseCasePanel({
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white/80">
                 annual program
               </p>
-              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FB876D] md:text-[46px]">
+              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
                 年間プログラム
               </h2>
-              <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88 md:text-[16px] md:leading-[1.9]">
+              <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">
                 2026年度は全<strong className="font-semibold text-white">8回</strong>
                 を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。開催日・対象年齢・参加方法は決まり次第お知らせします（内容は仮のイメージです）。
               </p>
@@ -110,7 +110,7 @@ export default function UseCasePanel({
 
           <Reveal delay={120}>
             <div className="mt-14 flex flex-col items-center gap-4 md:mt-20">
-              <p className="text-center text-[15px] leading-[1.85] tracking-[0.1em] text-white/80 md:text-[14px] md:leading-normal md:tracking-[0.12em]">
+              <p className="text-center text-[15px] leading-[1.85] tracking-[0.1em] text-white/80">
                 参加をご希望の方は、お気軽にお問い合わせください。
               </p>
               <a

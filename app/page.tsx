@@ -99,7 +99,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
             <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#444]">
               kids
             </p>
-            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px] lg:text-[#444]">
+            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
               キッズのみなさんへ
             </h2>
             <p className="mt-4 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85">
@@ -163,7 +163,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                   <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-normal lg:leading-[1.45] lg:tracking-[0.1em]">
                     {card.title}
                   </h3>
-                  <p className="max-w-[560px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 lg:text-[16px] lg:leading-[2] lg:tracking-[0.12em] lg:text-[#444]">
+                  <p className="max-w-[560px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85">
                     {card.description}
                   </p>
                 </div>
@@ -402,10 +402,10 @@ export default function Home() {
               <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
                 about the program
               </p>
-              <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px] lg:text-[#444]">
+              <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
                 佐渡Kids生き物調査隊とは
               </h2>
-              <p className="mt-4 max-w-[680px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-8 md:text-[16px] md:leading-[2] md:tracking-[0.12em] md:text-[#444]">
+              <p className="mt-4 max-w-[680px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-8">
                 佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。
               </p>
             </Reveal>
@@ -428,10 +428,10 @@ export default function Home() {
             <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#999] md:text-[15px]">
               staff
             </p>
-            <h2 className="mt-3 text-[30px] font-semibold leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px] md:font-bold md:text-[#222]">
+            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
               スタッフ紹介
             </h2>
-            <p className="mx-auto mt-4 max-w-[640px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-6 md:text-[16px] md:leading-[1.9] md:tracking-[0.08em] md:text-[#444]">
+            <p className="mx-auto mt-4 max-w-[640px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-6">
               佐渡Kids生き物調査隊を一緒に支えるスタッフをご紹介します。（写真・プロフィールは仮です）
             </p>
           </div>

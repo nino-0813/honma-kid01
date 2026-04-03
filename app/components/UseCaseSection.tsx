@@ -147,14 +147,14 @@ export default function UseCaseSection() {
               ].join(" ")}
             >
               <div>
-                <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#ff8b78] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
+                <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
                   {card.title}
                 </h3>
-                <p className="mt-5 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88 md:text-[16px] md:leading-[2.1] md:tracking-[0.12em] md:text-white/96">
+                <p className="mt-5 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">
                   {card.description}
                 </p>
                 <div className="mt-8 rounded-[40px] border border-white/40 px-6 py-5 backdrop-blur-[1px] md:px-8">
-                  <ul className="grid gap-x-10 gap-y-2 text-[15px] leading-[1.85] tracking-[0.1em] text-white/95 md:grid-cols-2 md:text-[16px] md:leading-[1.9]">
+                  <ul className="grid gap-x-10 gap-y-2 text-[15px] leading-[1.85] tracking-[0.1em] text-white/95 md:grid-cols-2">
                     {card.bullets.map((bullet) => (
                       <li key={bullet}>・{bullet}</li>
                     ))}

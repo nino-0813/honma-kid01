@@ -38,7 +38,7 @@ export default function UseCaseCardPanel({ card, showRecommended = true }: { car
             <p className="font-inter text-[15px] uppercase leading-[1.85] tracking-[0.1em] text-white/80 md:text-[14px] md:leading-normal md:tracking-[0.16em]">
               Recommended for
             </p>
-            <ul className="mt-3 grid gap-x-10 gap-y-2 text-[15px] leading-[1.85] tracking-[0.1em] text-white/95 md:grid-cols-2 md:text-[16px] md:leading-[1.9]">
+            <ul className="mt-3 grid gap-x-10 gap-y-2 text-[15px] leading-[1.85] tracking-[0.1em] text-white/95 md:grid-cols-2">
               {card.bullets.map((bullet) => (
                 <li key={bullet}>・{bullet}</li>
               ))}
@@ -47,10 +47,10 @@ export default function UseCaseCardPanel({ card, showRecommended = true }: { car
         ) : null}
 
         <div>
-          <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#ff8b78] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
+          <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
             {card.title}
           </h3>
-          <p className="mt-5 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88 md:text-[16px] md:leading-[2.1] md:tracking-[0.12em] md:text-white/96">
+          <p className="mt-5 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">
             {card.description}
           </p>
         </div>
