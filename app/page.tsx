@@ -239,22 +239,48 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-7">
-              <div className="flex flex-col gap-6">
-                <a href="#usecase" className="nav-link block border-l-[3px] border-[#FB876D] pl-3">
-                  <p className="text-[15px] leading-snug tracking-[0.08em]">日常的に使いたい</p>
-                  <p className="mt-1 text-[11px] tracking-[0.14em] text-white/75">会員利用</p>
+              <nav aria-label="ページ内セクション" className="flex flex-col gap-2.5">
+                <a
+                  href="#about"
+                  className="nav-link block border-l-[2px] border-[#FB876D] py-0.5 pl-2.5"
+                >
+                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
+                    佐渡Kids生き物調査隊とは
+                  </span>
                 </a>
-                <a href="#usecase" className="nav-link block border-l-[3px] border-[#9ec5e8] pl-3">
-                  <p className="text-[15px] leading-snug tracking-[0.08em]">ふらっと使いたい</p>
-                  <p className="mt-1 text-[11px] tracking-[0.14em] text-white/75">都度利用</p>
+                <a
+                  href="#place"
+                  className="nav-link block border-l-[2px] border-[#9ec5e8] py-0.5 pl-2.5"
+                >
+                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
+                    キッズのみなさんへ
+                  </span>
+                </a>
+                <a
+                  href="#usecase"
+                  className="nav-link block border-l-[2px] border-[#FB876D] py-0.5 pl-2.5"
+                >
+                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
+                    年間プログラム
+                  </span>
+                </a>
+                <a
+                  href="#staff"
+                  className="nav-link block border-l-[2px] border-[#9ec5e8] py-0.5 pl-2.5"
+                >
+                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
+                    スタッフ紹介
+                  </span>
                 </a>
                 <a
                   href="#faq"
-                  className="nav-link text-[13px] leading-relaxed tracking-[0.1em] text-white/95"
+                  className="nav-link block border-l-[2px] border-[#FB876D] py-0.5 pl-2.5"
                 >
-                  視察・間貸・講演 / お問い合わせ
+                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
+                    よくある質問
+                  </span>
                 </a>
-              </div>
+              </nav>
 
               <div className="flex items-end justify-between gap-4 border-t border-white/25 pt-6">
                 <div>
@@ -267,26 +293,30 @@ export default function Home() {
                     <span className="text-white/70">EN</span>
                   </p>
                 </div>
-                <div className="text-right">
-                  <p className="font-inter text-[10px] uppercase tracking-[0.14em] text-white/55">
-                    SNS
-                  </p>
-                  <Image
-                    src="/figma-assets/footer-social.svg"
-                    alt=""
-                    width={220}
-                    height={21}
-                    className="ml-auto mt-2 h-auto w-[108px] invert"
-                  />
-                </div>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 text-white/90 transition hover:text-white"
+                  aria-label="Instagram"
+                >
+                  <svg
+                    className="h-7 w-7"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden
+                  >
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
 
           {/* Desktop */}
-          <div className="relative z-10 hidden min-h-[880px] flex-col justify-start p-16 md:flex">
-            <div className="flex items-start justify-between">
-              <Reveal className="flex max-w-[270px] flex-col gap-12" delay={80}>
+          <div className="relative z-10 hidden min-h-[880px] flex-col justify-between p-16 md:flex">
+            <div className="flex items-start justify-between gap-8">
+              <Reveal className="flex max-w-[270px] flex-col" delay={80}>
                 <Image
                   src="/figma-assets/logo.svg"
                   alt="Kosugiyu Tonari"
@@ -295,63 +325,34 @@ export default function Home() {
                   priority
                   className="h-auto w-[230px]"
                 />
-                <div className="flex flex-col gap-6 text-white/90">
-                  <div className="space-y-4">
-                    <a href="#usecase" className="nav-link block">
-                      <p className="text-[18px] leading-none tracking-[0.12em]">
-                        As usual use
-                      </p>
-                      <p className="mt-2 text-[12px] leading-none tracking-[0.14em]">
-                        Membership use
-                      </p>
-                    </a>
-                    <a href="#usecase" className="nav-link block">
-                      <p className="text-[18px] leading-none tracking-[0.12em]">
-                        On weekend use
-                      </p>
-                      <p className="mt-2 text-[12px] leading-none tracking-[0.14em]">
-                        Drop in use
-                      </p>
-                    </a>
-                  </div>
-                  <a
-                    href="#faq"
-                    className="nav-link text-[14px] tracking-[0.16em] text-white/90"
-                  >
-                    About Site Visits / Contact us
-                  </a>
-                </div>
               </Reveal>
 
               <Reveal
-                className="flex flex-col items-end gap-5"
+                className="flex shrink-0 flex-col items-end"
                 delay={180}
                 variant="right"
               >
-                <nav className="flex flex-wrap items-center justify-end gap-x-8 gap-y-3 text-[14px] tracking-[0.16em] text-white/90">
-                  <a href="#about" className="nav-link">
-                    About
-                  </a>
-                  <a href="#place" className="nav-link">
-                    Kids
-                  </a>
-                  <a href="#faq" className="nav-link">
-                    FAQ
-                  </a>
-                  <span className="font-inter">JA / EN</span>
-                </nav>
-                <div className="flex items-center gap-6">
-                  <span className="text-[14px] tracking-[0.16em] text-white/80">SNS</span>
-                  <Image
-                    src="/figma-assets/footer-social.svg"
-                    alt="Social links"
-                    width={220}
-                    height={21}
-                    className="h-auto w-[120px] invert"
-                  />
-                </div>
-                <ArrowLink href="#faq" label="About Facilities Tours" />
+                <ArrowLink href="#faq" label="お申し込み" />
               </Reveal>
+            </div>
+
+            <div className="flex items-end">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-white/90 transition hover:text-white"
+                aria-label="Instagram"
+              >
+                <svg
+                  className="h-9 w-9"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
             </div>
           </div>
         </section>

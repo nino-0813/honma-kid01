@@ -10,7 +10,7 @@ function ArrowIcon() {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
+      className="h-[18px] w-[18px] shrink-0"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -27,7 +27,7 @@ function ArrowIcon() {
  * スマホ: ヒーロー内は右上。ヒーローをスクロールアウトしたら右下に固定。
  */
 const baseClass =
-  "inline-flex shrink-0 items-center gap-2 rounded-full bg-[#FB876D] px-4 py-3 text-[11px] font-medium tracking-[0.12em] text-white";
+  "inline-flex shrink-0 items-center gap-2.5 rounded-full bg-[#FB876D] px-5 py-3.5 text-[12px] font-medium tracking-[0.12em] text-white";
 
 export default function MobileTourCta() {
   const [pastHero, setPastHero] = useState(false);
@@ -60,7 +60,7 @@ export default function MobileTourCta() {
           : "shadow-[0_8px_24px_rgba(0,0,0,0.2)]",
       ].join(" ")}
     >
-      見学のお申し込み
+      お申し込み
       <ArrowIcon />
     </a>
   );
