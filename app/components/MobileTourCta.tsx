@@ -52,7 +52,7 @@ export default function MobileTourCta() {
 
   const link = (
     <a
-      href="#access"
+      href="#faq"
       className={[
         baseClass,
         pastHero

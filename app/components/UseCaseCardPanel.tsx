@@ -57,7 +57,7 @@ export default function UseCaseCardPanel({ card, showRecommended = true }: { car
 
         <div>
           <a
-            href="#access"
+            href="#faq"
             className="arrow-link inline-flex items-center gap-3 rounded-[14px] bg-white px-8 py-4 text-[14px] tracking-[0.16em] text-[#4d84c5] shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
           >
             <span>read more</span>

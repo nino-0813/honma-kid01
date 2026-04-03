@@ -1,60 +1,38 @@
 import Image from "next/image";
 import MobileTourCta from "@/app/components/MobileTourCta";
 import Reveal from "@/app/components/reveal";
+import FaqSection from "@/app/components/FaqSection";
+import StaffMarquee from "@/app/components/StaffMarquee";
 import UseCasePanel from "@/app/components/UseCasePanel";
 
 /* ────────────────────────────────────────────
    Data
 ──────────────────────────────────────────── */
-const aboutImages = [
-  "/figma-assets/about-1-29782b.png",
-  "/figma-assets/about-2-37e68f.png",
-  "/figma-assets/about-3-56586a.png",
-  "/figma-assets/about-4-56586a.png",
-  "/figma-assets/about-5-3de823.png",
-  "/figma-assets/about-6-1b0fae.png",
-];
-
-const placeCards = [
+/** #place — キッズ・調査隊の雰囲気を伝える説明ブロック（文言は仮） */
+const kidsAboutCards = [
   {
-    floor: "1st floor",
-    jpFloor: "1階",
-    title: "A Living Space",
+    phaseEn: "nature",
+    phaseJp: "自然の中で",
+    title: "外のフィールドが、いちばんの教室",
     description:
-      "You can use an open shared kitchen and living area with free access. There's also a drink station and a community board, with regular events held here.",
-    image: "/figma-assets/place-1-529e19.png",
+      "佐渡の田んぼや水路、湿地をゆっくり歩きながら、生きもののすみかやあとを観察します。ネットや観察ノートで、見つけたものを写真やスケッチに残していきます。安全に楽しむための服装や持ち物は、開催前にお知らせします。",
+    image: "/figma-assets/usecase-1-23bd32.png",
   },
   {
-    floor: "2nd floor",
-    jpFloor: "2階",
-    title: "A Co-working Space",
+    phaseEn: "together",
+    phaseJp: "みんなと一緒に",
+    title: "スタッフや仲間と話しながら、「わからない」を楽しむ",
     description:
-      "A tatami-floored workspace designed for focused work or reading. When you're tired, you can take a break on the tatami. The space is equipped with Wi-Fi, power outlets, a printer, and bookshelves.",
-    image: "/figma-assets/place-2-530e32.png",
+      "図鑑やアプリを手に、名前や特徴を調べたり、「なぜここにいるの？」を話し合ったりします。正解を急がず、子どものペースで進めます。初めての子も、生きものが好きな子も、それぞれの見え方を尊重します。",
+    image: "/figma-assets/usecase-2-d783d7.png",
   },
   {
-    floor: "3rd floor",
-    jpFloor: "3階",
-    title: "A Private Room with a Balcony",
+    phaseEn: "next",
+    phaseJp: "つぎにつなげて",
+    title: "記録や発表を通して、次の「見たい」につなげる",
     description:
-      "A six-tatami-mat private room with balcony for rent. Perfect for online meetings or an afternoon nap. From the balcony, you can enjoy views of Mt. Fuji and the sunset beyond the bathhouse rooftops.",
-    image: "/figma-assets/place-3-49dba7.png",
-  },
-];
-
-const newsCards = [
-  {
-    title:
-      "現役大学生スタッフが考える、小杉湯となりで働く魅力とは？【3/20まで求人募集中】",
-    image: "/figma-assets/news-1-d53795.png",
-  },
-  {
-    title: "小杉湯となりを一緒に育ててくれる〈店長候補&店舗スタッフ〉を募集します！",
-    image: "/figma-assets/news-2-d53795.png",
-  },
-  {
-    title: "小杉湯となり会員のみなさんへ",
-    image: "/figma-assets/news-3-d53795.png",
+      "季節ごとに写真やメモをそろえ、隊員同士で簡単に発表する時間ももちます。うまくまとまらなくても大丈夫。次のテーマや調査へつなげていきます。参加費や対象年齢などの詳細は、決まり次第お知らせ予定です。",
+    image: "/figma-assets/usecase-3-48e433.png",
   },
 ];
 
@@ -118,26 +96,29 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
       <div className="mx-auto max-w-[1540px]">
         <Reveal>
           <div>
-            <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
-              Place
+            <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#444]">
+              kids
             </p>
-            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#444] md:text-[46px]">
-              建物について
+            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px] lg:text-[#444]">
+              キッズのみなさんへ
             </h2>
+            <p className="mt-4 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85">
+              佐渡Kids生き物調査隊は、田んぼや水辺などのフィールドで生きものと出会い、仲間と学び合う場です。ここでは「どんな時間を過ごすのか」を、三つの視点でご紹介します。日程や参加方法の詳細は、決まり次第このページでお知らせします。
+            </p>
           </div>
         </Reveal>
 
         <div className="mt-16 flex flex-col gap-24 md:gap-32">
-          {placeCards.map((card, index) => (
+          {kidsAboutCards.map((card, index) => (
             <Reveal
-              key={card.floor}
+              key={card.phaseEn}
               delay={index * 80}
               variant={index % 2 === 0 ? "left" : "right"}
             >
-              <article className="grid items-center gap-10 md:gap-16 lg:grid-cols-2">
+              <article className="grid items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-16">
                 <div
                   className={[
-                    "card-interactive overflow-hidden rounded-[24px]",
+                    "card-interactive overflow-hidden rounded-3xl lg:rounded-[24px]",
                     index % 2 !== 0 ? "lg:order-2" : "",
                   ].join(" ")}
                 >
@@ -151,22 +132,38 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                 </div>
                 <div
                   className={[
-                    "space-y-5",
+                    "flex flex-col gap-5",
                     index % 2 !== 0 ? "lg:order-1" : "",
                   ].join(" ")}
                 >
-                  <div className="space-y-1">
-                    <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
-                      {card.floor}
-                    </p>
-                    <p className="text-[32px] leading-none tracking-[0.08em] text-[#444]">
-                      {card.jpFloor}
-                    </p>
+                  {/* スマホ: 画像下に「大ラベル + 小ラベル」→ 区切り線 → キャッチ → 本文 */}
+                  <div className="lg:hidden">
+                    <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                      <span className="text-[32px] font-semibold leading-none tracking-[0.06em] text-[#444]">
+                        {card.phaseJp}
+                      </span>
+                      <span className="font-inter text-[12px] capitalize tracking-[0.18em] text-[#444]">
+                        {card.phaseEn}
+                      </span>
+                    </div>
+                    <div className="mt-4 border-t border-[#111]" aria-hidden />
                   </div>
-                  <h3 className="text-[22px] leading-[1.4] tracking-[0.12em] text-[#444] md:text-[26px]">
+
+                  <div className="hidden lg:block">
+                    <div className="space-y-1">
+                      <p className="font-inter text-[15px] capitalize tracking-[0.18em] text-[#6d9ecf]">
+                        {card.phaseEn}
+                      </p>
+                      <p className="text-[28px] leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
+                        {card.phaseJp}
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-normal lg:leading-[1.45] lg:tracking-[0.1em]">
                     {card.title}
                   </h3>
-                  <p className="max-w-[560px] text-[16px] leading-[2] tracking-[0.12em] text-[#444]">
+                  <p className="max-w-[560px] text-[15px] leading-[1.9] tracking-[0.08em] text-[#444] lg:text-[16px] lg:leading-[2] lg:tracking-[0.12em]">
                     {card.description}
                   </p>
                 </div>
@@ -252,7 +249,7 @@ export default function Home() {
                   <p className="mt-1 text-[11px] tracking-[0.14em] text-white/75">都度利用</p>
                 </a>
                 <a
-                  href="#access"
+                  href="#faq"
                   className="nav-link text-[13px] leading-relaxed tracking-[0.1em] text-white/95"
                 >
                   視察・間貸・講演 / お問い合わせ
@@ -318,7 +315,7 @@ export default function Home() {
                     </a>
                   </div>
                   <a
-                    href="#access"
+                    href="#faq"
                     className="nav-link text-[14px] tracking-[0.16em] text-white/90"
                   >
                     About Site Visits / Contact us
@@ -336,13 +333,10 @@ export default function Home() {
                     About
                   </a>
                   <a href="#place" className="nav-link">
-                    Place
+                    Kids
                   </a>
-                  <a href="#stories" className="nav-link">
-                    News
-                  </a>
-                  <a href="#access" className="nav-link">
-                    Access
+                  <a href="#faq" className="nav-link">
+                    FAQ
                   </a>
                   <span className="font-inter">JA / EN</span>
                 </nav>
@@ -356,7 +350,7 @@ export default function Home() {
                     className="h-auto w-[120px] invert"
                   />
                 </div>
-                <ArrowLink href="#access" label="About Facilities Tours" />
+                <ArrowLink href="#faq" label="About Facilities Tours" />
               </Reveal>
             </div>
           </div>
@@ -389,39 +383,29 @@ export default function Home() {
             className="absolute bottom-20 right-10 hidden h-auto w-[120px] md:block"
           />
           <div className="mx-auto grid max-w-[1540px] gap-16 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-              {aboutImages.map((image, index) => (
-                <Reveal key={image} delay={index * 80} className="h-full">
-                  <div
-                    className={[
-                      "card-interactive overflow-hidden rounded-[24px]",
-                      index % 2 === 0 ? "aspect-[3/4]" : "aspect-[4/3]",
-                    ].join(" ")}
-                  >
-                    <Image
-                      src={image}
-                      alt=""
-                      width={640}
-                      height={640}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal>
+              <figure className="relative overflow-hidden rounded-[28px] bg-[#eef2f7] shadow-[0_28px_80px_-28px_rgba(30,55,90,0.22)] ring-1 ring-black/[0.06]">
+                <Image
+                  src="/figma-assets/スクリーンショット 2026-04-03 14.03.42.png"
+                  alt="佐渡Kids 生きもの調査隊 — 遊んで学んで体験する"
+                  width={2112}
+                  height={1592}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  priority
+                />
+              </figure>
+            </Reveal>
 
             <Reveal className="flex flex-col justify-center" delay={120} variant="right">
               <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
-                about &quot;kosugiyu tonari&quot;
+                about the program
               </p>
-              <h2 className="mt-3 text-[32px] leading-[1.12] tracking-[0.08em] text-[#444] md:text-[46px]">
-                小杉湯となり とは
+              <h2 className="mt-3 text-[26px] leading-[1.15] tracking-[0.08em] text-[#444] md:text-[34px]">
+                佐渡Kids生き物調査隊とは
               </h2>
               <p className="mt-8 max-w-[680px] text-[16px] leading-[2] tracking-[0.12em] text-[#444]">
-                Kosugiyu-Tonari is a shared space with access to a public bath,
-                located next to Kosugiyu. On weekdays it serves as a co-working
-                and living space, and on weekends as a cafe. You can relax after
-                a bath, work, or enjoy a meal — You can use like a &quot;second home.&quot;
+                佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。
               </p>
             </Reveal>
           </div>
@@ -431,212 +415,70 @@ export default function Home() {
 
         {/* ── USE CASE ──────────────────────────────── */}
         <section className="relative overflow-hidden rounded-[32px] shadow-[0_32px_100px_-24px_rgba(30,55,90,0.14)]">
-          <UseCasePanel id="usecase" card="all" density="default" />
+          <UseCasePanel id="usecase" density="default" />
         </section>
 
-        {/* ── STORIES ───────────────────────────────── */}
+        {/* ── STAFF ─────────────────────────────────── */}
         <section
-          id="stories"
-          className="rounded-[32px] bg-[#fafafa] px-5 py-20 shadow-[0_28px_90px_-22px_rgba(30,55,90,0.12)] md:px-10 md:py-24"
+          id="staff"
+          className="rounded-t-[40px] bg-white px-5 py-20 shadow-[0_32px_100px_-24px_rgba(30,55,90,0.12)] md:px-10 md:py-24"
         >
-          <div className="mx-auto max-w-[1540px]">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div>
-                <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#FB876D]">
-                  News and Stories
-                </p>
-                <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#444] md:text-[46px]">
-                  お知らせ・読みもの
-                </h2>
-              </div>
-              <a
-                href="#stories"
-                className="arrow-link inline-flex items-center gap-3 text-[14px] tracking-[0.16em] text-[#444]"
-              >
-                <span>read all articles</span>
-                <ArrowIcon />
-              </a>
-            </div>
+          <div className="mx-auto max-w-[1540px] text-center">
+            <p className="font-inter text-[14px] lowercase tracking-[0.2em] text-[#999] md:text-[15px]">
+              staff
+            </p>
+            <h2 className="mt-2 text-[28px] font-semibold leading-[1.2] tracking-[0.08em] text-[#222] md:mt-3 md:text-[40px] md:font-bold">
+              スタッフ紹介
+            </h2>
+            <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-[1.9] tracking-[0.08em] text-[#444] md:mt-6 md:text-[16px]">
+              佐渡Kids生き物調査隊を一緒に支えるスタッフをご紹介します。（写真・プロフィールは仮です）
+            </p>
+          </div>
 
-            <div className="mt-14 grid gap-6 xl:grid-cols-3">
-              {newsCards.map((card) => (
-                <article
-                  key={card.title}
-                  className="card-interactive h-full overflow-hidden rounded-[28px] bg-white text-[#444] shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
-                >
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    width={592}
-                    height={419}
-                    className="h-auto w-full object-cover"
-                  />
-                  <div className="space-y-6 px-6 py-7">
-                    <h3 className="text-[20px] leading-[1.7] tracking-[0.08em] text-[#444]">
-                      {card.title}
-                    </h3>
-                    <a
-                      href="#access"
-                      className="arrow-link inline-flex items-center gap-3 text-[14px] tracking-[0.16em] text-[#4d84c5]"
-                    >
-                      <span>read more</span>
-                      <ArrowIcon />
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <div className="mx-auto mt-12 max-w-[1540px] md:mt-16">
+            <StaffMarquee />
           </div>
         </section>
 
-        {/* ── EXPAND TO TOWN ─────────────────────────── */}
-        <section className="rounded-t-[40px] bg-white px-5 py-20 shadow-[0_32px_100px_-24px_rgba(30,55,90,0.12)] md:px-10 md:py-24">
-          <div className="mx-auto max-w-[1540px]">
-            <div>
-              <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
-                expand to town
-              </p>
-              <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#444] md:text-[46px]">
-                まちにひらかれたくらし
-              </h2>
-            </div>
-
-            <div className="mt-14 grid gap-10 xl:grid-cols-[0.9fr_1.1fr]">
-              <div className="rounded-[28px] bg-white p-2">
-                <Image
-                  src="/figma-assets/town-illustration.svg"
-                  alt="Expand to town illustration"
-                  width={900}
-                  height={900}
-                  className="h-auto w-full"
-                />
-              </div>
-
-              <div className="space-y-8">
-                <p className="max-w-[760px] text-[16px] leading-[2.2] tracking-[0.12em] text-[#444]">
-                  Kosugiyu Tonari also operates a bathhouse apartment complex using vacant
-                  houses in the surrounding area. The bath is at Kosugiyu, the study and
-                  kitchen are at Kosugiyu Tonari, and the bedroom is in the bathhouse
-                  apartment, offering a lifestyle where you can enjoy the entire
-                  neighborhood like your home. In addition to Koenji, we also collaborate
-                  with the guesthouse &quot;Kosugiyu Tonari - Villa&quot; in Nagano, and bathhouses
-                  like &quot;Utopia Shiratama Onsen&quot; and &quot;Kosugiyu Harajuku&quot; in Osaka, helping to
-                  spread the bathhouse lifestyle across the country.
-                </p>
-
-                <div className="card-interactive rounded-[28px] bg-[#f8f8f8] p-8 md:p-12">
-                  <h3 className="text-[28px] leading-[1.35] tracking-[0.08em] text-[#444]">
-                    「銭湯ぐらし」について
-                  </h3>
-                  <p className="mt-6 max-w-[720px] text-[16px] leading-[2.1] tracking-[0.12em] text-[#444]">
-                    The company that operates Kosugiyu Tonari and the bathhouse apartments is
-                    called &quot;Sento Gurashi&quot;. The team members were originally regulars at the
-                    bathhouse who once lived in the no-bath apartments next door. If you would
-                    like to learn more about the company, start here.
-                  </p>
-                  <div className="mt-10 flex flex-col gap-4 md:flex-row">
-                    <ArrowLink href="https://sentogurashi.jp/" label="銭湯ぐらし公式サイト" light />
-                    <ArrowLink href="#access" label="見学のお申し込み" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── MAP & ACCESS ───────────────────────────── */}
-        <section
-          id="access"
-          className="relative overflow-hidden rounded-[32px] bg-[#568CBE] px-5 py-20 text-white shadow-[0_32px_100px_-24px_rgba(25,55,95,0.28)] md:px-10 md:py-24"
-        >
-          <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[32px]">
-            <Image
-              src="/figma-assets/footer-bg-5c67b6.png"
-              alt=""
-              fill
-              sizes="100vw"
-              className="pointer-events-none object-cover opacity-10"
-            />
-          </div>
-          <div className="relative mx-auto max-w-[1540px]">
-            <div>
-              <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-white/80">
-                Map and Access
-              </p>
-              <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-white md:text-[46px]">
-                地図・アクセス
-              </h2>
-            </div>
-            <div className="mt-14 grid gap-10 xl:grid-cols-[1.1fr_0.9fr]">
-              <div className="overflow-hidden rounded-[28px] border border-white/20 bg-white">
-                <iframe
-                  title="Kosugiyu Tonari Map"
-                  src="https://www.google.com/maps?q=3-32-16-2%20Koenji%20Kita%2C%20Suginami-ku%2C%20Tokyo&z=16&output=embed"
-                  className="h-[560px] w-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-
-              <div className="flex flex-col justify-between gap-8 rounded-[28px] bg-white/10 p-8 backdrop-blur-sm md:p-10">
-                <div className="space-y-6">
-                  <p className="text-[16px] leading-[2.1] tracking-[0.12em]">
-                    Hours: 9:00 AM - 10:00 PM (Closed on Thursdays)
-                    <br />
-                    Location: 5-minute walk from JR Chuo Line{" "}
-                    &quot;Koenji Station&quot;
-                    <br />
-                    Address: 3-32-16-2, Koenji North, Suginami-ku, Tokyo, 166-0002
-                  </p>
-                  <div>
-                    <p className="text-[16px] leading-[2] tracking-[0.12em]">
-                      For international guests (non-Japanese speakers):
-                    </p>
-                    <p className="mt-3 text-[14px] leading-[2] tracking-[0.1em] text-white/90 md:text-[16px]">
-                      We warmly welcome everyone who&apos;s interested in us! Please
-                      understand that not all of our staff speak English
-                      fluently yet, but we&apos;re doing our best to assist you.
-                      Thank you so much for your kind understanding!
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-4 md:flex-row">
-                  <ArrowLink href="#about" label="Home" light />
-                  <ArrowLink href="#access" label="見学のお申し込み" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* ── FAQ ───────────────────────────────────── */}
+        <FaqSection />
 
         {/* ── FOOTER ─────────────────────────────────── */}
-        <footer className="rounded-[32px] bg-gray-900 px-5 py-10 text-white sm:pb-24 md:px-10">
+        <footer className="rounded-[32px] bg-white px-5 py-10 text-[#222] shadow-[0_28px_90px_-22px_rgba(30,55,90,0.12)] sm:pb-24 md:px-10">
           <div className="mx-auto flex max-w-[1540px] flex-col items-center gap-14">
-            <Image
-              src="/figma-assets/footer-social.svg"
-              alt=""
-              width={220}
-              height={21}
-              className="h-auto w-[220px] opacity-90 invert"
-            />
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex text-[#111] transition hover:text-[#444]"
+              aria-label="Instagram"
+            >
+              <svg
+                className="h-9 w-9 md:h-10 md:w-10"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden
+              >
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
             <div className="flex flex-col items-center gap-4 text-center">
               <a
-                href="#access"
-                className="text-[14px] tracking-[0.16em] text-white/80 transition hover:text-white hover:underline"
+                href="#"
+                className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
               >
                 プライバシーポリシー
               </a>
-              <p className="font-inter text-[14px] tracking-[0.16em] text-white/50">
-                2026 sentogurashi inc.
+              <p className="font-inter text-[14px] tracking-[0.16em] text-[#888]">
+                2026 佐渡Kids生き物調査隊
               </p>
             </div>
             <Image
-              src="/figma-assets/footer-badge.svg"
-              alt="Kosugiyu Tonari"
-              width={238}
-              height={87}
-              className="h-auto w-[180px] opacity-90 invert md:w-[238px]"
+              src="/figma-assets/スクリーンショット 2026-04-03 14.37.34.png"
+              alt="佐渡Kids生きもの調査隊"
+              width={332}
+              height={114}
+              className="h-auto w-[min(100%,280px)] md:w-[320px]"
             />
           </div>
         </footer>

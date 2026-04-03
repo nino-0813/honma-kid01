@@ -260,9 +260,51 @@ img {
   }
 }
 
+@keyframes staff-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.staff-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  animation: staff-marquee 55s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .staff-marquee-track {
+    gap: 2rem;
+  }
+}
+
+@media (hover: hover) {
+  .staff-marquee-outer:hover .staff-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .staff-marquee-outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .staff-marquee-track {
+    animation: none;
+    max-width: none;
+    overflow-x: visible;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
   }
 
   .hero-slide {
