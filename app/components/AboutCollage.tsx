@@ -150,24 +150,6 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
   },
 ];
 
-function ArrowIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 12h16" />
-      <path d="m14 6 6 6-6 6" />
-    </svg>
-  );
-}
-
 function CollagePhoto({
   src,
   alt,
@@ -485,18 +467,6 @@ export default function AboutCollage() {
           </div>
           <AboutBodyText compact className="max-w-[270px] shrink-0 pt-0.5 xl:max-w-[300px]" />
         </Reveal>
-
-        <div className="absolute bottom-6 right-4 z-20 xl:bottom-10 xl:right-8">
-          <Reveal delay={160} variant="right">
-            <a
-              href="#faq"
-              className="button-chip inline-flex items-center justify-center gap-4 rounded-[14px] bg-[var(--cta-visit-bg)] px-8 py-4 text-[14px] tracking-[0.16em] text-white shadow-[0_14px_36px_-12px_var(--cta-visit-shadow)] transition-all duration-300 hover:bg-[var(--cta-visit-hover)]"
-            >
-              <span>見学・お申し込み</span>
-              <ArrowIcon />
-            </a>
-          </Reveal>
-        </div>
       </Reveal>
 
       {/* 下段・実写＋装飾（モバイルのみ — デスクトップは大コラージュ側に集約） */}

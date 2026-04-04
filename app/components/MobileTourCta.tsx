@@ -10,7 +10,7 @@ function ArrowIcon() {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="h-[18px] w-[18px] shrink-0"
+      className="h-5 w-5 shrink-0"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -27,7 +27,7 @@ function ArrowIcon() {
  * スマホ: ヒーロー内は右上。ヒーローをスクロールアウトしたら右下に固定。
  */
 const baseClass =
-  "inline-flex shrink-0 items-center gap-2.5 rounded-full bg-[var(--cta-visit-bg)] px-5 py-3.5 text-[12px] font-medium tracking-[0.12em] text-white transition-colors duration-300 hover:bg-[var(--cta-visit-hover)]";
+  "inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--cta-visit-bg)] px-6 py-4 text-[13px] font-medium tracking-[0.14em] text-white transition-colors duration-300 hover:bg-[var(--cta-visit-hover)]";
 
 export default function MobileTourCta() {
   const [pastHero, setPastHero] = useState(false);

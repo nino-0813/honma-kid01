@@ -54,7 +54,7 @@ function ArrowIcon() {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
+      className="h-[18px] w-[18px] shrink-0"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -80,7 +80,7 @@ function ArrowLink({
     <a
       href={href}
       className={[
-        "button-chip inline-flex items-center justify-center gap-4 rounded-full px-7 py-4 text-[14px] tracking-[0.16em] transition-all duration-300",
+        "button-chip inline-flex items-center justify-center gap-4 rounded-full px-8 py-5 text-[15px] tracking-[0.16em] transition-all duration-300",
         light
           ? "border border-[#7ba6d9] bg-white text-[#4d84c5] hover:bg-[#f5faff]"
           : "bg-[var(--cta-visit-bg)] text-white hover:bg-[var(--cta-visit-hover)]",
@@ -225,11 +225,12 @@ export default function Home() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 shrink-0">
                 <Image
-                  src="/ikebeji/sadokids_png_Black_rogo.png"
+                  src="/ikebeji/sadokids_yellow_LOGO_2.png"
                   alt="佐渡Kids生き物調査隊"
-                  width={1489}
-                  height={544}
+                  width={940}
+                  height={780}
                   priority
+                  sizes="(max-width: 640px) 78vw, 240px"
                   className="h-[52px] w-auto max-w-[min(240px,78vw)] sm:h-[60px]"
                 />
               </div>
@@ -292,7 +293,7 @@ export default function Home() {
                   </p>
                 </div>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/ikimono_sado"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex shrink-0 text-white/90 transition hover:text-white"
@@ -315,15 +316,15 @@ export default function Home() {
           <div className="relative z-10 hidden min-h-[880px] flex-col justify-between p-16 md:flex">
             <div className="flex items-start justify-between gap-8">
               {/* ファーストビューは Reveal しない（IO が効かない / opacity:0 のままになるケースを避ける） */}
-              <div className="relative z-20 min-h-[118px] min-w-0 shrink-0 self-start">
+              <div className="relative z-20 min-h-[280px] min-w-0 shrink-0 self-start">
                 <Image
-                  src="/ikebeji/sadokids_png_White_rogo.png"
+                  src="/ikebeji/sadokids_yellow_LOGO_2.png"
                   alt="佐渡Kids生き物調査隊"
-                  width={1489}
-                  height={544}
+                  width={940}
+                  height={780}
                   priority
-                  sizes="320px"
-                  className="block h-[118px] w-[320px] max-w-[min(320px,calc(100vw-8rem))] object-contain object-[left_top]"
+                  sizes="760px"
+                  className="block h-[280px] w-[760px] max-w-[min(760px,calc(100vw-8rem))] object-contain object-[left_top]"
                 />
               </div>
 
@@ -338,7 +339,7 @@ export default function Home() {
 
             <div className="flex items-end">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/ikimono_sado"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex text-white/90 transition hover:text-white"
@@ -394,9 +395,9 @@ export default function Home() {
 
         {/* ── FOOTER ─────────────────────────────────── */}
         <footer className="rounded-none bg-white px-5 py-10 text-[#222] sm:pb-24 md:px-10">
-          <div className="mx-auto flex max-w-[1540px] flex-col items-center gap-14">
+          <div className="mx-auto flex max-w-[1540px] flex-col items-center gap-8">
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/ikimono_sado"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex text-[#111] transition hover:text-[#444]"
@@ -412,23 +413,25 @@ export default function Home() {
               </svg>
             </a>
             <div className="flex flex-col items-center gap-4 text-center">
-              <a
-                href="#"
-                className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
-              >
-                プライバシーポリシー
-              </a>
-              <p className="font-inter text-[14px] tracking-[0.16em] text-[#888]">
-                2026 佐渡Kids生き物調査隊
-              </p>
+              <div className="flex flex-col items-center gap-1.5 text-center">
+                <a
+                  href="#"
+                  className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
+                >
+                  プライバシーポリシー
+                </a>
+                <p className="font-inter text-[14px] tracking-[0.16em] text-[#888]">
+                  2026 佐渡Kids生き物調査隊
+                </p>
+              </div>
+              <Image
+                src="/ikebeji/sadokids_green_LOGO_3.png"
+                alt="佐渡Kids生きもの調査隊"
+                width={940}
+                height={780}
+                className="h-auto w-[min(100%,280px)] md:w-[320px]"
+              />
             </div>
-            <Image
-              src="/figma-assets/スクリーンショット 2026-04-03 14.37.34.png"
-              alt="佐渡Kids生きもの調査隊"
-              width={332}
-              height={114}
-              className="h-auto w-[min(100%,280px)] md:w-[320px]"
-            />
           </div>
         </footer>
 
