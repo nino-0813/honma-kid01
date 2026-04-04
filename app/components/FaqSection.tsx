@@ -5,7 +5,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden rounded-[32px] bg-[#568CBE] px-5 py-20 text-white shadow-[0_32px_100px_-24px_rgba(25,55,95,0.28)] md:px-10 md:py-24"
+      className="relative overflow-hidden bg-[#568CBE] px-5 py-20 text-white md:px-10 md:py-24"
     >
       {/* 奥行き：ポスター → 青のベール（従来のトーン）→ 従来どおり薄いテクスチャ */}
       <div className="pointer-events-none absolute inset-0">

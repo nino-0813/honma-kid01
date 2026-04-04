@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AboutCollage from "@/app/components/AboutCollage";
 import MobileTourCta from "@/app/components/MobileTourCta";
 import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
@@ -16,7 +17,7 @@ const kidsAboutCards = [
     title: "外のフィールドが、いちばんの教室",
     description:
       "佐渡の田んぼや水路、湿地をゆっくり歩きながら、生きもののすみかやあとを観察します。ネットや観察ノートで、見つけたものを写真やスケッチに残していきます。安全に楽しむための服装や持ち物は、開催前にお知らせします。",
-    image: "/figma-assets/usecase-1-23bd32.png",
+    image: "/ikebeji/キッズ生き物調査隊-32.jpg",
   },
   {
     phaseEn: "together",
@@ -24,7 +25,7 @@ const kidsAboutCards = [
     title: "スタッフや仲間と話しながら、「わからない」を楽しむ",
     description:
       "図鑑やアプリを手に、名前や特徴を調べたり、「なぜここにいるの？」を話し合ったりします。正解を急がず、子どものペースで進めます。初めての子も、生きものが好きな子も、それぞれの見え方を尊重します。",
-    image: "/figma-assets/usecase-2-d783d7.png",
+    image: "/ikebeji/キッズ生き物調査隊-29.jpg",
   },
   {
     phaseEn: "next",
@@ -32,9 +33,16 @@ const kidsAboutCards = [
     title: "記録や発表を通して、次の「見たい」につなげる",
     description:
       "季節ごとに写真やメモをそろえ、隊員同士で簡単に発表する時間ももちます。うまくまとまらなくても大丈夫。次のテーマや調査へつなげていきます。参加費や対象年齢などの詳細は、決まり次第お知らせ予定です。",
-    image: "/figma-assets/usecase-3-48e433.png",
+    image: "/ikebeji/キッズ生き物調査隊-27.jpg",
   },
 ];
+
+/** ヒーロー背景スライド（`public/ikebeji`、実ファイル名に合わせる） */
+const HERO_SLIDESHOW_IMAGES = [
+  "/ikebeji/2月下旬 卒隊式・修了式.jpg",
+  "/ikebeji/4_26 入隊式・田んぼの準備・生きもの調査.jpg",
+  "/ikebeji/キッズ生き物調査隊-01.jpg",
+] as const;
 
 /* ────────────────────────────────────────────
    Shared components
@@ -87,7 +95,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
     <section
       id={id}
       className={[
-        "relative z-10 rounded-[32px] bg-white px-5 py-20 shadow-[0_32px_100px_-24px_rgba(30,55,90,0.14)] md:px-10 md:py-24",
+        "rounded-none bg-transparent px-5 py-20 md:px-10 md:py-24",
         className,
       ]
         .join(" ")
@@ -182,26 +190,22 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#e8edf5] text-[#444]">
-      <div className="mx-auto flex max-w-[1920px] flex-col gap-6 px-4 py-6 md:px-6">
+      <div className="mx-auto flex max-w-[1920px] flex-col gap-0">
 
         {/* ── HERO ──────────────────────────────────── */}
         <section
           id="site-hero"
-          className="relative min-h-dvh overflow-hidden rounded-[32px] bg-[#6d9ecf] text-white shadow-[0_36px_120px_-28px_rgba(25,55,95,0.35)] md:min-h-0 md:rounded-[24px]"
+          className="relative min-h-dvh overflow-hidden rounded-none bg-[#e8edf5] text-white shadow-none md:min-h-0 md:bg-[#6d9ecf]"
         >
           {/* Background slideshow */}
-          <div className="absolute inset-0">
-            {[1, 2, 3, 4].map((index) => (
-              <div
-                key={index}
-                className={`hero-slide hero-slide-${index}`}
-                aria-hidden="true"
-              >
+          <div className="absolute inset-0" aria-hidden>
+            {HERO_SLIDESHOW_IMAGES.map((src, i) => (
+              <div key={src} className={`hero-slide hero-slide-mobile-${i + 1}`}>
                 <Image
-                  src={`/figma-assets/hero-${index}-65a613.png`}
+                  src={src}
                   alt=""
                   fill
-                  priority={index === 1}
+                  priority={i === 0}
                   sizes="100vw"
                   className="object-cover object-center"
                 />
@@ -217,23 +221,15 @@ export default function Home() {
           {/* Mobile — 参考モック: 上 タイトル+ロゴ / CTA、下 ナビ+言語・SNS */}
           <div className="relative z-10 flex min-h-dvh flex-col justify-between p-5 pb-8 pt-6 md:hidden">
             <div className="flex items-start justify-between gap-3">
-              <div className="flex min-w-0 items-start gap-2">
-                <p className="shrink-0 pt-0.5 text-[13px] font-medium leading-snug tracking-[0.18em] [writing-mode:vertical-rl]">
-                  小杉湯となり
-                </p>
-                <div className="min-w-0">
-                  <Image
-                    src="/figma-assets/logo.svg"
-                    alt="Kosugiyu Tonari"
-                    width={230}
-                    height={280}
-                    priority
-                    className="h-auto w-[76px]"
-                  />
-                  <p className="mt-2 font-inter text-[8px] tracking-[0.22em] text-white/90">
-                    KOSUGIYU TONARI
-                  </p>
-                </div>
+              <div className="min-w-0 shrink-0">
+                <Image
+                  src="/ikebeji/sadokids_png_Black_rogo.png"
+                  alt="佐渡Kids生き物調査隊"
+                  width={1489}
+                  height={544}
+                  priority
+                  className="h-[52px] w-auto max-w-[min(240px,78vw)] sm:h-[60px]"
+                />
               </div>
               <MobileTourCta />
             </div>
@@ -316,16 +312,18 @@ export default function Home() {
           {/* Desktop */}
           <div className="relative z-10 hidden min-h-[880px] flex-col justify-between p-16 md:flex">
             <div className="flex items-start justify-between gap-8">
-              <Reveal className="flex max-w-[270px] flex-col" delay={80}>
+              {/* ファーストビューは Reveal しない（IO が効かない / opacity:0 のままになるケースを避ける） */}
+              <div className="relative z-20 min-h-[118px] min-w-0 shrink-0 self-start">
                 <Image
-                  src="/figma-assets/logo.svg"
-                  alt="Kosugiyu Tonari"
-                  width={230}
-                  height={280}
+                  src="/ikebeji/sadokids_png_White_rogo.png"
+                  alt="佐渡Kids生き物調査隊"
+                  width={1489}
+                  height={544}
                   priority
-                  className="h-auto w-[230px]"
+                  sizes="320px"
+                  className="block h-[118px] w-[320px] max-w-[min(320px,calc(100vw-8rem))] object-contain object-[left_top]"
                 />
-              </Reveal>
+              </div>
 
               <Reveal
                 className="flex shrink-0 flex-col items-end"
@@ -357,72 +355,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── ABOUT ──────────────────────────────────── */}
-        <section
-          id="about"
-          className="relative overflow-hidden rounded-[32px] bg-white px-5 py-20 shadow-[0_32px_100px_-24px_rgba(30,55,90,0.14)] md:px-10 md:py-24"
-        >
-          <Image
-            src="/figma-assets/about-accent-1.svg"
-            alt=""
-            width={298}
-            height={139}
-            className="absolute left-[52%] top-16 hidden h-auto w-[260px] -translate-x-1/2 md:block"
-          />
-          <Image
-            src="/figma-assets/about-accent-2.svg"
-            alt=""
-            width={230}
-            height={196}
-            className="absolute bottom-16 left-14 hidden h-auto w-[180px] md:block"
-          />
-          <Image
-            src="/figma-assets/about-accent-3.svg"
-            alt=""
-            width={144}
-            height={214}
-            className="absolute bottom-20 right-10 hidden h-auto w-[120px] md:block"
-          />
-          <div className="mx-auto grid max-w-[1540px] gap-16 lg:grid-cols-[1.08fr_0.92fr]">
-            <Reveal>
-              <figure className="relative overflow-hidden rounded-[28px] bg-[#eef2f7] shadow-[0_28px_80px_-28px_rgba(30,55,90,0.22)] ring-1 ring-black/[0.06]">
-                <Image
-                  src="/figma-assets/スクリーンショット 2026-04-03 14.03.42.png"
-                  alt="佐渡Kids 生きもの調査隊 — 遊んで学んで体験する"
-                  width={2112}
-                  height={1592}
-                  className="h-auto w-full object-cover"
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                  priority
-                />
-              </figure>
-            </Reveal>
-
-            <Reveal className="flex flex-col justify-center" delay={120} variant="right">
-              <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-[#444]">
-                about the program
-              </p>
-              <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
-                佐渡Kids生き物調査隊とは
-              </h2>
-              <p className="mt-4 max-w-[680px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-8">
-                佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。
-              </p>
-            </Reveal>
-          </div>
-        </section>
-
-        <PlaceSection />
+        <div className="bg-white">
+          <AboutCollage />
+          <PlaceSection />
+        </div>
 
         {/* ── USE CASE ──────────────────────────────── */}
-        <section className="relative overflow-hidden rounded-[32px] shadow-[0_32px_100px_-24px_rgba(30,55,90,0.14)]">
+        <section className="relative overflow-hidden">
           <UseCasePanel id="usecase" density="default" />
         </section>
 
         {/* ── STAFF ─────────────────────────────────── */}
         <section
           id="staff"
-          className="rounded-t-[40px] bg-white px-5 py-20 shadow-[0_32px_100px_-24px_rgba(30,55,90,0.12)] md:px-10 md:py-24"
+          className="bg-white px-5 py-20 md:px-10 md:py-24"
         >
           <div className="mx-auto max-w-[1540px] text-center">
             <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#999] md:text-[15px]">
@@ -445,7 +391,7 @@ export default function Home() {
         <FaqSection />
 
         {/* ── FOOTER ─────────────────────────────────── */}
-        <footer className="rounded-[32px] bg-white px-5 py-10 text-[#222] shadow-[0_28px_90px_-22px_rgba(30,55,90,0.12)] sm:pb-24 md:px-10">
+        <footer className="rounded-none bg-white px-5 py-10 text-[#222] sm:pb-24 md:px-10">
           <div className="mx-auto flex max-w-[1540px] flex-col items-center gap-14">
             <a
               href="https://www.instagram.com/"

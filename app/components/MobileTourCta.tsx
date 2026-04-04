@@ -65,8 +65,7 @@ export default function MobileTourCta() {
     </a>
   );
 
-  /* ヒーローは z-index なし・後続セクションは z-10 などで、fixed 子は PLACE の下に隠れる。
-     body へポータルしてビューポート最前面に出す。 */
+  /* fixed 時は body へポータルして、通常のスタッキングに依存せずビューポート最前面に出す。 */
   if (pastHero && mounted) {
     return createPortal(link, document.body);
   }

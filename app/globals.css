@@ -43,26 +43,29 @@ img {
   inset: 0;
   opacity: 0;
   transform: scale(1.06);
-  animation: hero-fade 24s infinite;
 }
 
-.hero-slide-1 {
+/* ヒーロー実写スライド（3枚・18s 周期・全幅） */
+.hero-slide-mobile-1,
+.hero-slide-mobile-2,
+.hero-slide-mobile-3 {
+  animation: hero-fade-triple 18s infinite;
+}
+
+.hero-slide-mobile-1 {
   animation-delay: 0s;
 }
 
-.hero-slide-2 {
+.hero-slide-mobile-2 {
   animation-delay: 6s;
 }
 
-.hero-slide-3 {
+.hero-slide-mobile-3 {
   animation-delay: 12s;
 }
 
-.hero-slide-4 {
-  animation-delay: 18s;
-}
-
-@keyframes hero-fade {
+/* 32–38% でフェードアウトし、次スライド（6s 遅延）のフェードインと重なる → 青／下地が一瞬見えにくい */
+@keyframes hero-fade-triple {
   0% {
     opacity: 0;
     transform: scale(1.08);
@@ -71,11 +74,11 @@ img {
     opacity: 1;
     transform: scale(1.02);
   }
-  21% {
+  32% {
     opacity: 1;
     transform: scale(1);
   }
-  25% {
+  38% {
     opacity: 0;
     transform: scale(0.985);
   }
@@ -260,6 +263,67 @@ img {
   }
 }
 
+/* About セクション装飾アイコン（親の配置用 transform と分離するため内側ラッパーに付与） */
+@keyframes about-decor-bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes about-decor-sway {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(5px, -6px, 0) rotate(2.8deg);
+  }
+}
+
+@keyframes about-decor-rock {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate3d(-6px, 4px, 0);
+  }
+  66% {
+    transform: translate3d(5px, -5px, 0);
+  }
+}
+
+.about-decor-bob {
+  animation: about-decor-bob 4.9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-decor-sway {
+  animation: about-decor-sway 6.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-decor-rock {
+  animation: about-decor-rock 5.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-decor-delay-sm {
+  animation-delay: 0.85s;
+}
+
+.about-decor-delay-md {
+  animation-delay: 1.65s;
+}
+
+.about-decor-delay-lg {
+  animation-delay: 2.4s;
+}
+
 @keyframes staff-marquee {
   from {
     transform: translateX(0);
@@ -312,8 +376,20 @@ img {
     transform: none;
   }
 
-  .hero-slide-1 {
+  .hero-slide-mobile-1 {
     opacity: 1;
+  }
+
+  .hero-slide-mobile-2,
+  .hero-slide-mobile-3 {
+    opacity: 0;
+  }
+
+  .about-decor-bob,
+  .about-decor-sway,
+  .about-decor-rock {
+    animation: none;
+    will-change: auto;
   }
 
   .reveal,

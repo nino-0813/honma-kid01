@@ -47,7 +47,7 @@ export default function UseCasePanel({
           ].join(" ")}
         >
           {embeddedBackdrop ? (
-            <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-t-[32px] bg-[#568CBE] md:rounded-t-[24px]" />
+            <div className="absolute left-0 top-0 -z-10 h-full w-full bg-[#568CBE]" />
           ) : null}
 
           <Reveal>
