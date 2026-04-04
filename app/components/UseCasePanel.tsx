@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/app/components/reveal";
-import { ANNUAL_PROGRAMS } from "@/app/components/usecaseData";
+import { ANNUAL_PROGRAMS, ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC } from "@/app/components/usecaseData";
 
 type UseCasePanelProps = {
   id?: string;
@@ -67,7 +67,7 @@ export default function UseCasePanel({
 
           <div
             className={[
-              "grid grid-cols-1 gap-6 sm:gap-7 md:grid-cols-2 md:gap-8",
+              "grid grid-cols-1 gap-12 sm:gap-14 md:grid-cols-2 md:gap-x-10 md:gap-y-16",
               density === "stack" ? "mt-10" : "mt-12 md:mt-14",
             ].join(" ")}
           >
@@ -75,33 +75,53 @@ export default function UseCasePanel({
               <Reveal key={p.id} delay={(index % 4) * 60} variant={index % 2 === 0 ? "left" : "right"}>
                 <article
                   id={p.id}
-                  className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-white/25 bg-white/[0.07] shadow-[0_18px_48px_rgba(15,40,70,0.22)] backdrop-blur-[2px] transition duration-300 hover:border-white/40 hover:bg-white/[0.1]"
+                  className="group flex h-full w-full flex-col gap-5"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      width={1200}
-                      height={750}
-                      className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute left-3 top-3 flex items-center gap-2 md:left-4 md:top-4">
-                      <span className="rounded-full bg-[#FB876D] px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white shadow-md md:text-[12px]">
-                        {p.label}
-                      </span>
-                      <span className="rounded-full bg-black/35 px-2.5 py-0.5 font-inter text-[11px] tabular-nums tracking-wider text-white/95 backdrop-blur-sm md:text-[12px]">
-                        {String(index + 1).padStart(2, "0")} / 08
-                      </span>
+                  {/* 参考モック：白枠の角丸写真 */}
+                  <div className="relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0">
+                    <div className="relative aspect-[16/10] w-full">
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        width={1200}
+                        height={750}
+                        className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
                     </div>
                   </div>
-                  <div className="flex flex-1 flex-col gap-3 px-5 pb-6 pt-5 md:px-7 md:pb-7 md:pt-6">
-                    <h3 className="text-[18px] font-medium leading-snug tracking-[0.08em] text-[#ff8b78] md:text-[21px]">
-                      {p.title}
-                    </h3>
-                    <p className="flex-1 text-[15px] leading-[1.85] tracking-[0.1em] text-white/88 md:text-[15px] md:tracking-[0.08em] md:text-white/92">
-                      {p.summary}
-                    </p>
+                  <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-inter text-[12px] tracking-[0.12em] text-white/70">
+                    <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-white/90">{p.label}</span>
+                    <span className="tabular-nums text-white/55">
+                      {String(index + 1).padStart(2, "0")} / 08
+                    </span>
+                  </p>
+                  <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#F7A89A]">
+                    {p.title}
+                  </h3>
+                  <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95">
+                    {p.summary}
+                  </p>
+                  {/* 仮：説明直下に共通の「おすすめ」ビジュアル（後で個別化） */}
+                  <div className="w-full overflow-hidden rounded-[12px]">
+                    <Image
+                      src={ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC}
+                      alt=""
+                      width={800}
+                      height={420}
+                      aria-hidden
+                      className="h-auto w-full object-contain object-left"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="flex justify-end pt-1">
+                    <a
+                      href="#faq"
+                      className="arrow-link inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-3 text-[13px] font-medium tracking-[0.14em] text-[#568CBE] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition hover:bg-white/95"
+                    >
+                      <span className="lowercase">read more</span>
+                      <ArrowIcon />
+                    </a>
                   </div>
                 </article>
               </Reveal>

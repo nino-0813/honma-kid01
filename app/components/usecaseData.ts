@@ -15,6 +15,13 @@ export type AnnualProgramItem = {
   image: string;
 };
 
+/**
+ * 各カードの説明直下に置く「こんな方におすすめ」枠（仮：全8枚共通・後で個別差し替え可）
+ * `public/ikebeji` 内のファイル名（スペースあり）
+ */
+export const ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC =
+  "/ikebeji/スクリーンショット 2026-04-04 16.48.49.png";
+
 export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
   {
     id: "y1",
