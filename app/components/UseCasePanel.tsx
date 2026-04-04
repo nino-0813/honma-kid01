@@ -47,7 +47,7 @@ export default function UseCasePanel({
           ].join(" ")}
         >
           {embeddedBackdrop ? (
-            <div className="absolute left-0 top-0 -z-10 h-full w-full bg-[#568CBE]" />
+            <div className="absolute inset-0 -z-10 bg-[#568CBE]" aria-hidden />
           ) : null}
 
           <Reveal>
@@ -55,7 +55,7 @@ export default function UseCasePanel({
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white/80">
                 annual program
               </p>
-              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
+              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#F7A89A] md:text-[46px] md:tracking-[0.06em]">
                 年間プログラム
               </h2>
               <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">
@@ -67,7 +67,7 @@ export default function UseCasePanel({
 
           <div
             className={[
-              "grid grid-cols-1 gap-12 sm:gap-14 md:grid-cols-2 md:gap-x-10 md:gap-y-16",
+              "flex flex-col gap-14 md:gap-20 lg:gap-24",
               density === "stack" ? "mt-10" : "mt-12 md:mt-14",
             ].join(" ")}
           >
@@ -75,53 +75,66 @@ export default function UseCasePanel({
               <Reveal key={p.id} delay={(index % 4) * 60} variant={index % 2 === 0 ? "left" : "right"}>
                 <article
                   id={p.id}
-                  className="group flex h-full w-full flex-col gap-5"
+                  className={[
+                    "group flex w-full flex-col gap-5 md:items-stretch md:gap-10 lg:gap-14",
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
+                  ].join(" ")}
                 >
-                  {/* 参考モック：白枠の角丸写真 */}
-                  <div className="relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0">
-                    <div className="relative aspect-[16/10] w-full">
+                  {/* 写真＋ラベル（モバイルは常に先頭／デスクトップは交互に左右） */}
+                  <div className="w-full shrink-0 md:w-[min(42%,480px)] lg:w-[min(44%,520px)]">
+                    <div className="relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0 lg:rounded-[20px]">
+                      <div className="relative aspect-[16/10] w-full">
+                        <Image
+                          src={p.image}
+                          alt={p.title}
+                          width={1200}
+                          height={750}
+                          className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                          sizes="(max-width: 767px) 100vw, 480px"
+                        />
+                      </div>
+                    </div>
+                    <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-inter text-[12px] tracking-[0.12em] text-white/70">
+                      <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-white/90">{p.label}</span>
+                      <span className="tabular-nums text-white/55">
+                        {String(index + 1).padStart(2, "0")} / 08
+                      </span>
+                    </p>
+                  </div>
+
+                  {/* 右：モバイルは タイトル→本文→おすすめ→ボタン／md+ は おすすめ→タイトル→本文→ボタン */}
+                  <div className="flex min-w-0 flex-1 flex-col gap-5 md:gap-6">
+                    <div className="order-3 w-full overflow-hidden rounded-[12px] md:order-1 md:max-w-[min(100%,520px)]">
                       <Image
-                        src={p.image}
-                        alt={p.title}
-                        width={1200}
-                        height={750}
-                        className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        src={ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC}
+                        alt=""
+                        width={800}
+                        height={420}
+                        aria-hidden
+                        className={[
+                          "h-auto w-full object-contain object-left",
+                          index % 2 === 1 ? "md:object-right" : "",
+                        ]
+                          .filter(Boolean)
+                          .join(" ")}
+                        sizes="(max-width: 767px) 100vw, 520px"
                       />
                     </div>
-                  </div>
-                  <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-inter text-[12px] tracking-[0.12em] text-white/70">
-                    <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-white/90">{p.label}</span>
-                    <span className="tabular-nums text-white/55">
-                      {String(index + 1).padStart(2, "0")} / 08
-                    </span>
-                  </p>
-                  <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#F7A89A]">
-                    {p.title}
-                  </h3>
-                  <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95">
-                    {p.summary}
-                  </p>
-                  {/* 仮：説明直下に共通の「おすすめ」ビジュアル（後で個別化） */}
-                  <div className="w-full overflow-hidden rounded-[12px]">
-                    <Image
-                      src={ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC}
-                      alt=""
-                      width={800}
-                      height={420}
-                      aria-hidden
-                      className="h-auto w-full object-contain object-left"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <div className="flex justify-end pt-1">
-                    <a
-                      href="#faq"
-                      className="arrow-link inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-3 text-[13px] font-medium tracking-[0.14em] text-[#568CBE] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition hover:bg-white/95"
-                    >
-                      <span className="lowercase">read more</span>
-                      <ArrowIcon />
-                    </a>
+                    <h3 className="order-1 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#F7A89A] md:order-2 md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
+                      {p.title}
+                    </h3>
+                    <p className="order-2 text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:order-3 md:max-w-[640px] md:text-[15px] md:leading-[1.75]">
+                      {p.summary}
+                    </p>
+                    <div className="order-4 flex justify-end pt-1 md:mt-auto md:pt-2">
+                      <a
+                        href="#faq"
+                        className="arrow-link inline-flex items-center gap-2.5 rounded-[12px] bg-white px-6 py-3 text-[13px] font-medium tracking-[0.14em] text-[#568CBE] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition hover:bg-white/95 md:rounded-[14px] md:px-7"
+                      >
+                        <span className="lowercase">read more</span>
+                        <ArrowIcon />
+                      </a>
+                    </div>
                   </div>
                 </article>
               </Reveal>
