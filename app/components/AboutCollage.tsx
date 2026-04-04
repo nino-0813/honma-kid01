@@ -47,15 +47,11 @@ const ABOUT_LOWER_DECOR_ICONS = [
 const ABOUT_BODY =
   "佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。";
 
-/** 上段コラージュ共通の実写3枚（モバイル配置は `ABOUT_MOBILE_COLLAGE_LAYERS`、デスクトップは `COLLAGE_IMAGES` で6枠に割当） */
-/** `キッズ生き物調査隊-*.jpg`（macOS 上の NFD ファイル名） */
-const IKEBEJI_TEAM_JP = (n: string) =>
-  `/ikebeji/\u30ad\u30c3\u30b9\u3099\u751f\u304d\u7269\u8abf\u67fb\u968a-${n}.jpg`;
-
+/** 上段コラージュ共通の実写3枚（ASCII パス — デプロイ先 Linux でも確実に解決する） */
 const ABOUT_MOBILE_COLLAGE_PHOTOS = [
   { src: "/ikebeji/kids-survey-09.jpg", alt: "フィールドの様子" },
-  { src: IKEBEJI_TEAM_JP("12"), alt: "水辺の観察" },
-  { src: IKEBEJI_TEAM_JP("18"), alt: "発表やまとめ" },
+  { src: "/ikebeji/kids-survey-12.jpg", alt: "水辺の観察" },
+  { src: "/ikebeji/kids-survey-18.jpg", alt: "発表やまとめ" },
 ] as const;
 
 const P = ABOUT_MOBILE_COLLAGE_PHOTOS;
@@ -68,9 +64,9 @@ const IKEBEJI_COLLAGE_37 = "/ikebeji/kids-survey-37.jpg";
 const COLLAGE_IMAGES = [
   { src: IKEBEJI_COLLAGE_17, alt: "フィールドの様子" },
   { src: P[1].src, alt: P[1].alt },
-  { src: IKEBEJI_TEAM_JP("38"), alt: "活動の記録" },
+  { src: "/ikebeji/kids-survey-38.jpg", alt: "活動の記録" },
   {
-    src: IKEBEJI_TEAM_JP("36"),
+    src: "/ikebeji/kids-survey-36.jpg",
     alt: "佐渡Kids 生きもの調査隊 — 遊んで学んで体験する",
   },
   { src: IKEBEJI_COLLAGE_37, alt: "仲間と学ぶ時間" },
