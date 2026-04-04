@@ -37,13 +37,13 @@ const kidsAboutCards = [
   },
 ];
 
-/** ヒーロー背景スライド（5枚・`globals.css` の `hero-fade-quad` 30s 周期と対応）— 20/22 は macOS 上の NFD ファイル名 */
+/** ヒーロー背景スライド（5枚・`globals.css` の `hero-fade-quad` 30s 周期）— すべて ASCII パス（Linux デプロイ向け） */
 const HERO_SLIDESHOW_IMAGES = [
   "/ikebeji/kids-survey-01.jpg",
   "/ikebeji/kids-survey-09.jpg",
   "/ikebeji/kids-survey-19.jpg",
-  "/ikebeji/\u30ad\u30c3\u30b9\u3099\u751f\u304d\u7269\u8abf\u67fb\u968a-20.jpg",
-  "/ikebeji/\u30ad\u30c3\u30b9\u3099\u751f\u304d\u7269\u8abf\u67fb\u968a-22.jpg",
+  "/ikebeji/kids-survey-20.jpg",
+  "/ikebeji/kids-survey-22.jpg",
 ] as const;
 
 /* ────────────────────────────────────────────
