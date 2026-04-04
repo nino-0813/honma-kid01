@@ -100,7 +100,7 @@ type AboutMobileCollagePhoto = {
   /** Next/Image `fill` の既定 inset(0) を上書きしてトリミング位置を調整 */
   readonly imageInset?: string;
   /**
-   * `fill` は img に width/height を指定できないため、内側に relative ラッパーで枠寸法を与える。
+   * `fill` は img の width/height を style で変えられない（Next の制約）ため、枠寸法はこのラッパーで与える。
    */
   readonly fillFrame?: { readonly width: string; readonly height: string };
   /** Next/Image の追加クラス（例: 角丸） */
@@ -132,8 +132,8 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     height: "167px",
     zIndex: 2,
     rotateDeg: 0,
-    imageInset: "28px 0 0 -11px",
-    fillFrame: { width: "180px", height: "220px" },
+    imageInset: "49px 0 0 14px",
+    fillFrame: { width: "130px", height: "120px" },
     imageClassName: "rounded-[12px]",
   },
   {
@@ -146,7 +146,7 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     height: "207px",
     zIndex: 2,
     rotateDeg: 0,
-    imageInset: "27px 0 0 -15px",
+    imageInset: "104px 0 0 11px",
     imageClassName: "rounded-[12px]",
   },
   {
@@ -159,7 +159,8 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     height: "167px",
     zIndex: 2,
     rotateDeg: 0,
-    imageInset: "-42px 0 0 51px",
+    imageInset: "57px 0 0 74px",
+    fillFrame: { width: "180px", height: "167px" },
     imageClassName: "rounded-[12px]",
   },
   {
@@ -214,13 +215,10 @@ function CollagePhoto({
   sizes: string;
 }) {
   return (
-    <div
-      className={[
-        "absolute overflow-hidden rounded-[10px] shadow-[0_8px_28px_-8px_rgba(30,55,90,0.14)] ring-1 ring-black/[0.04]",
-        className,
-      ].join(" ")}
-    >
-      <Image src={src} alt={alt} fill className="object-cover" sizes={sizes} />
+    <div className={["absolute", className].join(" ")}>
+      <div className="relative h-full w-full overflow-hidden rounded-[10px] shadow-[0_8px_28px_-8px_rgba(30,55,90,0.14)] ring-1 ring-black/[0.04]">
+        <Image src={src} alt={alt} fill className="object-cover" sizes={sizes} />
+      </div>
     </div>
   );
 }
@@ -563,30 +561,30 @@ export default function AboutCollage() {
         ))}
         <Image
           id="img1"
-          src="/ikebeji/kids-survey-18.jpg"
+          src="/ikebeji/kids-survey-24.jpg"
           alt=""
-          width={240}
-          height={180}
-          className="absolute top-[-18px] left-[-37px] z-[1] h-[193px] w-[240px] max-lg:top-[119px] rounded-xl object-cover"
-          sizes="240px"
+          width={140}
+          height={105}
+          className="absolute top-[23px] left-[176px] z-[1] h-[193px] w-[140px] rounded-xl object-cover"
+          sizes="140px"
         />
         <Image
           id="img2"
           src="/ikebeji/kids-survey-17.jpg"
           alt=""
-          width={230}
-          height={190}
-          className="absolute top-[263px] left-[48px] z-[1] h-[190px] w-[230px] max-lg:top-[367px] rounded-xl object-cover"
-          sizes="230px"
+          width={180}
+          height={170}
+          className="absolute top-[263px] left-[125px] z-[1] h-[170px] w-[180px] max-lg:top-[301px] rounded-xl object-cover"
+          sizes="180px"
         />
         <Image
           id="img3"
           src="/ikebeji/kids-survey-37.jpg"
           alt=""
-          width={180}
-          height={175}
-          className="absolute top-[63px] left-[223px] z-[1] h-[175px] w-[180px] max-lg:top-[170px] rounded-xl object-cover"
-          sizes="180px"
+          width={140}
+          height={100}
+          className="absolute top-[185px] left-[32px] z-[1] h-[100px] w-[140px] rounded-xl object-cover"
+          sizes="140px"
         />
       </div>
     </section>
