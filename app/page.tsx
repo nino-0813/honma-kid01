@@ -37,11 +37,12 @@ const kidsAboutCards = [
   },
 ];
 
-/** ヒーロー背景スライド（`public/ikebeji`・ASCII ファイル名） */
+/** ヒーロー背景スライド（`public/ikebeji`・ASCII ファイル名）— 4枚・`globals.css` の `hero-fade-quad` と対応 */
 const HERO_SLIDESHOW_IMAGES = [
-  "/ikebeji/2-late-winter-graduation.jpg",
-  "/ikebeji/4-26-entry-rice-prep-survey.jpg",
   "/ikebeji/kids-survey-01.jpg",
+  "/ikebeji/kids-survey-09.jpg",
+  "/ikebeji/kids-survey-12.jpg",
+  "/ikebeji/kids-survey-17.jpg",
 ] as const;
 
 /* ────────────────────────────────────────────

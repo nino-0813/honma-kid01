@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import Reveal from "@/app/components/reveal";
 
 const ABOUT_KICKER = "about the program";
@@ -14,42 +15,28 @@ const ABOUT_MOBILE_TITLE_DECOR = {
   net: "/ikebeji/sadokids_png_Black_insect_net.png",
 } as const;
 
-/** 下段実写エリア（3枚写真の周り）の手描き装飾 — `boxClass` は位置・静的回転、`motionClass` は内側ラッパーのループアニメ */
+/** 下段実写エリア（3枚写真の周り）の手描き装飾 — 参照イメージのように点数を絞って余白を残す */
 const ABOUT_LOWER_DECOR_ICONS = [
-  {
-    src: "/ikebeji/sadokids_png_Black_snake.png",
-    boxClass:
-      "left-0 top-[1%] h-[68px] w-[68px] -translate-x-0.5 -rotate-[26deg] sm:left-[1%] sm:top-[2%] sm:h-[82px] sm:w-[82px] sm:-rotate-[22deg]",
-    motionClass: "about-decor-sway",
-    delayClass: "",
-  },
   {
     src: "/ikebeji/sadokids_png_Black_insect_2.png",
     boxClass:
-      "right-[2%] top-[4%] h-[52px] w-[52px] rotate-[18deg] sm:h-[60px] sm:w-[60px] sm:rotate-[14deg]",
+      "left-[38%] top-[25%] h-[48px] w-[48px] rotate-[14deg] sm:left-[39%] sm:top-[24%] sm:h-[56px] sm:w-[56px]",
     motionClass: "about-decor-bob",
     delayClass: "",
   },
   {
-    src: "/ikebeji/sadokids_png_Black_insect_cage.png",
-    boxClass:
-      "bottom-[6%] left-[0%] h-[58px] w-[58px] -rotate-[10deg] sm:bottom-[8%] sm:left-[1%] sm:h-[68px] sm:w-[68px]",
-    motionClass: "about-decor-sway",
-    delayClass: "about-decor-delay-sm",
-  },
-  {
     src: "/ikebeji/sadokids_png_Black_leaves_3.png",
     boxClass:
-      "left-[8%] top-[36%] h-[44px] w-[44px] rotate-[24deg] sm:left-[10%] sm:top-[40%] sm:h-[52px] sm:w-[52px]",
+      "left-[6%] top-[59%] h-[38px] w-[38px] -rotate-[16deg] sm:left-[8%] sm:top-[60%] sm:h-[46px] sm:w-[46px]",
     motionClass: "about-decor-rock",
-    delayClass: "about-decor-delay-md",
+    delayClass: "about-decor-delay-sm",
   },
   {
     src: "/ikebeji/sadokids_png_Black_lizard.png",
     boxClass:
-      "right-[14%] bottom-[10%] h-[54px] w-[54px] -rotate-[20deg] sm:right-[12%] sm:bottom-[12%] sm:h-[62px] sm:w-[62px]",
+      "right-[4%] bottom-[10%] h-[48px] w-[48px] -rotate-[18deg] sm:right-[5%] sm:bottom-[11%] sm:h-[56px] sm:w-[56px]",
     motionClass: "about-decor-sway",
-    delayClass: "about-decor-delay-lg",
+    delayClass: "about-decor-delay-md",
   },
 ] as const;
 const ABOUT_BODY =
@@ -84,39 +71,28 @@ const COLLAGE_IMAGES = [
 ] as const;
 
 /**
- * モバイル（`lg:hidden`）上段コラージュ：`aspect-[390/760]` 内に写真3枚＋アイコン2つ。
- * `left` / `top` / `width` / `height` はコンテナに対する %。ここを編集して配置を変えられる。
+ * モバイル（`lg:hidden`）上段コラージュ：
+ * 参考イメージのように、余白多めの非対称 3 枚配置＋手描きアイコン 2 つ。
  */
 type AboutMobileCollagePhoto = {
   readonly kind: "photo";
   readonly src: string;
   readonly alt: string;
-  readonly left: string;
-  readonly top: string;
-  readonly width: string;
-  readonly height: string;
-  readonly zIndex: number;
-  readonly rotateDeg?: number;
-  /** Next/Image `fill` の既定 inset(0) を上書きしてトリミング位置を調整 */
-  readonly imageInset?: string;
-  /**
-   * `fill` は img の width/height を style で変えられない（Next の制約）ため、枠寸法はこのラッパーで与える。
-   */
-  readonly fillFrame?: { readonly width: string; readonly height: string };
-  /** Next/Image の追加クラス（例: 角丸） */
+  readonly boxClass: string;
+  readonly width: number;
+  readonly height: number;
+  readonly sizes: string;
   readonly imageClassName?: string;
 };
 
 type AboutMobileCollageIcon = {
   readonly kind: "icon";
   readonly src: string;
-  readonly left: string;
-  readonly top: string;
-  /** 幅（コンテナ比）。高さは `aspectRatio` で決まる */
-  readonly widthPct: string;
-  readonly aspectRatio: string;
-  readonly zIndex: number;
-  readonly rotateDeg?: number;
+  readonly boxClass: string;
+  readonly width: number;
+  readonly height: number;
+  readonly motionClass: string;
+  readonly delayClass?: string;
 };
 
 type AboutMobileCollageLayer = AboutMobileCollagePhoto | AboutMobileCollageIcon;
@@ -126,62 +102,48 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     kind: "photo",
     src: ABOUT_MOBILE_COLLAGE_PHOTOS[0].src,
     alt: ABOUT_MOBILE_COLLAGE_PHOTOS[0].alt,
-    left: "50%",
-    top: "5%",
-    width: "223px",
-    height: "167px",
-    zIndex: 2,
-    rotateDeg: 0,
-    imageInset: "49px 0 0 14px",
-    fillFrame: { width: "130px", height: "120px" },
-    imageClassName: "rounded-[12px]",
+    boxClass: "left-[49%] top-[8px] z-[3] h-[194px] w-[188px] rotate-[2deg]",
+    width: 188,
+    height: 194,
+    sizes: "188px",
+    imageClassName: "h-full w-full object-cover object-[50%_52%]",
   },
   {
     kind: "photo",
     src: ABOUT_MOBILE_COLLAGE_PHOTOS[1].src,
     alt: ABOUT_MOBILE_COLLAGE_PHOTOS[1].alt,
-    left: "3%",
-    top: "28%",
-    width: "156px",
-    height: "207px",
-    zIndex: 2,
-    rotateDeg: 0,
-    imageInset: "104px 0 0 11px",
-    imageClassName: "rounded-[12px]",
+    boxClass: "left-[4px] top-[146px] z-[2] h-[178px] w-[150px] -rotate-[2deg]",
+    width: 150,
+    height: 178,
+    sizes: "150px",
+    imageClassName: "h-full w-full object-cover object-[44%_46%]",
   },
   {
     kind: "photo",
     src: ABOUT_MOBILE_COLLAGE_PHOTOS[2].src,
     alt: ABOUT_MOBILE_COLLAGE_PHOTOS[2].alt,
-    left: "36%",
-    top: "54%",
-    width: "223px",
-    height: "167px",
-    zIndex: 2,
-    rotateDeg: 0,
-    imageInset: "57px 0 0 74px",
-    fillFrame: { width: "180px", height: "167px" },
-    imageClassName: "rounded-[12px]",
+    boxClass: "left-[52%] top-[268px] z-[2] h-[148px] w-[176px] rotate-[1.5deg]",
+    width: 176,
+    height: 148,
+    sizes: "176px",
+    imageClassName: "h-full w-full object-cover object-[58%_44%]",
   },
   {
     kind: "icon",
     src: "/ikebeji/sadokids_png_Black_rice.png",
-    left: "-1%",
-    top: "12%",
-    widthPct: "38%",
-    aspectRatio: "298 / 139",
-    zIndex: 4,
-    rotateDeg: -8,
+    boxClass: "left-[-18px] top-[112px] z-[4] h-[62px] w-[142px] -rotate-[7deg] opacity-[0.82]",
+    width: 298,
+    height: 139,
+    motionClass: "about-decor-bob",
   },
   {
     kind: "icon",
     src: "/ikebeji/sadokids_png_Black_chocho.png",
-    left: "34%",
-    top: "44%",
-    widthPct: "30%",
-    aspectRatio: "144 / 214",
-    zIndex: 4,
-    rotateDeg: 10,
+    boxClass: "left-[40%] top-[216px] z-[4] h-[94px] w-[72px] rotate-[10deg] opacity-[0.82]",
+    width: 144,
+    height: 214,
+    motionClass: "about-decor-sway",
+    delayClass: "about-decor-delay-sm",
   },
 ];
 
@@ -208,15 +170,21 @@ function CollagePhoto({
   alt,
   className,
   sizes,
+  staggerMs = 0,
 }: {
   src: string;
   alt: string;
   className: string;
   sizes: string;
+  /** 表示時の段遅延（`Reveal mode="children-only"` 配下） */
+  staggerMs?: number;
 }) {
   return (
-    <div className={["absolute", className].join(" ")}>
-      <div className="relative h-full w-full overflow-hidden rounded-[10px] shadow-[0_8px_28px_-8px_rgba(30,55,90,0.14)] ring-1 ring-black/[0.04]">
+    <div
+      className={["absolute", className].join(" ")}
+      style={{ "--about-stagger": `${staggerMs}ms` } as CSSProperties}
+    >
+      <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[10px] shadow-[0_8px_28px_-8px_rgba(30,55,90,0.14)] ring-1 ring-black/[0.04]">
         <Image src={src} alt={alt} fill className="object-cover" sizes={sizes} />
       </div>
     </div>
@@ -276,12 +244,14 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <h2 className="relative z-[1] text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.05em] text-[#F7A89A]">
+          <h2 className="relative z-[1] text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.08em] text-[#F7A89A]">
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[0]}</span>
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[1]}</span>
           </h2>
         </div>
-        <p className="mt-2 font-inter text-[15px] lowercase tracking-[0.08em] text-[#222]">{ABOUT_KICKER}</p>
+        <p className="mt-2 text-[15px] leading-[1.65] tracking-[0.08em] lowercase text-[#222]/90">
+          {ABOUT_KICKER}
+        </p>
       </div>
     );
   }
@@ -330,80 +300,55 @@ function AboutBodyText({
 }
 
 function AboutMobileCollageCanvas() {
-  const layers = [...ABOUT_MOBILE_COLLAGE_LAYERS].sort((a, b) => a.zIndex - b.zIndex);
-
   return (
     <>
-      {layers.map((layer, i) => {
-        const baseStyle = {
-          left: layer.left,
-          top: layer.top,
-          zIndex: layer.zIndex,
-          transform: layer.rotateDeg != null ? `rotate(${layer.rotateDeg}deg)` : undefined,
-          transformOrigin: "center center" as const,
-        };
-
+      {ABOUT_MOBILE_COLLAGE_LAYERS.map((layer, i) => {
+        const staggerStyle = { "--about-stagger": `${i * 70}ms` } as CSSProperties;
         if (layer.kind === "photo") {
-          const photoImage = (
-            <Image
-              src={layer.src}
-              alt={layer.alt}
-              fill
-              className={["object-cover", layer.imageClassName].filter(Boolean).join(" ")}
-              sizes="(max-width: 1024px) 48vw, 200px"
-              style={{
-                ...(layer.imageInset ? { inset: layer.imageInset } : {}),
-                transform:
-                  layer.rotateDeg != null && layer.rotateDeg !== 0
-                    ? `rotate(${layer.rotateDeg}deg) scale(1.14)`
-                    : "scale(1.14)",
-                transformOrigin: "center center",
-              }}
-            />
-          );
-
           return (
             <div
               key={`mobile-collage-${layer.src}-${i}`}
-              className="absolute overflow-visible"
-              style={{
-                left: layer.left,
-                top: layer.top,
-                zIndex: layer.zIndex,
-                width: layer.width,
-                height: layer.height,
-              }}
+              className={["absolute", layer.boxClass].join(" ")}
+              style={staggerStyle}
             >
-              {layer.fillFrame ? (
-                <div
-                  className="relative"
-                  style={{ width: layer.fillFrame.width, height: layer.fillFrame.height }}
-                >
-                  {photoImage}
-                </div>
-              ) : (
-                photoImage
-              )}
+              <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] bg-white shadow-[0_18px_42px_-18px_rgba(27,53,90,0.3)] ring-1 ring-[#dbe3ef]">
+                <Image
+                  src={layer.src}
+                  alt={layer.alt}
+                  width={layer.width}
+                  height={layer.height}
+                  sizes={layer.sizes}
+                  className={layer.imageClassName ?? "h-full w-full object-cover"}
+                />
+              </div>
             </div>
           );
         }
 
-        const decorMotion =
-          layer.src.includes("rice") ? "about-decor-bob" : "about-decor-sway about-decor-delay-sm";
-
         return (
           <div
             key={`mobile-collage-${layer.src}-${i}`}
-            className="pointer-events-none absolute"
-            style={{
-              ...baseStyle,
-              width: layer.widthPct,
-              aspectRatio: layer.aspectRatio,
-            }}
+            className={["pointer-events-none absolute", layer.boxClass].join(" ")}
+            style={staggerStyle}
             aria-hidden
           >
-            <div className={`relative h-full w-full ${decorMotion}`}>
-              <Image src={layer.src} alt="" fill className="object-contain" sizes="128px" />
+            <div
+              className={[
+                "about-collage-photo-inner relative h-full w-full",
+                layer.motionClass,
+                layer.delayClass,
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
+              <Image
+                src={layer.src}
+                alt=""
+                width={layer.width}
+                height={layer.height}
+                className="h-full w-full object-contain"
+                sizes="96px"
+              />
             </div>
           </div>
         );
@@ -421,12 +366,16 @@ export default function AboutCollage() {
       {/* ── Mobile：上にコラージュ画像 → 見出し・本文 ── */}
       <div className="lg:hidden">
         <div className="mx-auto w-full max-w-[390px]">
-          <Reveal className="relative mx-auto aspect-[390/760] w-full overflow-visible bg-white" delay={80}>
+          <Reveal
+            mode="children-only"
+            delay={0}
+            className="relative mx-auto h-[430px] w-full overflow-visible bg-white sm:h-[458px]"
+          >
             <AboutMobileCollageCanvas />
           </Reveal>
 
           <Reveal
-            className="relative z-10 mx-auto -mt-20 mb-10 flex w-full max-w-[320px] flex-col items-center gap-8 text-center sm:-mt-24"
+            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[326px] flex-col items-center gap-6 text-center"
             delay={120}
           >
             <AboutHeadingBlock mobileTitleFirst className="w-full" />
@@ -436,41 +385,51 @@ export default function AboutCollage() {
       </div>
 
       {/* ── Desktop: Figma node 1:94（1500×1000）座標 ── */}
-      <div className="relative mx-auto hidden h-[1000px] w-full max-w-[1500px] lg:block">
+      <Reveal
+        mode="children-only"
+        delay={0}
+        className="relative mx-auto hidden h-[1000px] w-full max-w-[1500px] lg:block"
+      >
         <CollagePhoto
           src={COLLAGE_IMAGES[0].src}
           alt={COLLAGE_IMAGES[0].alt}
           sizes="285px"
+          staggerMs={0}
           className="left-[1.933%] top-[13.1%] z-[1] h-[37.9%] w-[19%]"
         />
         <CollagePhoto
           src={COLLAGE_IMAGES[3].src}
           alt={COLLAGE_IMAGES[3].alt}
           sizes="375px"
+          staggerMs={75}
           className="left-[30.933%] top-[2.9%] z-[1] h-[28.1%] w-[25%]"
         />
         <CollagePhoto
           src={COLLAGE_IMAGES[1].src}
           alt={COLLAGE_IMAGES[1].alt}
           sizes="285px"
+          staggerMs={150}
           className="left-[79.4%] top-[4.9%] z-[1] h-[38%] w-[19%]"
         />
         <CollagePhoto
           src={COLLAGE_IMAGES[2].src}
           alt={COLLAGE_IMAGES[2].alt}
           sizes="362px"
+          staggerMs={225}
           className="left-[-1.6%] top-[65.2%] z-[1] h-[27.1%] w-[24.133%]"
         />
         <CollagePhoto
           src={COLLAGE_IMAGES[4].src}
           alt={COLLAGE_IMAGES[4].alt}
           sizes="413px"
+          staggerMs={300}
           className="left-[40.067%] top-[70.2%] z-[1] h-[28.6%] w-[27.533%]"
         />
         <CollagePhoto
           src={COLLAGE_IMAGES[5].src}
           alt={COLLAGE_IMAGES[5].alt}
           sizes="380px"
+          staggerMs={375}
           className="left-[79.4%] top-[60.4%] z-[1] h-[28.5%] w-[25.333%]"
         />
 
@@ -535,10 +494,14 @@ export default function AboutCollage() {
             </a>
           </Reveal>
         </div>
-      </div>
+      </Reveal>
 
       {/* 下段・実写＋装飾（モバイルのみ — デスクトップは大コラージュ側に集約） */}
-      <div className="relative mx-auto mt-8 min-h-[600px] w-full max-w-[min(100%,1100px)] md:mt-16 lg:hidden">
+      <Reveal
+        mode="children-only"
+        delay={40}
+        className="relative mx-auto mt-3 min-h-[520px] w-full max-w-[390px] lg:hidden"
+      >
         {ABOUT_LOWER_DECOR_ICONS.map((item) => (
           <div
             key={item.src}
@@ -559,34 +522,55 @@ export default function AboutCollage() {
             </div>
           </div>
         ))}
-        <Image
-          id="img1"
-          src="/ikebeji/kids-survey-24.jpg"
-          alt=""
-          width={140}
-          height={105}
-          className="absolute top-[23px] left-[176px] z-[1] h-[193px] w-[140px] rounded-xl object-cover"
-          sizes="140px"
-        />
-        <Image
-          id="img2"
-          src="/ikebeji/kids-survey-17.jpg"
-          alt=""
-          width={180}
-          height={170}
-          className="absolute top-[263px] left-[125px] z-[1] h-[170px] w-[180px] max-lg:top-[301px] rounded-xl object-cover"
-          sizes="180px"
-        />
-        <Image
-          id="img3"
-          src="/ikebeji/kids-survey-37.jpg"
-          alt=""
-          width={140}
-          height={100}
-          className="absolute top-[185px] left-[32px] z-[1] h-[100px] w-[140px] rounded-xl object-cover"
-          sizes="140px"
-        />
-      </div>
+        <div
+          className="absolute right-[8px] top-[12px] z-[1] h-[188px] w-[150px]"
+          style={{ "--about-stagger": "0ms" } as CSSProperties}
+        >
+          <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
+            <Image
+              id="img1"
+              src="/ikebeji/kids-survey-24.jpg"
+              alt=""
+              width={150}
+              height={188}
+              className="h-full w-full object-cover"
+              sizes="150px"
+            />
+          </div>
+        </div>
+        <div
+          className="absolute left-1/2 top-[310px] z-[1] h-[168px] w-[250px] -translate-x-1/2"
+          style={{ "--about-stagger": "90ms" } as CSSProperties}
+        >
+          <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
+            <Image
+              id="img2"
+              src="/ikebeji/kids-survey-17.jpg"
+              alt=""
+              width={250}
+              height={168}
+              className="h-full w-full object-cover"
+              sizes="250px"
+            />
+          </div>
+        </div>
+        <div
+          className="absolute left-[18px] top-[184px] z-[1] h-[116px] w-[148px]"
+          style={{ "--about-stagger": "180ms" } as CSSProperties}
+        >
+          <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
+            <Image
+              id="img3"
+              src="/ikebeji/kids-survey-37.jpg"
+              alt=""
+              width={148}
+              height={116}
+              className="h-full w-full object-cover"
+              sizes="148px"
+            />
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

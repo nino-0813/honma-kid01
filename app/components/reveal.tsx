@@ -7,6 +7,11 @@ type RevealProps = {
   className?: string;
   delay?: number;
   variant?: "up" | "left" | "right" | "scale";
+  /**
+   * `children-only`: ルートは常に不透明のまま、子の `.about-collage-photo-inner` だけを
+   * インターセクションで段階表示（コラージュ写真向け）。
+   */
+  mode?: "default" | "children-only";
 };
 
 export default function Reveal({
@@ -14,6 +19,7 @@ export default function Reveal({
   className = "",
   delay = 0,
   variant = "up",
+  mode = "default",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -59,10 +65,15 @@ export default function Reveal({
     };
   }, []);
 
+  const rootClass =
+    mode === "children-only"
+      ? `reveal-children-root${isVisible ? " is-visible" : ""}`
+      : `reveal reveal-${variant} ${isVisible ? "is-visible" : ""}`;
+
   return (
     <div
       ref={ref}
-      className={`reveal reveal-${variant} ${isVisible ? "is-visible" : ""} ${className}`}
+      className={`${rootClass} ${className}`.trim()}
       style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >
       {children}
