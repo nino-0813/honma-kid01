@@ -230,8 +230,8 @@ export default function Home() {
                   width={940}
                   height={780}
                   priority
-                  sizes="(max-width: 640px) 78vw, 240px"
-                  className="h-[52px] w-auto max-w-[min(240px,78vw)] sm:h-[60px]"
+                  sizes="(max-width: 640px) 85vw, 480px"
+                  className="h-[104px] w-auto max-w-[min(480px,85vw)] sm:h-[120px]"
                 />
               </div>
               <MobileTourCta />
