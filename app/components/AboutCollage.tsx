@@ -132,8 +132,8 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     height: "167px",
     zIndex: 2,
     rotateDeg: 0,
-    imageInset: "45px 0 0 -28px",
-    fillFrame: { width: "182px", height: "240px" },
+    imageInset: "28px 0 0 -11px",
+    fillFrame: { width: "180px", height: "220px" },
     imageClassName: "rounded-[12px]",
   },
   {
@@ -146,7 +146,7 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     height: "207px",
     zIndex: 2,
     rotateDeg: 0,
-    imageInset: "75px 0 0 -44px",
+    imageInset: "27px 0 0 -15px",
     imageClassName: "rounded-[12px]",
   },
   {
@@ -159,7 +159,7 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
     height: "167px",
     zIndex: 2,
     rotateDeg: 0,
-    imageInset: "-22px 0 0 64px",
+    imageInset: "-42px 0 0 51px",
     imageClassName: "rounded-[12px]",
   },
   {
@@ -565,28 +565,28 @@ export default function AboutCollage() {
           id="img1"
           src="/ikebeji/kids-survey-18.jpg"
           alt=""
-          width={257}
-          height={193}
-          className="absolute top-[-18px] left-[258px] z-[1] h-[193px] w-[257px] max-lg:top-[70px] rounded-xl object-cover"
-          sizes="257px"
+          width={240}
+          height={180}
+          className="absolute top-[-18px] left-[-37px] z-[1] h-[193px] w-[240px] max-lg:top-[119px] rounded-xl object-cover"
+          sizes="240px"
         />
         <Image
           id="img2"
           src="/ikebeji/kids-survey-17.jpg"
           alt=""
-          width={259}
-          height={173}
-          className="absolute top-[263px] left-[112px] z-[1] h-[173px] w-[259px] max-lg:top-[351px] rounded-xl object-cover"
-          sizes="259px"
+          width={230}
+          height={190}
+          className="absolute top-[263px] left-[48px] z-[1] h-[190px] w-[230px] max-lg:top-[367px] rounded-xl object-cover"
+          sizes="230px"
         />
         <Image
           id="img3"
           src="/ikebeji/kids-survey-37.jpg"
           alt=""
-          width={234}
+          width={180}
           height={175}
-          className="absolute top-[63px] left-[-5px] z-[1] h-[175px] w-[234px] max-lg:top-[151px] rounded-xl object-cover"
-          sizes="234px"
+          className="absolute top-[63px] left-[223px] z-[1] h-[175px] w-[180px] max-lg:top-[170px] rounded-xl object-cover"
+          sizes="180px"
         />
       </div>
     </section>
