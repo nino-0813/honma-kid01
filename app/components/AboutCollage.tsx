@@ -364,27 +364,32 @@ function AboutMobileCollageCanvas() {
             />
           );
 
+          const isCenteredAtHalf =
+            layer.kind === "photo" && layer.left === "50%" && (layer.rotateDeg == null || layer.rotateDeg === 0);
+
           return (
             <div
               key={`mobile-collage-${layer.src}-${i}`}
-              className="absolute overflow-visible"
+              className="absolute overflow-hidden rounded-[12px]"
               style={{
                 left: layer.left,
                 top: layer.top,
                 zIndex: layer.zIndex,
                 width: layer.width,
                 height: layer.height,
+                transform: isCenteredAtHalf ? "translateX(-50%)" : undefined,
+                transformOrigin: isCenteredAtHalf ? "center top" : undefined,
               }}
             >
               {layer.fillFrame ? (
                 <div
-                  className="relative"
+                  className="relative h-full overflow-hidden rounded-[12px]"
                   style={{ width: layer.fillFrame.width, height: layer.fillFrame.height }}
                 >
                   {photoImage}
                 </div>
               ) : (
-                photoImage
+                <div className="relative h-full w-full overflow-hidden rounded-[12px]">{photoImage}</div>
               )}
             </div>
           );
@@ -422,8 +427,8 @@ export default function AboutCollage() {
     >
       {/* ── Mobile：上にコラージュ画像 → 見出し・本文 ── */}
       <div className="lg:hidden">
-        <div className="mx-auto w-full max-w-[390px]">
-          <Reveal className="relative mx-auto aspect-[390/760] w-full overflow-visible bg-white" delay={80}>
+        <div className="mx-auto w-full max-w-[390px] overflow-x-clip">
+          <Reveal className="relative mx-auto aspect-[390/760] w-full overflow-hidden bg-white" delay={80}>
             <AboutMobileCollageCanvas />
           </Reveal>
 
@@ -539,55 +544,57 @@ export default function AboutCollage() {
         </div>
       </div>
 
-      {/* 下段・実写＋装飾（モバイルのみ — デスクトップは大コラージュ側に集約） */}
-      <div className="relative mx-auto mt-8 min-h-[600px] w-full max-w-[min(100%,1100px)] md:mt-16 lg:hidden">
-        {ABOUT_LOWER_DECOR_ICONS.map((item) => (
-          <div
-            key={item.src}
-            className={["pointer-events-none absolute z-0 opacity-[0.78]", item.boxClass].join(" ")}
-          >
+      {/* 下段・実写＋装飾（モバイルのみ — 1100×600 を aspect + % でスケール、元ピクセル配置と比率一致） */}
+      <div className="relative mx-auto mt-8 w-full max-w-[min(100%,1100px)] overflow-x-clip md:mt-16 lg:hidden">
+        <div className="relative aspect-[1100/600] w-full">
+          {ABOUT_LOWER_DECOR_ICONS.map((item) => (
             <div
-              className={["relative h-full w-full", item.motionClass, item.delayClass].filter(Boolean).join(" ")}
+              key={item.src}
+              className={["pointer-events-none absolute z-0 opacity-[0.78]", item.boxClass].join(" ")}
             >
-              <Image
-                src={item.src}
-                alt=""
-                width={120}
-                height={120}
-                className="h-full w-full object-contain"
-                sizes="(max-width:640px) 72px, 88px"
-                aria-hidden
-              />
+              <div
+                className={["relative h-full w-full", item.motionClass, item.delayClass].filter(Boolean).join(" ")}
+              >
+                <Image
+                  src={item.src}
+                  alt=""
+                  width={120}
+                  height={120}
+                  className="h-full w-full object-contain"
+                  sizes="(max-width:640px) 72px, 88px"
+                  aria-hidden
+                />
+              </div>
             </div>
-          </div>
-        ))}
-        <Image
-          id="img1"
-          src="/ikebeji/キッズ生き物調査隊-18.jpg"
-          alt=""
-          width={257}
-          height={193}
-          className="absolute top-[-18px] left-[258px] z-[1] h-[193px] w-[257px] max-lg:top-[70px] rounded-xl object-cover"
-          sizes="257px"
-        />
-        <Image
-          id="img2"
-          src="/ikebeji/キッズ生き物調査隊-17.jpg"
-          alt=""
-          width={259}
-          height={173}
-          className="absolute top-[263px] left-[112px] z-[1] h-[173px] w-[259px] max-lg:top-[351px] rounded-xl object-cover"
-          sizes="259px"
-        />
-        <Image
-          id="img3"
-          src="/ikebeji/キッズ生き物調査隊-37.jpg"
-          alt=""
-          width={234}
-          height={175}
-          className="absolute top-[63px] left-[-5px] z-[1] h-[175px] w-[234px] max-lg:top-[151px] rounded-xl object-cover"
-          sizes="234px"
-        />
+          ))}
+          <Image
+            id="img1"
+            src="/ikebeji/キッズ生き物調査隊-18.jpg"
+            alt=""
+            width={257}
+            height={193}
+            className="absolute top-[11.7%] left-[23.5%] z-[1] h-[32.2%] w-[23.4%] rounded-xl object-cover"
+            sizes="(max-width:1024px) 28vw, 257px"
+          />
+          <Image
+            id="img2"
+            src="/ikebeji/キッズ生き物調査隊-17.jpg"
+            alt=""
+            width={259}
+            height={173}
+            className="absolute top-[58.5%] left-[10.2%] z-[1] h-[28.8%] w-[23.5%] rounded-xl object-cover"
+            sizes="(max-width:1024px) 26vw, 259px"
+          />
+          <Image
+            id="img3"
+            src="/ikebeji/キッズ生き物調査隊-37.jpg"
+            alt=""
+            width={234}
+            height={175}
+            className="absolute top-[25.2%] -left-[0.5%] z-[1] h-[29.2%] w-[21.3%] rounded-xl object-cover"
+            sizes="(max-width:1024px) 24vw, 234px"
+          />
+        </div>
       </div>
     </section>
   );
