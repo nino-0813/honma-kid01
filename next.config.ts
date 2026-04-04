@@ -3,12 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     /**
-     * Vercel（Linux）で `/_next/image` が 400 になる対策。
-     * 日本語＋合成文字（NFD）のファイル名は、オプティマイザ内部フェッチのパス解決と
-     * `public` 実体がずれやすく、404 HTML を「画像ではない」として 400 になることがある。
-     * 最適化をオフにして `/ikebeji/...` を静的配信のまま読み込む（`?dpl=` は img のみに付与）。
+     * `public/ikebeji` は ASCII ファイル名に統一済み（`next/image` の本番最適化と相性良好）。
+     * pathname のみマッチ（search 未指定＝クエリ無視）。
      */
-    unoptimized: true,
     localPatterns: [{ pathname: "/**" }],
     qualities: [60, 65, 70, 75, 80, 85, 90, 100],
   },

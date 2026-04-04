@@ -9,9 +9,9 @@ const ABOUT_TITLE = "佐渡Kids生き物調査隊とは";
 const ABOUT_TITLE_MOBILE_LINES = ["佐渡Kids生き物", "調査隊とは"] as const;
 /** モバイル about 見出し周りの手描きアイコン（`public/ikebeji`） */
 const ABOUT_MOBILE_TITLE_DECOR = {
-  cloud: "/ikebeji/sadokids_png_Black_cloud 1.png",
+  cloud: "/ikebeji/sadokids_png_Black_cloud_1.png",
   crab: "/ikebeji/sadokids_png_Black_crab.png",
-  net: "/ikebeji/sadokids_png_Black_insect net.png",
+  net: "/ikebeji/sadokids_png_Black_insect_net.png",
 } as const;
 
 /** 下段実写エリア（3枚写真の周り）の手描き装飾 — `boxClass` は位置・静的回転、`motionClass` は内側ラッパーのループアニメ */
@@ -24,21 +24,21 @@ const ABOUT_LOWER_DECOR_ICONS = [
     delayClass: "",
   },
   {
-    src: "/ikebeji/sadokids_png_Black_insect 2.png",
+    src: "/ikebeji/sadokids_png_Black_insect_2.png",
     boxClass:
       "right-[2%] top-[4%] h-[52px] w-[52px] rotate-[18deg] sm:h-[60px] sm:w-[60px] sm:rotate-[14deg]",
     motionClass: "about-decor-bob",
     delayClass: "",
   },
   {
-    src: "/ikebeji/sadokids_png_Black_insect cage.png",
+    src: "/ikebeji/sadokids_png_Black_insect_cage.png",
     boxClass:
       "bottom-[6%] left-[0%] h-[58px] w-[58px] -rotate-[10deg] sm:bottom-[8%] sm:left-[1%] sm:h-[68px] sm:w-[68px]",
     motionClass: "about-decor-sway",
     delayClass: "about-decor-delay-sm",
   },
   {
-    src: "/ikebeji/sadokids_png_Black_leaves 3.png",
+    src: "/ikebeji/sadokids_png_Black_leaves_3.png",
     boxClass:
       "left-[8%] top-[36%] h-[44px] w-[44px] rotate-[24deg] sm:left-[10%] sm:top-[40%] sm:h-[52px] sm:w-[52px]",
     motionClass: "about-decor-rock",
@@ -55,20 +55,20 @@ const ABOUT_LOWER_DECOR_ICONS = [
 const ABOUT_BODY =
   "佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。";
 
-/** 上段コラージュ共通の実写3枚（モバイル配置は `ABOUT_MOBILE_COLLAGE_LAYERS`、デスクトップは `COLLAGE_IMAGES` で6枠に割当） */
+/** 上段コラージュ共通の実写3枚（`public/ikebeji/kids-survey-*.jpg` 等・ASCII 名） */
 const ABOUT_MOBILE_COLLAGE_PHOTOS = [
-  { src: "/ikebeji/キッズ生き物調査隊-09.jpg", alt: "フィールドの様子" },
-  { src: "/ikebeji/8_9 川の生きもの調査.jpg", alt: "水辺の観察" },
-  { src: "/ikebeji/キッズ生き物調査隊-02.jpg", alt: "活動の記録" },
+  { src: "/ikebeji/kids-survey-09.jpg", alt: "フィールドの様子" },
+  { src: "/ikebeji/8-9-river-life-survey.jpg", alt: "水辺の観察" },
+  { src: "/ikebeji/kids-survey-02.jpg", alt: "活動の記録" },
 ] as const;
 
 const P = ABOUT_MOBILE_COLLAGE_PHOTOS;
 
 /** モバイル下段3枚と同じファイル（デスクトップ大コラージュの一部枠で使用） */
-const IKEBEJI_COLLAGE_17 = "/ikebeji/キッズ生き物調査隊-17.jpg";
-const IKEBEJI_COLLAGE_18 = "/ikebeji/キッズ生き物調査隊-18.jpg";
-const IKEBEJI_COLLAGE_37 = "/ikebeji/キッズ生き物調査隊-37.jpg";
-const IKEBEJI_DEC_RICE_SALE = "/ikebeji/12月 お米販売.jpg";
+const IKEBEJI_COLLAGE_17 = "/ikebeji/kids-survey-17.jpg";
+const IKEBEJI_COLLAGE_18 = "/ikebeji/kids-survey-18.jpg";
+const IKEBEJI_COLLAGE_37 = "/ikebeji/kids-survey-37.jpg";
+const IKEBEJI_DEC_RICE_SALE = "/ikebeji/12-rice-sale.jpg";
 
 /** デスクトップ Figma コラージュ6枠（`<CollagePhoto>` の参照順） */
 const COLLAGE_IMAGES = [
@@ -174,7 +174,7 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
   },
   {
     kind: "icon",
-    src: "/ikebeji/sadokids_png_Black_ちょうちょ.png",
+    src: "/ikebeji/sadokids_png_Black_chocho.png",
     left: "34%",
     top: "44%",
     widthPct: "30%",
@@ -497,7 +497,7 @@ export default function AboutCollage() {
         <div className="pointer-events-none absolute left-[21.2%] top-[68.8%] z-[2] h-[19.6%] max-w-[15.33%]">
           <div className="about-decor-bob relative h-full w-max max-w-full">
             <Image
-              src="/ikebeji/sadokids_png_Black_insect cage.png"
+              src="/ikebeji/sadokids_png_Black_insect_cage.png"
               alt=""
               width={230}
               height={196}
@@ -510,7 +510,7 @@ export default function AboutCollage() {
         <div className="pointer-events-none absolute left-[68.33%] top-[65.2%] z-[2] h-[21.4%] max-w-[9.6%]">
           <div className="about-decor-rock about-decor-delay-md relative h-full w-max max-w-full">
             <Image
-              src="/ikebeji/sadokids_png_Black_flower 2.png"
+              src="/ikebeji/sadokids_png_Black_flower_2.png"
               alt=""
               width={144}
               height={214}
@@ -569,7 +569,7 @@ export default function AboutCollage() {
           ))}
           <Image
             id="img1"
-            src="/ikebeji/キッズ生き物調査隊-18.jpg"
+            src="/ikebeji/kids-survey-18.jpg"
             alt=""
             width={257}
             height={193}
@@ -578,7 +578,7 @@ export default function AboutCollage() {
           />
           <Image
             id="img2"
-            src="/ikebeji/キッズ生き物調査隊-17.jpg"
+            src="/ikebeji/kids-survey-17.jpg"
             alt=""
             width={259}
             height={173}
@@ -587,7 +587,7 @@ export default function AboutCollage() {
           />
           <Image
             id="img3"
-            src="/ikebeji/キッズ生き物調査隊-37.jpg"
+            src="/ikebeji/kids-survey-37.jpg"
             alt=""
             width={234}
             height={175}

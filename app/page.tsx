@@ -17,7 +17,7 @@ const kidsAboutCards = [
     title: "外のフィールドが、いちばんの教室",
     description:
       "佐渡の田んぼや水路、湿地をゆっくり歩きながら、生きもののすみかやあとを観察します。ネットや観察ノートで、見つけたものを写真やスケッチに残していきます。安全に楽しむための服装や持ち物は、開催前にお知らせします。",
-    image: "/ikebeji/キッズ生き物調査隊-32.jpg",
+    image: "/ikebeji/kids-survey-32.jpg",
   },
   {
     phaseEn: "together",
@@ -25,7 +25,7 @@ const kidsAboutCards = [
     title: "スタッフや仲間と話しながら、「わからない」を楽しむ",
     description:
       "図鑑やアプリを手に、名前や特徴を調べたり、「なぜここにいるの？」を話し合ったりします。正解を急がず、子どものペースで進めます。初めての子も、生きものが好きな子も、それぞれの見え方を尊重します。",
-    image: "/ikebeji/キッズ生き物調査隊-29.jpg",
+    image: "/ikebeji/kids-survey-29.jpg",
   },
   {
     phaseEn: "next",
@@ -33,15 +33,15 @@ const kidsAboutCards = [
     title: "記録や発表を通して、次の「見たい」につなげる",
     description:
       "季節ごとに写真やメモをそろえ、隊員同士で簡単に発表する時間ももちます。うまくまとまらなくても大丈夫。次のテーマや調査へつなげていきます。参加費や対象年齢などの詳細は、決まり次第お知らせ予定です。",
-    image: "/ikebeji/キッズ生き物調査隊-27.jpg",
+    image: "/ikebeji/kids-survey-27.jpg",
   },
 ];
 
-/** ヒーロー背景スライド（`public/ikebeji`、実ファイル名に合わせる） */
+/** ヒーロー背景スライド（`public/ikebeji`・ASCII ファイル名） */
 const HERO_SLIDESHOW_IMAGES = [
-  "/ikebeji/2月下旬 卒隊式・修了式.jpg",
-  "/ikebeji/4_26 入隊式・田んぼの準備・生きもの調査.jpg",
-  "/ikebeji/キッズ生き物調査隊-01.jpg",
+  "/ikebeji/2-late-winter-graduation.jpg",
+  "/ikebeji/4-26-entry-rice-prep-survey.jpg",
+  "/ikebeji/kids-survey-01.jpg",
 ] as const;
 
 /* ────────────────────────────────────────────
