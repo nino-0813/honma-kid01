@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #444444;
+  /* 見学・お申し込み CTA */
+  --cta-visit-bg: #006B2B;
+  --cta-visit-hover: #005522;
+  --cta-visit-shadow: rgba(0, 107, 43, 0.45);
 }
 
 @theme inline {
@@ -45,12 +49,13 @@ img {
   transform: scale(1.06);
 }
 
-/* ヒーロー実写スライド（4枚・24s 周期・6s ずつずらし・全幅） */
+/* ヒーロー実写スライド（5枚・30s 周期・6s ずつずらし・全幅・モバイル共通） */
 .hero-slide-mobile-1,
 .hero-slide-mobile-2,
 .hero-slide-mobile-3,
-.hero-slide-mobile-4 {
-  animation: hero-fade-quad 24s infinite;
+.hero-slide-mobile-4,
+.hero-slide-mobile-5 {
+  animation: hero-fade-quad 30s infinite;
 }
 
 .hero-slide-mobile-1 {
@@ -67,6 +72,10 @@ img {
 
 .hero-slide-mobile-4 {
   animation-delay: 18s;
+}
+
+.hero-slide-mobile-5 {
+  animation-delay: 24s;
 }
 
 /* 次スライド（6s 遅延）のフェードインと軽く重なる */
@@ -402,7 +411,8 @@ img {
 
   .hero-slide-mobile-2,
   .hero-slide-mobile-3,
-  .hero-slide-mobile-4 {
+  .hero-slide-mobile-4,
+  .hero-slide-mobile-5 {
     opacity: 0;
   }
 

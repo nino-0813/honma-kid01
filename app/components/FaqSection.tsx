@@ -5,12 +5,11 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden bg-[#568CBE] px-5 py-20 text-white md:px-10 md:py-24"
+      className="relative overflow-hidden bg-[#c4b8a8] px-5 py-20 text-white md:px-10 md:py-24"
     >
-      {/* 奥行き：ポスター → 青のベール（従来のトーン）→ 従来どおり薄いテクスチャ */}
       <div className="pointer-events-none absolute inset-0">
         <Image
-          src="/figma-assets/スクリーンショット 2026-04-03 14.03.42.png"
+          src="/images/photo1.jpg"
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 1400px"
@@ -18,26 +17,18 @@ export default function FaqSection() {
           priority={false}
         />
       </div>
+      {/* 明るい写真の上でも白文字が読めるよう単一のスクリムのみ */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[#568CBE]/[0.88]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/50"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-0">
-        <Image
-          src="/figma-assets/footer-bg-5c67b6.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="pointer-events-none object-cover opacity-10"
-        />
-      </div>
 
       <div className="relative z-10 mx-auto max-w-[880px]">
         <div className="text-center">
           <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-white/80">
             FAQ
           </p>
-          <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
+          <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px]">
             よくある質問
           </h2>
         </div>

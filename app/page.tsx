@@ -37,12 +37,13 @@ const kidsAboutCards = [
   },
 ];
 
-/** ヒーロー背景スライド（`public/ikebeji`・ASCII ファイル名）— 4枚・`globals.css` の `hero-fade-quad` と対応 */
+/** ヒーロー背景スライド（5枚・`globals.css` の `hero-fade-quad` 30s 周期と対応）— 20/22 は macOS 上の NFD ファイル名 */
 const HERO_SLIDESHOW_IMAGES = [
   "/ikebeji/kids-survey-01.jpg",
   "/ikebeji/kids-survey-09.jpg",
-  "/ikebeji/kids-survey-12.jpg",
-  "/ikebeji/kids-survey-17.jpg",
+  "/ikebeji/kids-survey-19.jpg",
+  "/ikebeji/\u30ad\u30c3\u30b9\u3099\u751f\u304d\u7269\u8abf\u67fb\u968a-20.jpg",
+  "/ikebeji/\u30ad\u30c3\u30b9\u3099\u751f\u304d\u7269\u8abf\u67fb\u968a-22.jpg",
 ] as const;
 
 /* ────────────────────────────────────────────
@@ -82,7 +83,7 @@ function ArrowLink({
         "button-chip inline-flex items-center justify-center gap-4 rounded-full px-7 py-4 text-[14px] tracking-[0.16em] transition-all duration-300",
         light
           ? "border border-[#7ba6d9] bg-white text-[#4d84c5] hover:bg-[#f5faff]"
-          : "bg-[#FB876D] text-white hover:bg-[#f0745a]",
+          : "bg-[var(--cta-visit-bg)] text-white hover:bg-[var(--cta-visit-hover)]",
       ].join(" ")}
     >
       <span>{label}</span>

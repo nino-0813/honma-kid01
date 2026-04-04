@@ -4,37 +4,42 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import Reveal from "@/app/components/reveal";
 
-const ABOUT_KICKER = "about the program";
+/** `public/ikebeji/green` 内のファイル名（スペース含む）を URL パスに */
+function ikebejiGreenPng(filename: string): string {
+  return `/ikebeji/green/${encodeURIComponent(filename)}`;
+}
+
+const ABOUT_KICKER = "about Kids' Nature Exploration Team";
 const ABOUT_TITLE = "佐渡Kids生き物調査隊とは";
 /** モバイル about 見出しの改行（1行目＋2行目＝ `ABOUT_TITLE` と同じ読み） */
 const ABOUT_TITLE_MOBILE_LINES = ["佐渡Kids生き物", "調査隊とは"] as const;
 /** モバイル about 見出し周りの手描きアイコン（`public/ikebeji`） */
 const ABOUT_MOBILE_TITLE_DECOR = {
-  cloud: "/ikebeji/sadokids_png_Black_cloud_1.png",
-  crab: "/ikebeji/sadokids_png_Black_crab.png",
-  net: "/ikebeji/sadokids_png_Black_insect_net.png",
+  cloud: ikebejiGreenPng("sadokids_green_cloud 1.png"),
+  crab: ikebejiGreenPng("sadokids_green_crab.png"),
+  net: ikebejiGreenPng("sadokids_green_insect net.png"),
 } as const;
 
 /** 下段実写エリア（3枚写真の周り）の手描き装飾 — 参照イメージのように点数を絞って余白を残す */
 const ABOUT_LOWER_DECOR_ICONS = [
   {
-    src: "/ikebeji/sadokids_png_Black_insect_2.png",
+    src: ikebejiGreenPng("sadokids_green_insect 2.png"),
     boxClass:
-      "left-[38%] top-[25%] h-[48px] w-[48px] rotate-[14deg] sm:left-[39%] sm:top-[24%] sm:h-[56px] sm:w-[56px]",
+      "left-[38%] top-[25%] h-[96px] w-[96px] rotate-[14deg] sm:left-[39%] sm:top-[24%] sm:h-[112px] sm:w-[112px]",
     motionClass: "about-decor-bob",
     delayClass: "",
   },
   {
-    src: "/ikebeji/sadokids_png_Black_leaves_3.png",
+    src: ikebejiGreenPng("sadokids_green_leaves 3.png"),
     boxClass:
-      "left-[6%] top-[59%] h-[38px] w-[38px] -rotate-[16deg] sm:left-[8%] sm:top-[60%] sm:h-[46px] sm:w-[46px]",
+      "left-[6%] top-[59%] h-[76px] w-[76px] -rotate-[16deg] sm:left-[8%] sm:top-[60%] sm:h-[92px] sm:w-[92px]",
     motionClass: "about-decor-rock",
     delayClass: "about-decor-delay-sm",
   },
   {
-    src: "/ikebeji/sadokids_png_Black_lizard.png",
+    src: ikebejiGreenPng("sadokids_green_lizard.png"),
     boxClass:
-      "right-[4%] bottom-[10%] h-[48px] w-[48px] -rotate-[18deg] sm:right-[5%] sm:bottom-[11%] sm:h-[56px] sm:w-[56px]",
+      "right-[4%] bottom-[10%] h-[96px] w-[96px] -rotate-[18deg] sm:right-[5%] sm:bottom-[11%] sm:h-[112px] sm:w-[112px]",
     motionClass: "about-decor-sway",
     delayClass: "about-decor-delay-md",
   },
@@ -43,31 +48,33 @@ const ABOUT_BODY =
   "佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。";
 
 /** 上段コラージュ共通の実写3枚（モバイル配置は `ABOUT_MOBILE_COLLAGE_LAYERS`、デスクトップは `COLLAGE_IMAGES` で6枠に割当） */
+/** `キッズ生き物調査隊-*.jpg`（macOS 上の NFD ファイル名） */
+const IKEBEJI_TEAM_JP = (n: string) =>
+  `/ikebeji/\u30ad\u30c3\u30b9\u3099\u751f\u304d\u7269\u8abf\u67fb\u968a-${n}.jpg`;
+
 const ABOUT_MOBILE_COLLAGE_PHOTOS = [
   { src: "/ikebeji/kids-survey-09.jpg", alt: "フィールドの様子" },
-  { src: "/ikebeji/8-9-river-life-survey.jpg", alt: "水辺の観察" },
-  { src: "/ikebeji/kids-survey-02.jpg", alt: "活動の記録" },
+  { src: IKEBEJI_TEAM_JP("12"), alt: "水辺の観察" },
+  { src: IKEBEJI_TEAM_JP("18"), alt: "発表やまとめ" },
 ] as const;
 
 const P = ABOUT_MOBILE_COLLAGE_PHOTOS;
 
 /** モバイル下段3枚と同じファイル（デスクトップ大コラージュの一部枠で使用） */
 const IKEBEJI_COLLAGE_17 = "/ikebeji/kids-survey-17.jpg";
-const IKEBEJI_COLLAGE_18 = "/ikebeji/kids-survey-18.jpg";
 const IKEBEJI_COLLAGE_37 = "/ikebeji/kids-survey-37.jpg";
-const IKEBEJI_DEC_RICE_SALE = "/ikebeji/12-rice-sale.jpg";
 
 /** デスクトップ Figma コラージュ6枠（`<CollagePhoto>` の参照順） */
 const COLLAGE_IMAGES = [
   { src: IKEBEJI_COLLAGE_17, alt: "フィールドの様子" },
   { src: P[1].src, alt: P[1].alt },
-  { src: IKEBEJI_DEC_RICE_SALE, alt: "活動の記録" },
+  { src: IKEBEJI_TEAM_JP("38"), alt: "活動の記録" },
   {
-    src: IKEBEJI_COLLAGE_18,
+    src: IKEBEJI_TEAM_JP("36"),
     alt: "佐渡Kids 生きもの調査隊 — 遊んで学んで体験する",
   },
   { src: IKEBEJI_COLLAGE_37, alt: "仲間と学ぶ時間" },
-  { src: P[2].src, alt: "発表やまとめ" },
+  { src: P[2].src, alt: P[2].alt },
 ] as const;
 
 /**
@@ -130,18 +137,18 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
   },
   {
     kind: "icon",
-    src: "/ikebeji/sadokids_png_Black_rice.png",
-    boxClass: "left-[-18px] top-[112px] z-[4] h-[62px] w-[142px] -rotate-[7deg] opacity-[0.82]",
-    width: 298,
-    height: 139,
+    src: ikebejiGreenPng("sadokids_green_rice.png"),
+    boxClass: "left-[-18px] top-[112px] z-0 h-[124px] w-[284px] -rotate-[7deg] opacity-[0.82]",
+    width: 596,
+    height: 278,
     motionClass: "about-decor-bob",
   },
   {
     kind: "icon",
-    src: "/ikebeji/sadokids_png_Black_chocho.png",
-    boxClass: "left-[40%] top-[216px] z-[4] h-[94px] w-[72px] rotate-[10deg] opacity-[0.82]",
-    width: 144,
-    height: 214,
+    src: ikebejiGreenPng("sadokids_green_Butterfly.png"),
+    boxClass: "left-[40%] top-[216px] z-0 h-[188px] w-[144px] rotate-[10deg] opacity-[0.82]",
+    width: 288,
+    height: 428,
     motionClass: "about-decor-sway",
     delayClass: "about-decor-delay-sm",
   },
@@ -204,42 +211,42 @@ function AboutHeadingBlock({
   if (mobileTitleFirst) {
     return (
       <div className={["text-center", className].join(" ")}>
-        <div className="relative mx-auto w-full px-10 pb-3 pt-8 sm:px-12 sm:pt-9">
-          <div className="pointer-events-none absolute left-0 top-1 z-0 h-[54px] w-[54px] -translate-x-0.5 -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:h-[64px] sm:w-[64px]">
+        <div className="relative mx-auto w-full overflow-visible px-10 pb-3 pt-8 sm:px-12 sm:pt-9">
+          <div className="pointer-events-none absolute left-0 top-1 z-[-1] h-[108px] w-[108px] -translate-x-0.5 -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:h-[128px] sm:w-[128px]">
             <div className="relative h-full w-full about-decor-bob">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.cloud}
                 alt=""
-                width={120}
-                height={120}
+                width={240}
+                height={240}
                 className="h-full w-full object-contain"
-                sizes="64px"
+                sizes="128px"
                 aria-hidden
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute right-0 top-3 z-0 h-[64px] w-[64px] translate-x-1 rotate-[16deg] opacity-[0.88] sm:top-4 sm:h-[76px] sm:w-[76px]">
+          <div className="pointer-events-none absolute right-0 top-3 z-[-1] h-[128px] w-[128px] translate-x-1 rotate-[16deg] opacity-[0.88] sm:top-4 sm:h-[152px] sm:w-[152px]">
             <div className="relative h-full w-full about-decor-sway about-decor-delay-sm">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.net}
                 alt=""
-                width={120}
-                height={120}
+                width={240}
+                height={240}
                 className="h-full w-full object-contain"
-                sizes="76px"
+                sizes="152px"
                 aria-hidden
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-0 right-3 z-0 h-[50px] w-[50px] translate-y-2 -rotate-[12deg] opacity-[0.9] sm:h-[58px] sm:w-[58px]">
+          <div className="pointer-events-none absolute bottom-14 right-3 z-[-1] h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-16 sm:h-[116px] sm:w-[116px]">
             <div className="relative h-full w-full about-decor-rock about-decor-delay-md">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.crab}
                 alt=""
-                width={120}
-                height={120}
+                width={240}
+                height={240}
                 className="h-full w-full object-contain"
-                sizes="58px"
+                sizes="116px"
                 aria-hidden
               />
             </div>
@@ -347,7 +354,7 @@ function AboutMobileCollageCanvas() {
                 width={layer.width}
                 height={layer.height}
                 className="h-full w-full object-contain"
-                sizes="96px"
+                sizes="192px"
               />
             </div>
           </div>
@@ -433,40 +440,40 @@ export default function AboutCollage() {
           className="left-[79.4%] top-[60.4%] z-[1] h-[28.5%] w-[25.333%]"
         />
 
-        <div className="pointer-events-none absolute left-[54.87%] top-[14.3%] z-[2] h-[13.9%] max-w-[19.87%]">
-          <div className="about-decor-sway about-decor-delay-sm relative h-full w-max max-w-full">
+        <div className="pointer-events-none absolute left-[54.87%] top-[14.3%] z-0 h-[13.9%] max-w-[19.87%] overflow-visible">
+          <div className="about-decor-sway about-decor-delay-sm relative h-full w-max max-w-full origin-top-left scale-[1.5]">
             <Image
-              src="/ikebeji/sadokids_png_Black_crab.png"
+              src={ikebejiGreenPng("sadokids_green_crab.png")}
               alt=""
-              width={298}
-              height={298}
-              sizes="200px"
+              width={447}
+              height={447}
+              sizes="300px"
               className="h-full w-auto max-w-full object-contain opacity-[0.9]"
               aria-hidden
             />
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[21.2%] top-[68.8%] z-[2] h-[19.6%] max-w-[15.33%]">
-          <div className="about-decor-bob relative h-full w-max max-w-full">
+        <div className="pointer-events-none absolute left-[21.2%] top-[68.8%] z-0 h-[19.6%] max-w-[15.33%] overflow-visible">
+          <div className="about-decor-bob relative h-full w-max max-w-full origin-bottom-left scale-[1.5]">
             <Image
-              src="/ikebeji/sadokids_png_Black_insect_cage.png"
+              src={ikebejiGreenPng("sadokids_green_insect cage.png")}
               alt=""
-              width={230}
-              height={196}
-              sizes="160px"
+              width={345}
+              height={294}
+              sizes="240px"
               className="h-full w-auto max-w-full object-contain opacity-90"
               aria-hidden
             />
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[68.33%] top-[65.2%] z-[2] h-[21.4%] max-w-[9.6%]">
-          <div className="about-decor-rock about-decor-delay-md relative h-full w-max max-w-full">
+        <div className="pointer-events-none absolute left-[68.33%] top-[65.2%] z-0 h-[21.4%] max-w-[9.6%] overflow-visible">
+          <div className="about-decor-rock about-decor-delay-md relative h-full w-max max-w-full origin-top-left scale-[1.5]">
             <Image
-              src="/ikebeji/sadokids_png_Black_flower_2.png"
+              src={ikebejiGreenPng("sadokids_green_flower 2.png")}
               alt=""
-              width={144}
-              height={214}
-              sizes="120px"
+              width={216}
+              height={321}
+              sizes="180px"
               className="h-full w-auto max-w-full object-contain opacity-90"
               aria-hidden
             />
@@ -487,7 +494,7 @@ export default function AboutCollage() {
           <Reveal delay={160} variant="right">
             <a
               href="#faq"
-              className="button-chip inline-flex items-center justify-center gap-4 rounded-[14px] bg-[#FB876D] px-8 py-4 text-[14px] tracking-[0.16em] text-white shadow-[0_14px_36px_-12px_rgba(251,135,109,0.55)] transition-all duration-300 hover:bg-[#f0745a]"
+              className="button-chip inline-flex items-center justify-center gap-4 rounded-[14px] bg-[var(--cta-visit-bg)] px-8 py-4 text-[14px] tracking-[0.16em] text-white shadow-[0_14px_36px_-12px_var(--cta-visit-shadow)] transition-all duration-300 hover:bg-[var(--cta-visit-hover)]"
             >
               <span>見学・お申し込み</span>
               <ArrowIcon />
@@ -505,7 +512,7 @@ export default function AboutCollage() {
         {ABOUT_LOWER_DECOR_ICONS.map((item) => (
           <div
             key={item.src}
-            className={["pointer-events-none absolute z-0 opacity-[0.78]", item.boxClass].join(" ")}
+            className={["pointer-events-none absolute z-[-1] opacity-[0.78]", item.boxClass].join(" ")}
           >
             <div
               className={["relative h-full w-full", item.motionClass, item.delayClass].filter(Boolean).join(" ")}
@@ -513,10 +520,10 @@ export default function AboutCollage() {
               <Image
                 src={item.src}
                 alt=""
-                width={120}
-                height={120}
+                width={240}
+                height={240}
                 className="h-full w-full object-contain"
-                sizes="(max-width:640px) 72px, 88px"
+                sizes="(max-width:640px) 144px, 176px"
                 aria-hidden
               />
             </div>

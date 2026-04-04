@@ -10,82 +10,82 @@ export type UseCaseCard = {
 export type AnnualProgramItem = {
   id: string;
   label: string;
+  date: string;
   title: string;
   summary: string;
   image: string;
 };
 
-/**
- * 各カードの説明直下に置く「こんな方におすすめ」枠（仮：全8枚共通・後で個別差し替え可）
- * `public/ikebeji` 内のファイル名（スペースあり）
- */
-export const ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC =
-  "/ikebeji/スクリーンショット 2026-04-04 16.48.49.png";
-
 export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
   {
     id: "y1",
     label: "4月",
-    title: "春の田んぼはじめ — 苗と水の生きもの",
+    date: "4月26日",
+    title: "入隊式・田んぼの準備・生きもの調査",
     summary:
       "水田に水が入りはじめるころ。泥の中や水面を観察し、春だけの顔ぶれを記録します。",
-    image: "/figma-assets/usecase-1-23bd32.png",
+    image: "/ikebeji/4-26-entry-rice-prep-survey.jpg",
   },
   {
     id: "y2",
     label: "5月",
-    title: "緑が広がる頃のフィールドウォーク",
+    date: "5月31日",
+    title: "田植え・生きもの調査",
     summary:
       "稲が育ちはじめた田んぼ周りを歩き、昆虫や鳥の気配を拾い上げます。",
-    image: "/figma-assets/usecase-2-d783d7.png",
+    image: "/ikebeji/5-31-rice-planting-survey.jpg",
   },
   {
     id: "y3",
     label: "6月",
-    title: "初夏の水辺 — 光と影の生きもの",
+    date: "6月21日",
+    title: "田んぼの草とり・生きもの調査",
     summary:
       "水路やため池のそばで、水温や水草とともに誰が暮らしているか観察します。",
-    image: "/figma-assets/usecase-3-48e433.png",
+    image: "/ikebeji/kids-survey-19.jpg",
   },
   {
     id: "y4",
-    label: "7月〜8月",
-    title: "夏休みスペシャル・ロングフィールド",
-    summary:
-      "時間を少し長めにとり、昼と夕方で見え方の違いを比べる回です。詳細は追って案内します。",
-    image: "/figma-assets/hero-1-65a613.png",
+    label: "8月",
+    date: "8月9日",
+    title: "川の生きもの調査",
+    summary: "時間を少し長めにとり、昼と夕方で見え方の違いを比べる回です。",
+    image: "/ikebeji/8-9-river-life-survey.jpg",
   },
   {
     id: "y5",
-    label: "9月",
-    title: "秋の田んぼ — 実りの手前の生きもの",
+    label: "10月",
+    date: "10月24日",
+    title: "稲刈り・生きもの調査",
     summary:
       "稲穂が出てくる季節。食べものをめぐる生きものたちのつながりを調べます。",
-    image: "/figma-assets/hero-2-65a613.png",
+    image: "/ikebeji/10-24-rice-harvest-survey.jpg",
   },
   {
     id: "y6",
-    label: "10月",
-    title: "収穫のころの記録と比較",
+    label: "11月",
+    date: "11月22日",
+    title: "収穫祭・お米販売準備",
     summary:
       "春の記録と見比べ、同じ場所で何が変わったかを隊員同士で話し合います。",
-    image: "/figma-assets/hero-3-65a613.png",
+    image: "/ikebeji/kids-survey-22.jpg",
   },
   {
     id: "y7",
-    label: "11月",
-    title: "冬にむけて — ノートと写真の整理",
+    label: "12月",
+    date: "12月",
+    title: "お米販売",
     summary:
       "一年の観察を振り返り、写真やスケッチをまとめるワークに取り組みます。",
-    image: "/figma-assets/hero-4-65a613.png",
+    image: "/ikebeji/12-rice-sale.jpg",
   },
   {
     id: "y8",
-    label: "3月",
-    title: "年度まとめ — 発表と次のテーマ",
-    summary:
-      "簡単な発表の時間と、次年度に向けたアイデア出し。未就学〜中学生を想定した仮スケジュールです。",
-    image: "/figma-assets/usecase-1-23bd32.png",
+    label: "2月",
+    date: "2月下旬",
+    title: "卒隊式・修了式",
+    summary: "簡単な発表の時間と、次年度に向けたアイデア出し。",
+    image: "/ikebeji/2-late-winter-graduation.jpg",
   },
 ];
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/app/components/reveal";
-import { ANNUAL_PROGRAMS, ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC } from "@/app/components/usecaseData";
+import { ANNUAL_PROGRAMS } from "@/app/components/usecaseData";
 
 type UseCasePanelProps = {
   id?: string;
@@ -10,6 +10,29 @@ type UseCasePanelProps = {
   /** When false, the blue block backdrop is omitted (parent provides a fixed layer). */
   embeddedBackdrop?: boolean;
 };
+
+/** `4月26日` → 「4月」「26」「日」、その他は 16px のまま */
+function AnnualDateHeading({ date }: { date: string }) {
+  const full = /^(\d+)月(\d+)日$/.exec(date);
+  if (full) {
+    return (
+      <p className="mt-3 flex flex-wrap items-baseline text-white">
+        <span className="text-[16px] leading-none tracking-[0.06em]">{full[1]}月</span>
+        <span className="text-[32px] font-medium tabular-nums leading-none tracking-tight">{full[2]}</span>
+        <span className="text-[16px] leading-none">日</span>
+      </p>
+    );
+  }
+  const late = /^(\d+)月下旬$/.exec(date);
+  if (late) {
+    return (
+      <p className="mt-3 text-[16px] leading-none tracking-[0.06em] text-white">{late[1]}月下旬</p>
+    );
+  }
+  return (
+    <p className="mt-3 text-[16px] leading-none tracking-[0.06em] text-white">{date}</p>
+  );
+}
 
 function ArrowIcon() {
   return (
@@ -47,7 +70,7 @@ export default function UseCasePanel({
           ].join(" ")}
         >
           {embeddedBackdrop ? (
-            <div className="absolute inset-0 -z-10 bg-[#568CBE]" aria-hidden />
+            <div className="absolute inset-0 -z-10 bg-[#7ECFDF]" aria-hidden />
           ) : null}
 
           <Reveal>
@@ -94,7 +117,8 @@ export default function UseCasePanel({
                         />
                       </div>
                     </div>
-                    <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-inter text-[12px] tracking-[0.12em] text-white/70">
+                    <AnnualDateHeading date={p.date} />
+                    <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-inter text-[12px] tracking-[0.12em] text-white/70">
                       <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-white/90">{p.label}</span>
                       <span className="tabular-nums text-white/55">
                         {String(index + 1).padStart(2, "0")} / 08
@@ -102,34 +126,18 @@ export default function UseCasePanel({
                     </p>
                   </div>
 
-                  {/* 右：モバイルは タイトル→本文→おすすめ→ボタン／md+ は おすすめ→タイトル→本文→ボタン */}
+                  {/* 右：タイトル→本文→ボタン */}
                   <div className="flex min-w-0 flex-1 flex-col gap-5 md:gap-6">
-                    <div className="order-3 w-full overflow-hidden rounded-[12px] md:order-1 md:max-w-[min(100%,520px)]">
-                      <Image
-                        src={ANNUAL_PROGRAM_RECOMMENDED_GRAPHIC}
-                        alt=""
-                        width={800}
-                        height={420}
-                        aria-hidden
-                        className={[
-                          "h-auto w-full object-contain object-left",
-                          index % 2 === 1 ? "md:object-right" : "",
-                        ]
-                          .filter(Boolean)
-                          .join(" ")}
-                        sizes="(max-width: 767px) 100vw, 520px"
-                      />
-                    </div>
-                    <h3 className="order-1 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#F7A89A] md:order-2 md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
+                    <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#F7A89A] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                       {p.title}
                     </h3>
-                    <p className="order-2 text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:order-3 md:max-w-[640px] md:text-[15px] md:leading-[1.75]">
+                    <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:max-w-[640px] md:text-[15px] md:leading-[1.75]">
                       {p.summary}
                     </p>
-                    <div className="order-4 flex justify-end pt-1 md:mt-auto md:pt-2">
+                    <div className="flex justify-end pt-1 md:mt-auto md:pt-2">
                       <a
                         href="#faq"
-                        className="arrow-link inline-flex items-center gap-2.5 rounded-[12px] bg-white px-6 py-3 text-[13px] font-medium tracking-[0.14em] text-[#568CBE] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition hover:bg-white/95 md:rounded-[14px] md:px-7"
+                        className="arrow-link inline-flex items-center gap-2.5 rounded-[12px] bg-white px-6 py-3 text-[13px] font-medium tracking-[0.14em] text-[#7ECFDF] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition hover:bg-white/95 md:rounded-[14px] md:px-7"
                       >
                         <span className="lowercase">read more</span>
                         <ArrowIcon />
@@ -148,7 +156,7 @@ export default function UseCasePanel({
               </p>
               <a
                 href="#faq"
-                className="arrow-link inline-flex items-center gap-3 rounded-[14px] bg-white px-8 py-4 text-[14px] tracking-[0.16em] text-[#4d84c5] shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
+                className="arrow-link inline-flex items-center gap-3 rounded-[14px] bg-white px-8 py-4 text-[14px] tracking-[0.16em] text-[#7ECFDF] shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
               >
                 <span>お問い合わせ・お申し込み</span>
                 <ArrowIcon />
