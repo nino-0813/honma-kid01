@@ -25,18 +25,30 @@ export default function Reveal({
       return;
     }
 
+    const show = () => {
+      setIsVisible(true);
+    };
+
+    // マウント時点でビューポートと交差していれば即表示（厳しい threshold で永遠に透明のままになるのを防ぐ）
+    const rect = node.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.bottom > 0 && rect.top < vh) {
+      show();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
+            show();
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.18,
-        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.05,
+        rootMargin: "0px 0px 8% 0px",
       },
     );
 
