@@ -19,6 +19,20 @@ export type NearImageIconConfig = {
   sizes?: string;
 };
 
+/**
+ * 記事ブロック内の緑昆虫などの装飾。
+ * `ANNUAL_PROGRAMS` の各要素に直書きしているので、1回分の `className` を変えても他の回に影響しません。
+ */
+export type ArticleInsectDecoration = {
+  /** 位置・サイズの Tailwind（`absolute` 系を含む） */
+  className: string;
+  width?: number;
+  height?: number;
+  sizes?: string;
+  /** 省略時は既定の緑昆虫 PNG */
+  src?: string;
+};
+
 /** ホーム #usecase — 年間プログラム（全8回・文言は仮） */
 export type AnnualProgramItem = {
   id: string;
@@ -29,6 +43,8 @@ export type AnnualProgramItem = {
   image: string;
   /** 装飾 PNG。文字列＝パスのみ／オブジェクトで位置・サイズを調整 */
   nearImageIcon?: string | NearImageIconConfig;
+  /** 記事右下付近の昆虫装飾（回ごとに className で個別指定） */
+  articleInsectDecoration?: ArticleInsectDecoration;
 };
 
 export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
@@ -40,10 +56,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "水田に水が入りはじめるころ。泥の中や水面を観察し、春だけの顔ぶれを記録します。",
     image: "/ikebeji/4-26-entry-rice-prep-survey.jpg",
-    // 仮置き: 位置・大きさは `className` を足すか差し替えで調整（省略＝デフォルト）
-    nearImageIcon: {
+    articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%201.png",
-      // className: "…", // 例: デフォルトを上書きするとき
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[431px] top-[-96px] z-20 h-[180px] w-[230px] object-contain",
     },
   },
   {
@@ -54,6 +73,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "稲が育ちはじめた田んぼ周りを歩き、昆虫や鳥の気配を拾い上げます。",
     image: "/ikebeji/5-31-rice-planting-survey.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[600px] top-[-118px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
   {
     id: "y3",
@@ -63,6 +89,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "水路やため池のそばで、水温や水草とともに誰が暮らしているか観察します。",
     image: "/ikebeji/kids-survey-19.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[411px] top-[-115px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
   {
     id: "y4",
@@ -71,6 +104,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "川の生きもの調査",
     summary: "時間を少し長めにとり、昼と夕方で見え方の違いを比べる回です。",
     image: "/ikebeji/8-9-river-life-survey.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[583px] top-[-110px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
   {
     id: "y5",
@@ -80,6 +120,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "稲穂が出てくる季節。食べものをめぐる生きものたちのつながりを調べます。",
     image: "/ikebeji/10-24-rice-harvest-survey.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[429px] top-[-103px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
   {
     id: "y6",
@@ -89,6 +136,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "春の記録と見比べ、同じ場所で何が変わったかを隊員同士で話し合います。",
     image: "/ikebeji/kids-survey-22.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[597px] top-[-118px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
   {
     id: "y7",
@@ -98,6 +152,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "一年の観察を振り返り、写真やスケッチをまとめるワークに取り組みます。",
     image: "/ikebeji/12-rice-sale.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[421px] top-[-114px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
   {
     id: "y8",
@@ -106,6 +167,13 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "卒隊式・修了式",
     summary: "簡単な発表の時間と、次年度に向けたアイデア出し。",
     image: "/ikebeji/2-late-winter-graduation.jpg",
+    articleInsectDecoration: {
+      width: 230,
+      height: 180,
+      sizes: "230px",
+      className:
+        "absolute left-[604px] top-[-118px] z-20 h-[180px] w-[230px] object-contain",
+    },
   },
 ];
 

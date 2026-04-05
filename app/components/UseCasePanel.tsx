@@ -124,7 +124,7 @@ export default function UseCasePanel({
           ].join(" ")}
         >
           <Reveal>
-            <div>
+            <div className="relative">
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white">
                 yearly program
               </p>
@@ -151,7 +151,7 @@ export default function UseCasePanel({
                   <article
                     id={p.id}
                     className={[
-                      "group flex w-full flex-col gap-5 md:items-stretch md:gap-10 lg:gap-14",
+                      "group relative flex w-full flex-col gap-5 md:items-stretch md:gap-10 lg:gap-14",
                       index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
                     ].join(" ")}
                   >
@@ -197,6 +197,21 @@ export default function UseCasePanel({
                         </p>
                       </div>
                     </div>
+
+                    {p.articleInsectDecoration ? (
+                      <Image
+                        src={
+                          p.articleInsectDecoration.src ??
+                          "/ikebeji/green/sadokids_green_insect%201.png"
+                        }
+                        alt=""
+                        width={p.articleInsectDecoration.width ?? 230}
+                        height={p.articleInsectDecoration.height ?? 180}
+                        className={p.articleInsectDecoration.className}
+                        sizes={p.articleInsectDecoration.sizes ?? "230px"}
+                        aria-hidden
+                      />
+                    ) : null}
                   </article>
                 </Reveal>
               );
