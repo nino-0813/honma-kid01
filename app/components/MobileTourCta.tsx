@@ -1,10 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 const HERO_ID = "site-hero";
+/** Tailwind `md` と揃える（これ以上は DesktopFloatingApplyCta のみ） */
+const MD = 768;
+const mobileMq = `(max-width: ${MD - 1}px)`;
+
+function subscribeMobileMq(onChange: () => void) {
+  const mq = window.matchMedia(mobileMq);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
+function getMobileMqSnapshot() {
+  return window.matchMedia(mobileMq).matches;
+}
+
+/** SSR はモバイル想定でヒーロー内リンクを出す（デスクトップは CSR で null になり二重 FAB を防ぐ） */
+function getServerMobileMqSnapshot() {
+  return true;
+}
+
+function useIsMobileViewport() {
+  return useSyncExternalStore(
+    subscribeMobileMq,
+    getMobileMqSnapshot,
+    getServerMobileMqSnapshot,
+  );
+}
 
 function ArrowIcon() {
   return (
@@ -31,12 +57,14 @@ const baseClass =
   "inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--cta-visit-bg)] px-6 py-4 text-[13px] font-medium tracking-[0.14em] text-white transition-colors duration-300 hover:bg-[var(--cta-visit-hover)]";
 
 export default function MobileTourCta() {
+  const isMobile = useIsMobileViewport();
   const [pastHero, setPastHero] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
+    if (!isMobile) return;
     const hero = document.getElementById(HERO_ID);
     if (!hero) return;
 
@@ -49,7 +77,9 @@ export default function MobileTourCta() {
 
     io.observe(hero);
     return () => io.disconnect();
-  }, []);
+  }, [isMobile]);
+
+  if (!isMobile) return null;
 
   const link = (
     <a
