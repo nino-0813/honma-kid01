@@ -3,6 +3,8 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { APPLICATION_FORM_URL } from "@/app/siteUrls";
+import FloatingApplyCtaCircle from "@/app/components/FloatingApplyCtaCircle";
+import { useUsecaseZoneActive } from "@/app/components/useUsecaseZoneActive";
 
 const HERO_ID = "site-hero";
 /** Tailwind `md` と揃える（これ以上は DesktopFloatingApplyCta のみ） */
@@ -51,15 +53,21 @@ function ArrowIcon() {
 }
 
 /**
- * スマホ: ヒーロー内は右上。ヒーローをスクロールアウトしたら右下に固定。
+ * スマホ: ヒーロー内は右上のテキストボタン。ヒーローをスクロールアウトしたら右下固定の円形画像ボタン
+ * （DesktopFloatingApplyCta と同じ画像・年間プログラムゾーンのクロスフェード）。
  */
-const baseClass =
+const heroLinkClass =
   "inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--cta-visit-bg)] px-6 py-4 text-[13px] font-medium tracking-[0.14em] text-white transition-colors duration-300 hover:bg-[var(--cta-visit-hover)]";
+
+/** デスクトップ円形 CTA のベースサイズ（md 未満では固定 120px）に合わせる */
+const MOBILE_FLOATING_CLASS =
+  "button-chip fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-6 z-[9999] block h-[120px] w-[120px] overflow-hidden rounded-full bg-transparent shadow-[0_12px_32px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:scale-[1.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#006B2B]";
 
 export default function MobileTourCta() {
   const isMobile = useIsMobileViewport();
   const [pastHero, setPastHero] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const usecaseZoneActive = useUsecaseZoneActive(mounted && isMobile);
 
   useEffect(() => setMounted(true), []);
 
@@ -81,17 +89,12 @@ export default function MobileTourCta() {
 
   if (!isMobile) return null;
 
-  const link = (
+  const heroLink = (
     <a
       href={APPLICATION_FORM_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={[
-        baseClass,
-        pastHero
-          ? "fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 z-[9999] shadow-[0_12px_32px_rgba(0,0,0,0.28)]"
-          : "shadow-[0_8px_24px_rgba(0,0,0,0.2)]",
-      ].join(" ")}
+      className={`${heroLinkClass} shadow-[0_8px_24px_rgba(0,0,0,0.2)]`}
     >
       お申し込み
       <ArrowIcon />
@@ -99,8 +102,14 @@ export default function MobileTourCta() {
   );
 
   if (pastHero && mounted) {
-    return createPortal(link, document.body);
+    return createPortal(
+      <FloatingApplyCtaCircle
+        usecaseZoneActive={usecaseZoneActive}
+        className={MOBILE_FLOATING_CLASS}
+      />,
+      document.body,
+    );
   }
 
-  return link;
+  return heroLink;
 }

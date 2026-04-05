@@ -172,8 +172,8 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
 ──────────────────────────────────────────── */
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#7ECFDF] text-[#444]">
-      <div className="mx-auto flex max-w-[1920px] flex-col gap-0">
+    <main className="relative min-h-screen w-full min-w-0 flex-1 bg-[#7ECFDF] text-[#444]">
+      <div className="mx-auto flex w-full max-w-[1920px] flex-col gap-0">
         <DesktopFloatingApplyCta />
 
         {/* ── HERO ──────────────────────────────────── */}
