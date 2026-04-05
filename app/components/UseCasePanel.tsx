@@ -41,7 +41,9 @@ function AnnualDateHeading({
   const full = /^(\d+)月(\d+)日$/.exec(date);
   if (full) {
     return (
-      <p className={`${mt} flex flex-wrap items-baseline text-white`}>
+      <p
+        className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
+      >
         <span className={dayNum}>{full[1]}</span>
         <span className={daySuffix}>月</span>
         <span className={dayNum}>{full[2]}</span>
@@ -53,7 +55,9 @@ function AnnualDateHeading({
   if (late) {
     if (desk) {
       return (
-        <p className={`${mt} flex flex-wrap items-baseline text-white`}>
+        <p
+          className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
+        >
           <span className={dayNum}>{late[1]}</span>
           <span className={monthUnit}>月下旬</span>
         </p>
@@ -123,7 +127,7 @@ export default function UseCasePanel({
           <Reveal>
             <div>
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white/80">
-                annual program
+                yearly program
               </p>
               <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px] md:tracking-[0.06em]">
                 年間プログラム
@@ -170,7 +174,7 @@ export default function UseCasePanel({
                   </div>
 
                   {/* 右：デスクトップは日付→タイトル→説明の順で一塊のパネル */}
-                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:p-8 md:pt-7 lg:p-10 lg:pt-9">
+                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:px-8 md:pb-8 md:pt-0 lg:px-10 lg:pb-10 lg:pt-0">
                     <div className="flex min-w-0 flex-col gap-3 md:gap-4">
                       <div className="hidden md:block md:border-b md:border-white/15 md:pb-5">
                         <AnnualDateHeading date={p.date} placement="afterSummary" />
