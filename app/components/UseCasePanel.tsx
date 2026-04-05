@@ -26,7 +26,7 @@ function AnnualDateHeading({ date }: { date: string }) {
   if (full) {
     return (
       <p
-        className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
+        className={`${mt} flex w-full flex-wrap items-baseline justify-start leading-none text-white`}
       >
         <span className={num}>{full[1]}</span>
         <span className={suffix}>月</span>
@@ -39,7 +39,7 @@ function AnnualDateHeading({ date }: { date: string }) {
   if (late) {
     return (
       <p
-        className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
+        className={`${mt} flex w-full flex-wrap items-baseline justify-start leading-none text-white`}
       >
         <span className={num}>{late[1]}</span>
         <span className={suffix}>月下旬</span>
@@ -50,7 +50,7 @@ function AnnualDateHeading({ date }: { date: string }) {
   if (monthOnly) {
     return (
       <p
-        className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
+        className={`${mt} flex w-full flex-wrap items-baseline justify-start leading-none text-white`}
       >
         <span className={num}>{monthOnly[1]}</span>
         <span className={suffix}>月</span>
@@ -59,7 +59,7 @@ function AnnualDateHeading({ date }: { date: string }) {
   }
   return (
     <p
-      className={`${mt} text-[32px] font-medium leading-none tracking-[0.06em] text-white md:text-[clamp(54px,6vw,72px)]`}
+      className={`${mt} w-full text-left text-[32px] font-medium leading-none tracking-[0.06em] text-white md:text-[clamp(54px,6vw,72px)]`}
     >
       {date}
     </p>
@@ -154,9 +154,9 @@ export default function UseCasePanel({
                   </div>
 
                   {/* 日付→タイトル→説明を一パネル（モバイル・デスクトップ共通） */}
-                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] pb-5 pl-4 pr-5 pt-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:pb-8 md:pl-6 md:pr-8 md:pt-0 lg:pb-10 lg:pl-7 lg:pr-10 lg:pt-0">
+                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] pb-5 pl-2 pr-5 pt-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:pb-8 md:pl-6 md:pr-8 md:pt-0 lg:pb-10 lg:pl-7 lg:pr-10 lg:pt-0">
                     <div className="flex min-w-0 flex-col gap-3 md:gap-4">
-                      <div className="border-b border-white/15 pb-4 md:pb-5">
+                      <div className="border-b border-white/15 pb-4 text-left md:pb-5">
                         <AnnualDateHeading date={p.date} />
                       </div>
                       <h3 className="pt-1 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
