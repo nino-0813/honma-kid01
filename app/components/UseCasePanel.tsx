@@ -12,31 +12,15 @@ type UseCasePanelProps = {
   embeddedBackdrop?: boolean;
 };
 
-type AnnualDatePlacement = "photo" | "afterSummary";
-
 /**
- * `4月26日` → 「4月」「26」「日」
- * - photo: 写真下（モバイルのみ表示は親で `md:hidden`）
- * - afterSummary: デスクトップ用の大きい日付（親で `hidden md:block`、パネル内は先頭に配置）
+ * パネル先頭用日付。モバイルは従来写真下サイズの約2倍（数字64px・月/日32px）、md以上は従来の大きい表示。
  */
-function AnnualDateHeading({
-  date,
-  placement,
-}: {
-  date: string;
-  placement: AnnualDatePlacement;
-}) {
-  const desk = placement === "afterSummary";
-  const mt = desk ? "mt-0" : "mt-3";
-  const monthUnit = desk
-    ? "text-[clamp(51px,5.7vw,66px)] leading-none tracking-[0.06em]"
-    : "text-[16px] leading-none tracking-[0.06em]";
-  const dayNum = desk
-    ? "text-[clamp(90px,10.5vw,126px)] font-medium tabular-nums leading-none tracking-tight"
-    : "text-[32px] font-medium tabular-nums leading-none tracking-tight";
-  const daySuffix = desk
-    ? "text-[clamp(51px,5.7vw,66px)] leading-none tracking-[0.06em]"
-    : "text-[16px] leading-none tracking-[0.06em]";
+function AnnualDateHeading({ date }: { date: string }) {
+  const mt = "mt-0";
+  const suffix =
+    "text-[32px] leading-none tracking-[0.06em] md:text-[clamp(51px,5.7vw,66px)]";
+  const num =
+    "text-[64px] font-medium tabular-nums leading-none tracking-tight md:text-[clamp(90px,10.5vw,126px)]";
 
   const full = /^(\d+)月(\d+)日$/.exec(date);
   if (full) {
@@ -44,42 +28,41 @@ function AnnualDateHeading({
       <p
         className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
       >
-        <span className={dayNum}>{full[1]}</span>
-        <span className={daySuffix}>月</span>
-        <span className={dayNum}>{full[2]}</span>
-        <span className={daySuffix}>日</span>
+        <span className={num}>{full[1]}</span>
+        <span className={suffix}>月</span>
+        <span className={num}>{full[2]}</span>
+        <span className={suffix}>日</span>
       </p>
     );
   }
   const late = /^(\d+)月下旬$/.exec(date);
   if (late) {
-    if (desk) {
-      return (
-        <p
-          className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
-        >
-          <span className={dayNum}>{late[1]}</span>
-          <span className={monthUnit}>月下旬</span>
-        </p>
-      );
-    }
     return (
-      <p className={`${mt} text-[16px] leading-none tracking-[0.06em] text-white`}>
-        {late[1]}月下旬
+      <p
+        className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
+      >
+        <span className={num}>{late[1]}</span>
+        <span className={suffix}>月下旬</span>
       </p>
     );
   }
-  if (desk) {
+  const monthOnly = /^(\d+)月$/.exec(date);
+  if (monthOnly) {
     return (
       <p
-        className={`${mt} text-[clamp(54px,6vw,72px)] font-medium leading-none tracking-[0.06em] text-white`}
+        className={`${mt} flex flex-wrap items-baseline leading-none text-white`}
       >
-        {date}
+        <span className={num}>{monthOnly[1]}</span>
+        <span className={suffix}>月</span>
       </p>
     );
   }
   return (
-    <p className={`${mt} text-[16px] leading-none tracking-[0.06em] text-white`}>{date}</p>
+    <p
+      className={`${mt} text-[32px] font-medium leading-none tracking-[0.06em] text-white md:text-[clamp(54px,6vw,72px)]`}
+    >
+      {date}
+    </p>
   );
 }
 
@@ -168,18 +151,15 @@ export default function UseCasePanel({
                         />
                       </div>
                     </div>
-                    <div className="md:hidden">
-                      <AnnualDateHeading date={p.date} placement="photo" />
-                    </div>
                   </div>
 
-                  {/* 右：デスクトップは日付→タイトル→説明の順で一塊のパネル */}
-                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:px-8 md:pb-8 md:pt-0 lg:px-10 lg:pb-10 lg:pt-0">
+                  {/* 日付→タイトル→説明を一パネル（モバイル・デスクトップ共通） */}
+                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] pb-5 pl-4 pr-5 pt-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:pb-8 md:pl-6 md:pr-8 md:pt-0 lg:pb-10 lg:pl-7 lg:pr-10 lg:pt-0">
                     <div className="flex min-w-0 flex-col gap-3 md:gap-4">
-                      <div className="hidden md:block md:border-b md:border-white/15 md:pb-5">
-                        <AnnualDateHeading date={p.date} placement="afterSummary" />
+                      <div className="border-b border-white/15 pb-4 md:pb-5">
+                        <AnnualDateHeading date={p.date} />
                       </div>
-                      <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25] md:pt-1">
+                      <h3 className="pt-1 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                         {p.title}
                       </h3>
                       <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:max-w-none md:text-[15px] md:leading-[1.75]">
