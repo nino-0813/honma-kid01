@@ -9,15 +9,20 @@ function ikebejiGreenPng(filename: string): string {
   return `/ikebeji/green/${encodeURIComponent(filename)}`;
 }
 
+/** `public/ikebeji/Blue` 内のファイル名（スペース含む）を URL パスに */
+function ikebejiBluePng(filename: string): string {
+  return `/ikebeji/Blue/${encodeURIComponent(filename)}`;
+}
+
 const ABOUT_KICKER = "about Kids' Nature Exploration Team";
 const ABOUT_TITLE = "佐渡Kids生き物調査隊とは";
 /** モバイル about 見出しの改行（1行目＋2行目＝ `ABOUT_TITLE` と同じ読み） */
 const ABOUT_TITLE_MOBILE_LINES = ["佐渡Kids生き物", "調査隊とは"] as const;
 /** モバイル about 見出し周りの手描きアイコン（`public/ikebeji`） */
 const ABOUT_MOBILE_TITLE_DECOR = {
-  cloud: ikebejiGreenPng("sadokids_green_cloud 1.png"),
-  crab: ikebejiGreenPng("sadokids_green_crab.png"),
-  net: ikebejiGreenPng("sadokids_green_insect net.png"),
+  cloud: ikebejiBluePng("sadokids_Blue_cloud 1.png"),
+  crab: ikebejiBluePng("sadokids_Blue_crab.png"),
+  net: ikebejiBluePng("sadokids_Blue_insect net.png"),
 } as const;
 
 /** 下段実写エリア（3枚写真の周り）の手描き装飾 — 参照イメージのように点数を絞って余白を残す */
@@ -189,8 +194,8 @@ function AboutHeadingBlock({
   if (mobileTitleFirst) {
     return (
       <div className={["text-center", className].join(" ")}>
-        <div className="relative mx-auto w-full overflow-visible px-10 pb-3 pt-8 sm:px-12 sm:pt-9">
-          <div className="pointer-events-none absolute left-0 top-1 z-[-1] h-[108px] w-[108px] -translate-x-0.5 -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:h-[128px] sm:w-[128px]">
+        <div className="relative mx-auto w-full overflow-visible px-7 pb-3 pt-8 sm:px-9 sm:pt-9">
+          <div className="pointer-events-none absolute left-[-18px] top-0 z-[-1] h-[108px] w-[108px] -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:left-[-22px] sm:top-1 sm:h-[128px] sm:w-[128px]">
             <div className="relative h-full w-full about-decor-bob">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.cloud}
@@ -203,7 +208,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute right-0 top-3 z-[-1] h-[128px] w-[128px] translate-x-1 rotate-[16deg] opacity-[0.88] sm:top-4 sm:h-[152px] sm:w-[152px]">
+          <div className="pointer-events-none absolute right-[-18px] top-2 z-[-1] h-[128px] w-[128px] rotate-[16deg] opacity-[0.88] sm:right-[-24px] sm:top-4 sm:h-[152px] sm:w-[152px]">
             <div className="relative h-full w-full about-decor-sway about-decor-delay-sm">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.net}
@@ -216,7 +221,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-14 right-3 z-[-1] h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-16 sm:h-[116px] sm:w-[116px]">
+          <div className="pointer-events-none absolute bottom-12 right-[-14px] z-[-1] h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-14 sm:right-[-20px] sm:h-[116px] sm:w-[116px]">
             <div className="relative h-full w-full about-decor-rock about-decor-delay-md">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.crab}
@@ -348,7 +353,7 @@ export default function AboutCollage() {
       id="about"
       className="relative overflow-x-clip bg-transparent px-5 py-16 sm:pt-4 md:px-10 md:py-20 lg:overflow-visible lg:py-24"
     >
-      {/* ── Mobile：上にコラージュ画像 → 見出し・本文 ── */}
+      {/* ── Mobile：上コラージュ → 見出し・本文 → 下段コラージュ（幅は 390px 内に統一） ── */}
       <div className="lg:hidden">
         <div className="mx-auto w-full max-w-[390px]">
           <Reveal
@@ -360,11 +365,94 @@ export default function AboutCollage() {
           </Reveal>
 
           <Reveal
-            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[326px] flex-col items-center gap-6 text-center"
+            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[326px] flex-col items-center gap-6 overflow-visible text-center"
             delay={120}
           >
-            <AboutHeadingBlock mobileTitleFirst className="w-full" />
+            <div className="w-full overflow-visible px-1 sm:px-2">
+              <AboutHeadingBlock mobileTitleFirst className="w-full" />
+            </div>
             <AboutBodyText intro className="w-full text-left" />
+          </Reveal>
+
+          {/* 下段：絶対配置の基準幅を上段と同一の max-w-[390px] に揃える */}
+          <Reveal
+            mode="children-only"
+            delay={40}
+            className="relative isolate mt-3 min-h-[520px] w-full overflow-visible"
+          >
+            {ABOUT_LOWER_DECOR_ICONS.map((item) => (
+              <div
+                key={item.src}
+                className={[
+                  "pointer-events-none absolute z-0 opacity-[0.78]",
+                  item.boxClass,
+                ].join(" ")}
+              >
+                <div
+                  className={["relative h-full w-full", item.motionClass, item.delayClass]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  <Image
+                    src={item.src}
+                    alt=""
+                    width={240}
+                    height={240}
+                    className="h-full w-full object-contain"
+                    sizes="(max-width:640px) 144px, 176px"
+                    aria-hidden
+                  />
+                </div>
+              </div>
+            ))}
+            <div
+              className="absolute right-[8px] top-[12px] z-[1] h-[188px] w-[150px]"
+              style={{ "--about-stagger": "0ms" } as CSSProperties}
+            >
+              <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
+                <Image
+                  id="img1"
+                  src="/ikebeji/kids-survey-24.jpg"
+                  alt=""
+                  width={150}
+                  height={188}
+                  className="h-full w-full object-cover"
+                  sizes="150px"
+                />
+              </div>
+            </div>
+            <div
+              className="absolute left-1/2 top-[310px] z-[1] h-[168px] w-[250px] -translate-x-1/2"
+              style={{ "--about-stagger": "90ms" } as CSSProperties}
+            >
+              <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
+                <Image
+                  id="img2"
+                  src="/ikebeji/kids-survey-17.jpg"
+                  alt=""
+                  width={250}
+                  height={168}
+                  className="h-full w-full object-cover"
+                  sizes="250px"
+                />
+              </div>
+            </div>
+            <div
+              className="absolute left-[18px] top-[184px] z-[1] h-[116px] w-[148px]"
+              style={{ "--about-stagger": "180ms" } as CSSProperties}
+            >
+              <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
+                <Image
+                  id="img3"
+                  src="/ikebeji/kids-survey-37.jpg"
+                  alt=""
+                  width={148}
+                  height={116}
+                  className="h-full w-full object-cover"
+                  sizes="148px"
+                />
+              </div>
+            </div>
           </Reveal>
         </div>
       </div>
@@ -421,7 +509,7 @@ export default function AboutCollage() {
         <div className="pointer-events-none absolute left-[54.87%] top-[14.3%] z-0 h-[13.9%] max-w-[19.87%] overflow-visible">
           <div className="about-decor-sway about-decor-delay-sm relative h-full w-max max-w-full origin-top-left scale-[1.5]">
             <Image
-              src={ikebejiGreenPng("sadokids_green_crab.png")}
+              src={ikebejiBluePng("sadokids_Blue_crab.png")}
               alt=""
               width={447}
               height={447}
@@ -434,7 +522,7 @@ export default function AboutCollage() {
         <div className="pointer-events-none absolute left-[21.2%] top-[68.8%] z-0 h-[19.6%] max-w-[15.33%] overflow-visible">
           <div className="about-decor-bob relative h-full w-max max-w-full origin-bottom-left scale-[1.5]">
             <Image
-              src={ikebejiGreenPng("sadokids_green_insect cage.png")}
+              src={ikebejiBluePng("sadokids_Blue_insect cage.png")}
               alt=""
               width={345}
               height={294}
@@ -447,7 +535,7 @@ export default function AboutCollage() {
         <div className="pointer-events-none absolute left-[68.33%] top-[65.2%] z-0 h-[21.4%] max-w-[9.6%] overflow-visible">
           <div className="about-decor-rock about-decor-delay-md relative h-full w-max max-w-full origin-top-left scale-[1.5]">
             <Image
-              src={ikebejiGreenPng("sadokids_green_flower 2.png")}
+              src={ikebejiBluePng("sadokids_Blue_flower 2.png")}
               alt=""
               width={216}
               height={321}
@@ -467,82 +555,6 @@ export default function AboutCollage() {
           </div>
           <AboutBodyText compact className="max-w-[270px] shrink-0 pt-0.5 xl:max-w-[300px]" />
         </Reveal>
-      </Reveal>
-
-      {/* 下段・実写＋装飾（モバイルのみ — デスクトップは大コラージュ側に集約） */}
-      <Reveal
-        mode="children-only"
-        delay={40}
-        className="relative mx-auto mt-3 min-h-[520px] w-full max-w-[390px] lg:hidden"
-      >
-        {ABOUT_LOWER_DECOR_ICONS.map((item) => (
-          <div
-            key={item.src}
-            className={["pointer-events-none absolute z-[-1] opacity-[0.78]", item.boxClass].join(" ")}
-          >
-            <div
-              className={["relative h-full w-full", item.motionClass, item.delayClass].filter(Boolean).join(" ")}
-            >
-              <Image
-                src={item.src}
-                alt=""
-                width={240}
-                height={240}
-                className="h-full w-full object-contain"
-                sizes="(max-width:640px) 144px, 176px"
-                aria-hidden
-              />
-            </div>
-          </div>
-        ))}
-        <div
-          className="absolute right-[8px] top-[12px] z-[1] h-[188px] w-[150px]"
-          style={{ "--about-stagger": "0ms" } as CSSProperties}
-        >
-          <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
-            <Image
-              id="img1"
-              src="/ikebeji/kids-survey-24.jpg"
-              alt=""
-              width={150}
-              height={188}
-              className="h-full w-full object-cover"
-              sizes="150px"
-            />
-          </div>
-        </div>
-        <div
-          className="absolute left-1/2 top-[310px] z-[1] h-[168px] w-[250px] -translate-x-1/2"
-          style={{ "--about-stagger": "90ms" } as CSSProperties}
-        >
-          <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
-            <Image
-              id="img2"
-              src="/ikebeji/kids-survey-17.jpg"
-              alt=""
-              width={250}
-              height={168}
-              className="h-full w-full object-cover"
-              sizes="250px"
-            />
-          </div>
-        </div>
-        <div
-          className="absolute left-[18px] top-[184px] z-[1] h-[116px] w-[148px]"
-          style={{ "--about-stagger": "180ms" } as CSSProperties}
-        >
-          <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
-            <Image
-              id="img3"
-              src="/ikebeji/kids-survey-37.jpg"
-              alt=""
-              width={148}
-              height={116}
-              className="h-full w-full object-cover"
-              sizes="148px"
-            />
-          </div>
-        </div>
       </Reveal>
     </section>
   );
