@@ -6,6 +6,19 @@ export type UseCaseCard = {
   image: string;
 };
 
+/**
+ * 年間プログラムの写真まわりに仮置きする装飾アイコン。
+ * - `className` を省略 → `UseCasePanel` の既定（写真の上辺付近・角に重なる）
+ * - 大きさ例: `w-[96px]` `md:w-[120px]`
+ * - 位置の完全上書き: 任意の `absolute` 系ユーティリティを `className` に指定
+ */
+export type NearImageIconConfig = {
+  src: string;
+  className?: string;
+  /** Next/Image の `sizes`（省略時はパネル側デフォルト） */
+  sizes?: string;
+};
+
 /** ホーム #usecase — 年間プログラム（全8回・文言は仮） */
 export type AnnualProgramItem = {
   id: string;
@@ -14,6 +27,8 @@ export type AnnualProgramItem = {
   title: string;
   summary: string;
   image: string;
+  /** 装飾 PNG。文字列＝パスのみ／オブジェクトで位置・サイズを調整 */
+  nearImageIcon?: string | NearImageIconConfig;
 };
 
 export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
@@ -25,6 +40,11 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary:
       "水田に水が入りはじめるころ。泥の中や水面を観察し、春だけの顔ぶれを記録します。",
     image: "/ikebeji/4-26-entry-rice-prep-survey.jpg",
+    // 仮置き: 位置・大きさは `className` を足すか差し替えで調整（省略＝デフォルト）
+    nearImageIcon: {
+      src: "/ikebeji/White/sadokids_png_White_insect%201.png",
+      // className: "…", // 例: デフォルトを上書きするとき
+    },
   },
   {
     id: "y2",

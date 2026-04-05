@@ -1,7 +1,41 @@
 import Image from "next/image";
 import Reveal from "@/app/components/reveal";
-import { ANNUAL_PROGRAMS } from "@/app/components/usecaseData";
-import { APPLICATION_FORM_URL } from "@/app/siteUrls";
+import {
+  ANNUAL_PROGRAMS,
+  type NearImageIconConfig,
+} from "@/app/components/usecaseData";
+
+/**
+ * 写真の角に「はみ出して重なる」既定レイアウト（参考: 上辺・角付近に白線画を載せる）。
+ * 交互レイアウトで写真が左右反転するため、内側の角（本文側）に寄せる。
+ */
+function nearImageIconOverlapClass(index: number): string {
+  const corner =
+    index % 2 === 0
+      ? "right-0 left-auto origin-bottom-right -translate-x-[18%]"
+      : "left-0 right-auto origin-bottom-left translate-x-[18%]";
+  return [
+    "pointer-events-none absolute top-0 z-[2] block h-auto w-[104px] object-contain",
+    "drop-shadow-[0_6px_18px_rgba(0,0,0,0.2)]",
+    "md:w-[128px] lg:w-[140px]",
+    "-translate-y-[46%] md:-translate-y-[44%] lg:-translate-y-[42%]",
+    corner,
+  ].join(" ");
+}
+
+function resolveNearImageIcon(
+  raw: string | NearImageIconConfig | undefined,
+): { src: string; customClassName?: string; sizes: string } | null {
+  if (!raw) return null;
+  if (typeof raw === "string") {
+    return { src: raw, sizes: "140px" };
+  }
+  return {
+    src: raw.src,
+    customClassName: raw.className,
+    sizes: raw.sizes ?? "140px",
+  };
+}
 
 type UseCasePanelProps = {
   id?: string;
@@ -66,24 +100,6 @@ function AnnualDateHeading({ date }: { date: string }) {
   );
 }
 
-function ArrowIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 12h16" />
-      <path d="m14 6 6 6-6 6" />
-    </svg>
-  );
-}
-
 export default function UseCasePanel({
   id = "usecase",
   className = "",
@@ -128,66 +144,64 @@ export default function UseCasePanel({
               density === "stack" ? "mt-10" : "mt-12 md:mt-14",
             ].join(" ")}
           >
-            {ANNUAL_PROGRAMS.map((p, index) => (
-              <Reveal key={p.id} delay={(index % 4) * 60} variant={index % 2 === 0 ? "left" : "right"}>
-                <article
-                  id={p.id}
-                  className={[
-                    "group flex w-full flex-col gap-5 md:items-stretch md:gap-10 lg:gap-14",
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
-                  ].join(" ")}
-                >
-                  {/* 写真＋ラベル（モバイルは常に先頭／デスクトップは交互に左右） */}
-                  <div className="w-full shrink-0 md:w-[min(42%,480px)] lg:w-[min(44%,520px)]">
-                    <div className="relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0 lg:rounded-[20px]">
-                      <div className="relative aspect-[16/10] w-full">
+            {ANNUAL_PROGRAMS.map((p, index) => {
+              const nearIcon = resolveNearImageIcon(p.nearImageIcon);
+              return (
+                <Reveal key={p.id} delay={(index % 4) * 60} variant={index % 2 === 0 ? "left" : "right"}>
+                  <article
+                    id={p.id}
+                    className={[
+                      "group flex w-full flex-col gap-5 md:items-stretch md:gap-10 lg:gap-14",
+                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
+                    ].join(" ")}
+                  >
+                    {/* 写真＋任意の装飾アイコン（モバイルは常に先頭／デスクトップは交互に左右） */}
+                    <div className="relative w-full shrink-0 md:w-[min(42%,480px)] lg:w-[min(44%,520px)]">
+                      <div className="relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0 lg:rounded-[20px]">
+                        <div className="relative aspect-[16/10] w-full">
+                          <Image
+                            src={p.image}
+                            alt={p.title}
+                            width={1200}
+                            height={750}
+                            className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                            sizes="(max-width: 767px) 100vw, 480px"
+                          />
+                        </div>
+                      </div>
+                      {nearIcon ? (
                         <Image
-                          src={p.image}
-                          alt={p.title}
-                          width={1200}
-                          height={750}
-                          className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
-                          sizes="(max-width: 767px) 100vw, 480px"
+                          src={nearIcon.src}
+                          alt=""
+                          width={426}
+                          height={426}
+                          className={
+                            nearIcon.customClassName ??
+                            nearImageIconOverlapClass(index)
+                          }
+                          sizes={nearIcon.sizes}
+                          aria-hidden
                         />
-                      </div>
+                      ) : null}
                     </div>
-                  </div>
 
-                  {/* 日付→タイトル→説明を一パネル（モバイル・デスクトップ共通） */}
-                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] pb-5 pl-2 pr-5 pt-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:pb-8 md:pl-6 md:pr-8 md:pt-0 lg:pb-10 lg:pl-7 lg:pr-10 lg:pt-0">
-                    <div className="flex min-w-0 flex-col gap-5 md:gap-4">
-                      <div className="border-b border-white/15 pb-5 text-left md:pb-5">
+                    {/* 日付→タイトル→説明（カード枠なし） */}
+                    <div className="flex min-w-0 flex-1 flex-col">
+                      <div className="flex min-w-0 flex-col gap-5 text-left md:gap-4">
                         <AnnualDateHeading date={p.date} />
+                        <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
+                          {p.title}
+                        </h3>
+                        <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]">
+                          {p.summary}
+                        </p>
                       </div>
-                      <h3 className="pt-2 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:pt-1 md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
-                        {p.title}
-                      </h3>
-                      <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]">
-                        {p.summary}
-                      </p>
                     </div>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
-
-          <Reveal delay={120}>
-            <div className="mt-14 flex flex-col items-center gap-4 md:mt-20">
-              <p className="text-center text-[15px] leading-[1.85] tracking-[0.1em] text-white">
-                参加をご希望の方は、お気軽にお問い合わせください。
-              </p>
-              <a
-                href={APPLICATION_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="arrow-link inline-flex items-center gap-3 rounded-[14px] border-2 border-white bg-white/10 px-8 py-4 text-[14px] tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.15)] backdrop-blur-[2px] transition hover:bg-white/20"
-              >
-                <span>お申し込み</span>
-                <ArrowIcon />
-              </a>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>

@@ -7,14 +7,27 @@ import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 const MD = 768;
 
-const CTA_IMAGE_SRC = "/ikebeji/sadokids_HP_green_symbol%202.png";
+/** 通常表示（年間プログラム外） */
+const CTA_IMAGE_DEFAULT =
+  "/ikebeji/sadokids_HP_green_symbol%20green%20dark.png";
+/** #usecase 表示中のみ（HeroSectionNav の判定と揃える） */
+const CTA_IMAGE_IN_USECASE =
+  "/ikebeji/sadokids_HP_green_symbol%204.png";
+
+const USECASE_OBSERVER_INIT: IntersectionObserverInit = {
+  root: null,
+  threshold: 0.12,
+  rootMargin: "-48px 0px -20% 0px",
+};
 
 /**
  * md 以上: ビューポート右下に常時固定のお申し込み（画像ボタン）。モバイルは MobileTourCta を使用。
+ * #usecase セクションが見えている間だけ画像を差し替える。
  */
 export default function DesktopFloatingApplyCta() {
   const [mounted, setMounted] = useState(false);
   const [desktop, setDesktop] = useState(false);
+  const [usecaseInView, setUsecaseInView] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -25,7 +38,20 @@ export default function DesktopFloatingApplyCta() {
     return () => mq.removeEventListener("change", apply);
   }, []);
 
+  useEffect(() => {
+    if (!mounted || !desktop) return;
+    const el = document.getElementById("usecase");
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      setUsecaseInView(entry?.isIntersecting ?? false);
+    }, USECASE_OBSERVER_INIT);
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [mounted, desktop]);
+
   if (!mounted || !desktop) return null;
+
+  const imageSrc = usecaseInView ? CTA_IMAGE_IN_USECASE : CTA_IMAGE_DEFAULT;
 
   return createPortal(
     <a
@@ -37,7 +63,8 @@ export default function DesktopFloatingApplyCta() {
     >
       <span className="relative block h-full w-full overflow-hidden rounded-full">
         <Image
-          src={CTA_IMAGE_SRC}
+          key={imageSrc}
+          src={imageSrc}
           alt=""
           fill
           className="origin-center scale-[1.92] object-cover object-center"
