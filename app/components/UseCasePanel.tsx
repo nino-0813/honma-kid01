@@ -110,7 +110,7 @@ export default function UseCasePanel({
     <section
       id={id}
       className={[
-        "relative px-0 py-0",
+        "relative w-full min-w-0 px-0 py-0",
         embeddedBackdrop ? "bg-[rgb(111,174,202)]" : "",
         className,
       ]
@@ -118,10 +118,10 @@ export default function UseCasePanel({
         .join(" ")
         .trim()}
     >
-      <div className="relative z-10 mx-auto max-w-[1540px]">
+      <div className="relative z-10 mx-auto w-full max-w-[1540px]">
         <div
           className={[
-            "relative overflow-hidden bg-[rgb(111,174,202)] text-white",
+            "relative w-full overflow-hidden bg-[rgb(111,174,202)] text-white",
             density === "stack"
               ? "px-5 pb-24 pt-14 md:px-10 md:pb-28 md:pt-16"
               : "px-5 pb-44 pt-20 md:px-10 md:pb-52 md:pt-24",

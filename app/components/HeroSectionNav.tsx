@@ -6,7 +6,6 @@ type HeroSectionNavVariant = "hero" | "floating";
 
 const SECTION_LINKS = [
   { href: "#about", label: "佐渡Kids生きもの調査隊", accent: "#4DC47A" },
-  { href: "#place", label: "キッズのみなさんへ", accent: "#F7F54D" },
   { href: "#usecase", label: "年間プログラム", accent: "#4DC47A" },
   { href: "#staff", label: "スタッフ紹介", accent: "#F7F54D" },
   { href: "#faq", label: "よくある質問", accent: "#4DC47A" },
