@@ -1,6 +1,8 @@
 import Image from "next/image";
 import AboutCollage from "@/app/components/AboutCollage";
 import DesktopFloatingApplyCta from "@/app/components/DesktopFloatingApplyCta";
+import DesktopSectionNavFollow from "@/app/components/DesktopSectionNavFollow";
+import HeroSectionNav from "@/app/components/HeroSectionNav";
 import MobileTourCta from "@/app/components/MobileTourCta";
 import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
@@ -71,45 +73,6 @@ const HERO_DESKTOP_LEFT_COL = {
 /* ────────────────────────────────────────────
    Shared components
 ──────────────────────────────────────────── */
-function HeroSectionNav() {
-  const linkText =
-    "text-[11px] leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
-  return (
-    <nav aria-label="ページ内セクション" className="flex flex-col gap-2.5 md:gap-3">
-      <a
-        href="#about"
-        className="nav-link block border-l-[2px] border-[#4DC47A] py-0.5 pl-2.5"
-      >
-        <span className={linkText}>佐渡Kids生き物調査隊とは</span>
-      </a>
-      <a
-        href="#place"
-        className="nav-link block border-l-[2px] border-[#F7F54D] py-0.5 pl-2.5"
-      >
-        <span className={linkText}>キッズのみなさんへ</span>
-      </a>
-      <a
-        href="#usecase"
-        className="nav-link block border-l-[2px] border-[#4DC47A] py-0.5 pl-2.5"
-      >
-        <span className={linkText}>年間プログラム</span>
-      </a>
-      <a
-        href="#staff"
-        className="nav-link block border-l-[2px] border-[#F7F54D] py-0.5 pl-2.5"
-      >
-        <span className={linkText}>スタッフ紹介</span>
-      </a>
-      <a
-        href="#faq"
-        className="nav-link block border-l-[2px] border-[#4DC47A] py-0.5 pl-2.5"
-      >
-        <span className={linkText}>よくある質問</span>
-      </a>
-    </nav>
-  );
-}
-
 function PlaceSection({ id = "place", className = "" }: { id?: string; className?: string }) {
   return (
     <section
@@ -313,7 +276,7 @@ export default function Home() {
               className="flex w-full flex-col gap-7 pt-8"
               style={{ maxWidth: HERO_DESKTOP_LEFT_COL.maxWidth }}
             >
-              <HeroSectionNav />
+              <DesktopSectionNavFollow />
               <a
                 href="https://www.instagram.com/ikimono_sado"
                 target="_blank"
