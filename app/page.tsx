@@ -47,6 +47,27 @@ const HERO_SLIDESHOW_IMAGES = [
   "/ikebeji/kids-survey-22.jpg",
 ] as const;
 
+/**
+ * デスクトップ・ヒーロー左カラムの仮置き（ロゴ位置・幅・ロゴサイズ）
+ * ナビ列の水平位置はここでは変えない（p-14 内の通常配置）。
+ */
+const HERO_DESKTOP_LEFT_COL = {
+  /** ロゴ枠と下段（ナビ・Instagram）で共通の max-width */
+  maxWidth: "min(1140px, calc(100vw - 14rem))",
+  /** ロゴ画像の表示サイズ（px）— 親の maxWidth より狭い画面では幅に合わせて縮小 */
+  logoWidth: 1140,
+  logoHeight: 420,
+  /** ロゴ枠の min-height（px） */
+  logoBoxMinHeight: 420,
+  /** デスクトップヒーロー縦の最小高さ（px） */
+  sectionMinHeight: 960,
+  /**
+   * ロゴ枠だけの左位置（px）。ナビ・Instagram は p-14 基準のまま動かさない。
+   */
+  marginLeft: -88,
+  marginTop: 0,
+} as const;
+
 /* ────────────────────────────────────────────
    Shared components
 ──────────────────────────────────────────── */
@@ -110,7 +131,7 @@ function HeroSectionNav() {
       </a>
       <a
         href="#place"
-        className="nav-link block border-l-[2px] border-[#7ECFDF] py-0.5 pl-2.5"
+        className="nav-link block border-l-[2px] border-[#F7F54D] py-0.5 pl-2.5"
       >
         <span className={linkText}>キッズのみなさんへ</span>
       </a>
@@ -122,7 +143,7 @@ function HeroSectionNav() {
       </a>
       <a
         href="#staff"
-        className="nav-link block border-l-[2px] border-[#7ECFDF] py-0.5 pl-2.5"
+        className="nav-link block border-l-[2px] border-[#F7F54D] py-0.5 pl-2.5"
       >
         <span className={linkText}>スタッフ紹介</span>
       </a>
@@ -266,16 +287,16 @@ export default function Home() {
 
           {/* Mobile — 上 ロゴ / CTA、下 ナビ+SNS（デスクトップ左下と同じリンク） */}
           <div className="relative z-10 flex min-h-dvh flex-col justify-between p-5 pb-8 pt-6 md:hidden">
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0 shrink-0">
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0 shrink-0 -ml-[26px]">
                 <Image
                   src="/ikebeji/White/sadokids_White_LOGO_3.png"
                   alt="佐渡Kids生き物調査隊"
                   width={940}
                   height={780}
                   priority
-                  sizes="(max-width: 640px) 85vw, 480px"
-                  className="h-[104px] w-auto max-w-[min(480px,85vw)] sm:h-[120px]"
+                  sizes="(max-width: 640px) 92vw, 720px"
+                  className="h-[156px] w-auto max-w-[min(720px,92vw)] sm:h-[180px]"
                 />
               </div>
               <MobileTourCta />
@@ -304,19 +325,34 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Desktop */}
-          <div className="relative z-10 hidden min-h-[820px] flex-col justify-between p-14 md:flex">
+          {/* Desktop — ロゴとナビは HERO_DESKTOP_LEFT_COL で幅を揃え */}
+          <div
+            className="relative z-10 hidden flex-col justify-between p-14 md:flex"
+            style={{ minHeight: HERO_DESKTOP_LEFT_COL.sectionMinHeight }}
+          >
             <div className="flex items-start justify-between gap-8">
               {/* ファーストビューは Reveal しない（IO が効かない / opacity:0 のままになるケースを避ける） */}
-              <div className="relative z-20 min-h-[280px] min-w-0 shrink-0 self-start">
+              <div
+                className="relative z-20 min-w-0 shrink-0 self-start"
+                style={{
+                  maxWidth: HERO_DESKTOP_LEFT_COL.maxWidth,
+                  minHeight: HERO_DESKTOP_LEFT_COL.logoBoxMinHeight,
+                  marginLeft: HERO_DESKTOP_LEFT_COL.marginLeft,
+                  marginTop: HERO_DESKTOP_LEFT_COL.marginTop,
+                }}
+              >
                 <Image
                   src="/ikebeji/White/sadokids_White_LOGO_3.png"
                   alt="佐渡Kids生き物調査隊"
                   width={940}
                   height={780}
                   priority
-                  sizes="760px"
-                  className="block h-[280px] w-[760px] max-w-[min(760px,calc(100vw-8rem))] object-contain object-[left_top]"
+                  sizes={HERO_DESKTOP_LEFT_COL.maxWidth}
+                  className="block max-w-full object-contain object-left"
+                  style={{
+                    width: HERO_DESKTOP_LEFT_COL.logoWidth,
+                    height: HERO_DESKTOP_LEFT_COL.logoHeight,
+                  }}
                 />
               </div>
 
@@ -329,7 +365,10 @@ export default function Home() {
               </Reveal>
             </div>
 
-            <div className="flex w-full flex-col gap-7 pt-8">
+            <div
+              className="flex w-full flex-col gap-7 pt-8"
+              style={{ maxWidth: HERO_DESKTOP_LEFT_COL.maxWidth }}
+            >
               <HeroSectionNav />
               <a
                 href="https://www.instagram.com/ikimono_sado"
