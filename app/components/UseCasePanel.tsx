@@ -94,14 +94,14 @@ export default function UseCasePanel({
     <section id={id} className={["relative px-0 py-0", className].join(" ").trim()}>
       {embeddedBackdrop ? (
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[#7ECFDF]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[#006B2B]"
           aria-hidden
         />
       ) : null}
       <div className="relative z-10 mx-auto max-w-[1540px]">
         <div
           className={[
-            "relative overflow-hidden text-white",
+            "relative overflow-hidden bg-[#006B2B] text-white",
             density === "stack"
               ? "px-5 pb-24 pt-14 md:px-10 md:pb-28 md:pt-16"
               : "px-5 pb-44 pt-20 md:px-10 md:pb-52 md:pt-24",
@@ -109,13 +109,13 @@ export default function UseCasePanel({
         >
           <Reveal>
             <div>
-              <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white/80">
+              <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white">
                 yearly program
               </p>
-              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px] md:tracking-[0.06em]">
+              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
                 年間プログラム
               </h2>
-              <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">
+              <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white">
                 2026年度は全<strong className="font-semibold text-white">8回</strong>
                 を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。開催日・対象年齢・参加方法は決まり次第お知らせします（内容は仮のイメージです）。
               </p>
@@ -159,10 +159,10 @@ export default function UseCasePanel({
                       <div className="border-b border-white/15 pb-5 text-left md:pb-5">
                         <AnnualDateHeading date={p.date} />
                       </div>
-                      <h3 className="pt-2 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:pt-1 md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
+                      <h3 className="pt-2 text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:pt-1 md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                         {p.title}
                       </h3>
-                      <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:max-w-none md:text-[15px] md:leading-[1.75]">
+                      <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]">
                         {p.summary}
                       </p>
                     </div>
@@ -174,14 +174,14 @@ export default function UseCasePanel({
 
           <Reveal delay={120}>
             <div className="mt-14 flex flex-col items-center gap-4 md:mt-20">
-              <p className="text-center text-[15px] leading-[1.85] tracking-[0.1em] text-white/80">
+              <p className="text-center text-[15px] leading-[1.85] tracking-[0.1em] text-white">
                 参加をご希望の方は、お気軽にお問い合わせください。
               </p>
               <a
                 href={APPLICATION_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="arrow-link inline-flex items-center gap-3 rounded-[14px] bg-white px-8 py-4 text-[14px] tracking-[0.16em] text-[#7ECFDF] shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
+                className="arrow-link inline-flex items-center gap-3 rounded-[14px] border-2 border-white bg-white/10 px-8 py-4 text-[14px] tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.15)] backdrop-blur-[2px] transition hover:bg-white/20"
               >
                 <span>お申し込み</span>
                 <ArrowIcon />

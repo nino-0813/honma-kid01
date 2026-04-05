@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 type HeroSectionNavVariant = "hero" | "floating";
 
 const SECTION_LINKS = [
@@ -10,6 +14,7 @@ const SECTION_LINKS = [
 
 /**
  * ページ内アンカー（ヒーロー内は白文字＋左ライン、固定は本文色・横並び可）
+ * 固定・横並び時は #usecase（年間プログラム）表示中だけリンクを白にする。
  */
 export default function HeroSectionNav({
   variant = "hero",
@@ -18,6 +23,22 @@ export default function HeroSectionNav({
   variant?: HeroSectionNavVariant;
   layout?: "column" | "row";
 }) {
+  const [usecaseInView, setUsecaseInView] = useState(false);
+
+  useEffect(() => {
+    if (variant !== "floating" || layout !== "row") return;
+    const el = document.getElementById("usecase");
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        setUsecaseInView(entry?.isIntersecting ?? false);
+      },
+      { root: null, threshold: 0.12, rootMargin: "-48px 0px -20% 0px" },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [variant, layout]);
+
   const linkTextHero =
     "text-[11px] leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
   const linkTextFloating =
@@ -26,6 +47,14 @@ export default function HeroSectionNav({
   const isFloatingRow = variant === "floating" && layout === "row";
 
   if (isFloatingRow) {
+    const linkOnGreen =
+      "text-white underline decoration-white/35 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-white hover:decoration-white/65 md:text-[12px]";
+    const linkDefault =
+      "text-[#006B2B] underline decoration-[#006B2B]/30 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-[#004d1f] hover:decoration-[#006B2B]/60 md:text-[12px]";
+    const sepOnGreen = "mx-2.5 select-none text-[11px] text-white/40 md:mx-3 md:text-[12px]";
+    const sepDefault =
+      "mx-2.5 select-none text-[11px] text-[#006B2B]/40 md:mx-3 md:text-[12px]";
+
     return (
       <nav
         aria-label="ページ内セクション"
@@ -35,7 +64,7 @@ export default function HeroSectionNav({
           <span key={item.href} className="inline-flex items-center">
             {i > 0 ? (
               <span
-                className="mx-2.5 select-none text-[11px] text-[#006B2B]/40 md:mx-3 md:text-[12px]"
+                className={usecaseInView ? sepOnGreen : sepDefault}
                 aria-hidden
               >
                 /
@@ -43,7 +72,7 @@ export default function HeroSectionNav({
             ) : null}
             <a
               href={item.href}
-              className="nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] text-[#006B2B] underline decoration-[#006B2B]/30 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-[#004d1f] hover:decoration-[#006B2B]/60 md:text-[12px]"
+              className={`nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] ${usecaseInView ? linkOnGreen : linkDefault}`}
             >
               {item.label}
             </a>
