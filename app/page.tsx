@@ -55,7 +55,7 @@ function ArrowIcon() {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="h-[18px] w-[18px] shrink-0"
+      className="h-4 w-4 shrink-0"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -85,7 +85,7 @@ function ArrowLink({
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {})}
       className={[
-        "button-chip inline-flex items-center justify-center gap-4 rounded-full px-8 py-5 text-[15px] tracking-[0.16em] transition-all duration-300",
+        "button-chip inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-[14px] tracking-[0.16em] transition-all duration-300",
         light
           ? "border border-[#7ba6d9] bg-white text-[#4d84c5] hover:bg-[#f5faff]"
           : "bg-[var(--cta-visit-bg)] text-white hover:bg-[var(--cta-visit-hover)]",
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 shrink-0">
                 <Image
-                  src="/ikebeji/sadokids_yellow_LOGO_2.png"
+                  src="/ikebeji/White/sadokids_White_LOGO_3.png"
                   alt="佐渡Kids生き物調査隊"
                   width={940}
                   height={780}
@@ -318,12 +318,12 @@ export default function Home() {
           </div>
 
           {/* Desktop */}
-          <div className="relative z-10 hidden min-h-[880px] flex-col justify-between p-16 md:flex">
+          <div className="relative z-10 hidden min-h-[820px] flex-col justify-between p-14 md:flex">
             <div className="flex items-start justify-between gap-8">
               {/* ファーストビューは Reveal しない（IO が効かない / opacity:0 のままになるケースを避ける） */}
               <div className="relative z-20 min-h-[280px] min-w-0 shrink-0 self-start">
                 <Image
-                  src="/ikebeji/sadokids_yellow_LOGO_2.png"
+                  src="/ikebeji/White/sadokids_White_LOGO_3.png"
                   alt="佐渡Kids生き物調査隊"
                   width={940}
                   height={780}
@@ -430,7 +430,7 @@ export default function Home() {
                 </p>
               </div>
               <Image
-                src="/ikebeji/sadokids_green_LOGO_3.png"
+                src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.png"
                 alt="佐渡Kids生きもの調査隊"
                 width={940}
                 height={780}
