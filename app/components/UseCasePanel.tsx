@@ -107,13 +107,17 @@ export default function UseCasePanel({
   embeddedBackdrop = true,
 }: UseCasePanelProps) {
   return (
-    <section id={id} className={["relative px-0 py-0", className].join(" ").trim()}>
-      {embeddedBackdrop ? (
-        <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[rgb(111,174,202)]"
-          aria-hidden
-        />
-      ) : null}
+    <section
+      id={id}
+      className={[
+        "relative px-0 py-0",
+        embeddedBackdrop ? "bg-[rgb(111,174,202)]" : "",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .trim()}
+    >
       <div className="relative z-10 mx-auto max-w-[1540px]">
         <div
           className={[

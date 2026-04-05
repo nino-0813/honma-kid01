@@ -303,7 +303,7 @@ export default function Home() {
         </div>
 
         {/* ── USE CASE ──────────────────────────────── */}
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden bg-[rgb(111,174,202)]">
           <UseCasePanel id="usecase" density="default" />
         </section>
 

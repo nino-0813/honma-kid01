@@ -78,7 +78,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[600px] top-[-118px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[835px] top-[-125px] z-20 h-[180px] w-[230px] object-contain",
     },
   },
   {
@@ -109,7 +109,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[583px] top-[-110px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[849px] top-[-131px] z-20 h-[180px] w-[230px] object-contain",
     },
   },
   {
@@ -141,7 +141,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[597px] top-[-118px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[865px] top-[-125px] z-20 h-[180px] w-[230px] object-contain",
     },
   },
   {
@@ -172,7 +172,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[604px] top-[-118px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[865px] top-[-129px] z-20 h-[180px] w-[230px] object-contain",
     },
   },
 ];
