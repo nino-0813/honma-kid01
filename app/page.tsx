@@ -352,55 +352,44 @@ export default function Home() {
               </svg>
             </a>
             <div className="flex flex-col items-center gap-4 text-center">
-              <div className="flex flex-col items-center gap-1.5 text-center">
+              <div className="flex w-full max-w-[340px] flex-col items-center gap-2.5 text-[15px] leading-relaxed tracking-[0.06em] text-[#2B6FA8]">
+                <p className="font-semibold tracking-[0.12em]">問い合わせ先</p>
                 <a
-                  href="#"
-                  className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
+                  href="mailto:contact@ikimono-sado.com"
+                  className="inline-flex items-center gap-2 transition hover:underline"
                 >
-                  プライバシーポリシー
+                  <svg
+                    className="h-[1.1em] w-[1.1em] shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinejoin="round"
+                    aria-hidden
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 5 9-5" />
+                  </svg>
+                  contact@ikimono-sado.com
                 </a>
-                <p className="font-inter text-[14px] tracking-[0.16em] text-[#888]">
-                  2026 佐渡Kids生き物調査隊
-                </p>
-                <div className="mt-6 flex w-full max-w-[340px] flex-col items-center gap-2.5 text-[15px] leading-relaxed tracking-[0.06em] text-[#2B6FA8]">
-                  <p className="font-semibold tracking-[0.12em]">問い合わせ先</p>
-                  <a
-                    href="mailto:contact@ikimono-sado.com"
-                    className="inline-flex items-center gap-2 transition hover:underline"
+                <a
+                  href="tel:05036345251"
+                  className="inline-flex items-center gap-2 transition hover:underline"
+                >
+                  <svg
+                    className="h-[1.1em] w-[1.1em] shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    aria-hidden
                   >
-                    <svg
-                      className="h-[1.1em] w-[1.1em] shrink-0"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                      strokeLinejoin="round"
-                      aria-hidden
-                    >
-                      <rect x="3" y="5" width="18" height="14" rx="2" />
-                      <path d="m3 7 9 5 9-5" />
-                    </svg>
-                    contact@ikimono-sado.com
-                  </a>
-                  <a
-                    href="tel:05036345251"
-                    className="inline-flex items-center gap-2 transition hover:underline"
-                  >
-                    <svg
-                      className="h-[1.1em] w-[1.1em] shrink-0"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                      strokeLinecap="round"
-                      aria-hidden
-                    >
-                      <rect x="6" y="3" width="12" height="18" rx="2" />
-                      <path d="M10 18h4" />
-                    </svg>
-                    050-3634-5251
-                  </a>
-                </div>
+                    <rect x="6" y="3" width="12" height="18" rx="2" />
+                    <path d="M10 18h4" />
+                  </svg>
+                  050-3634-5251
+                </a>
               </div>
               <Image
                 src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.png"
@@ -409,9 +398,20 @@ export default function Home() {
                 height={780}
                 className="h-auto w-[min(100%,280px)] md:w-[320px]"
               />
+              <div className="flex flex-col items-center gap-1.5 text-center">
+                <a
+                  href="#"
+                  className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
+                >
+                  プライバシーポリシー
+                </a>
+                <p className="font-inter text-[14px] tracking-[0.16em] text-[#888]">
+                  2026 佐渡Kids生きもの調査隊
+                </p>
+              </div>
             </div>
             <p className="max-w-[520px] text-center text-[10px] leading-[1.7] tracking-[0.08em] text-[#aaa] md:text-[11px]">
-              © 2026 佐渡Kids生き物調査隊。当サイトに掲載する文章・写真・イラストなどの無断転載を禁じます。
+              © 2026 佐渡Kids生きもの調査隊。当サイトに掲載する文章・写真・イラストなどの無断転載を禁じます。
             </p>
           </div>
         </footer>
