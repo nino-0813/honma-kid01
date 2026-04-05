@@ -74,6 +74,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       "稲が育ちはじめた田んぼ周りを歩き、昆虫や鳥の気配を拾い上げます。",
     image: "/ikebeji/5-31-rice-planting-survey.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_ちょうちょ.png",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -90,6 +91,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       "水路やため池のそばで、水温や水草とともに誰が暮らしているか観察します。",
     image: "/ikebeji/kids-survey-19.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_insect%20net.png",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -105,6 +107,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary: "時間を少し長めにとり、昼と夕方で見え方の違いを比べる回です。",
     image: "/ikebeji/8-9-river-life-survey.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_Fish.png",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -121,6 +124,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       "稲穂が出てくる季節。食べものをめぐる生きものたちのつながりを調べます。",
     image: "/ikebeji/10-24-rice-harvest-survey.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_insect%202.png",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -137,6 +141,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       "春の記録と見比べ、同じ場所で何が変わったかを隊員同士で話し合います。",
     image: "/ikebeji/kids-survey-22.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_rice.png",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -153,6 +158,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       "一年の観察を振り返り、写真やスケッチをまとめるワークに取り組みます。",
     image: "/ikebeji/12-rice-sale.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_toki.png",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -168,6 +174,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     summary: "簡単な発表の時間と、次年度に向けたアイデア出し。",
     image: "/ikebeji/2-late-winter-graduation.jpg",
     articleInsectDecoration: {
+      src: "/ikebeji/White/sadokids_png_White_flower%202.png",
       width: 230,
       height: 180,
       sizes: "230px",

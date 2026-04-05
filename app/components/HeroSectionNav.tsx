@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useUsecaseZoneActive } from "@/app/components/useUsecaseZoneActive";
 
 type HeroSectionNavVariant = "hero" | "floating";
 
@@ -14,7 +14,7 @@ const SECTION_LINKS = [
 
 /**
  * ページ内アンカー（ヒーロー内は白文字＋左ライン、固定は本文色・横並び可）
- * 固定・横並び時は #usecase（年間プログラム）表示中だけリンクを白にする。
+ * 固定・横並び時は年間プログラム表示中だけリンクを白に（#staff 以降は緑に戻す）。
  */
 export default function HeroSectionNav({
   variant = "hero",
@@ -23,21 +23,9 @@ export default function HeroSectionNav({
   variant?: HeroSectionNavVariant;
   layout?: "column" | "row";
 }) {
-  const [usecaseInView, setUsecaseInView] = useState(false);
-
-  useEffect(() => {
-    if (variant !== "floating" || layout !== "row") return;
-    const el = document.getElementById("usecase");
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        setUsecaseInView(entry?.isIntersecting ?? false);
-      },
-      { root: null, threshold: 0.12, rootMargin: "-48px 0px -20% 0px" },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [variant, layout]);
+  const usecaseZoneActive = useUsecaseZoneActive(
+    variant === "floating" && layout === "row",
+  );
 
   const linkTextHero =
     "text-[11px] leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
@@ -64,7 +52,7 @@ export default function HeroSectionNav({
           <span key={item.href} className="inline-flex items-center">
             {i > 0 ? (
               <span
-                className={usecaseInView ? sepOnGreen : sepDefault}
+                className={usecaseZoneActive ? sepOnGreen : sepDefault}
                 aria-hidden
               >
                 /
@@ -72,7 +60,7 @@ export default function HeroSectionNav({
             ) : null}
             <a
               href={item.href}
-              className={`nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] ${usecaseInView ? linkOnGreen : linkDefault}`}
+              className={`nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] ${usecaseZoneActive ? linkOnGreen : linkDefault}`}
             >
               {item.label}
             </a>
