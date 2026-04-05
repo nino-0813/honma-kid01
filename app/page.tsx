@@ -59,8 +59,8 @@ const HERO_DESKTOP_LEFT_COL = {
   logoHeight: 420,
   /** ロゴ枠の min-height（px） */
   logoBoxMinHeight: 420,
-  /** デスクトップヒーロー縦の最小高さ（px） */
-  sectionMinHeight: 960,
+  /** デスクトップヒーロー縦の最小高さ（px）— ロゴは大きいまま、枠だけ以前のコンパクトさに */
+  sectionMinHeight: 820,
   /**
    * ロゴ枠だけの左位置（px）。ナビ・Instagram は p-14 基準のまま動かさない。
    */
