@@ -12,26 +12,70 @@ type UseCasePanelProps = {
   embeddedBackdrop?: boolean;
 };
 
-/** `4月26日` → 「4月」「26」「日」、その他は 16px のまま */
-function AnnualDateHeading({ date }: { date: string }) {
+type AnnualDatePlacement = "photo" | "afterSummary";
+
+/**
+ * `4月26日` → 「4月」「26」「日」
+ * - photo: 写真下（モバイルのみ表示は親で `md:hidden`）
+ * - afterSummary: デスクトップ用の大きい日付（親で `hidden md:block`、パネル内は先頭に配置）
+ */
+function AnnualDateHeading({
+  date,
+  placement,
+}: {
+  date: string;
+  placement: AnnualDatePlacement;
+}) {
+  const desk = placement === "afterSummary";
+  const mt = desk ? "mt-0" : "mt-3";
+  const monthUnit = desk
+    ? "text-[clamp(51px,5.7vw,66px)] leading-none tracking-[0.06em]"
+    : "text-[16px] leading-none tracking-[0.06em]";
+  const dayNum = desk
+    ? "text-[clamp(90px,10.5vw,126px)] font-medium tabular-nums leading-none tracking-tight"
+    : "text-[32px] font-medium tabular-nums leading-none tracking-tight";
+  const daySuffix = desk
+    ? "text-[clamp(51px,5.7vw,66px)] leading-none tracking-[0.06em]"
+    : "text-[16px] leading-none tracking-[0.06em]";
+
   const full = /^(\d+)月(\d+)日$/.exec(date);
   if (full) {
     return (
-      <p className="mt-3 flex flex-wrap items-baseline text-white">
-        <span className="text-[16px] leading-none tracking-[0.06em]">{full[1]}月</span>
-        <span className="text-[32px] font-medium tabular-nums leading-none tracking-tight">{full[2]}</span>
-        <span className="text-[16px] leading-none">日</span>
+      <p className={`${mt} flex flex-wrap items-baseline text-white`}>
+        <span className={dayNum}>{full[1]}</span>
+        <span className={daySuffix}>月</span>
+        <span className={dayNum}>{full[2]}</span>
+        <span className={daySuffix}>日</span>
       </p>
     );
   }
   const late = /^(\d+)月下旬$/.exec(date);
   if (late) {
+    if (desk) {
+      return (
+        <p className={`${mt} flex flex-wrap items-baseline text-white`}>
+          <span className={dayNum}>{late[1]}</span>
+          <span className={monthUnit}>月下旬</span>
+        </p>
+      );
+    }
     return (
-      <p className="mt-3 text-[16px] leading-none tracking-[0.06em] text-white">{late[1]}月下旬</p>
+      <p className={`${mt} text-[16px] leading-none tracking-[0.06em] text-white`}>
+        {late[1]}月下旬
+      </p>
+    );
+  }
+  if (desk) {
+    return (
+      <p
+        className={`${mt} text-[clamp(54px,6vw,72px)] font-medium leading-none tracking-[0.06em] text-white`}
+      >
+        {date}
+      </p>
     );
   }
   return (
-    <p className="mt-3 text-[16px] leading-none tracking-[0.06em] text-white">{date}</p>
+    <p className={`${mt} text-[16px] leading-none tracking-[0.06em] text-white`}>{date}</p>
   );
 }
 
@@ -120,31 +164,23 @@ export default function UseCasePanel({
                         />
                       </div>
                     </div>
-                    <AnnualDateHeading date={p.date} />
-                    <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-inter text-[12px] tracking-[0.12em] text-white/70">
-                      <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-white/90">{p.label}</span>
-                      <span className="tabular-nums text-white/55">
-                        {String(index + 1).padStart(2, "0")} / 08
-                      </span>
-                    </p>
+                    <div className="md:hidden">
+                      <AnnualDateHeading date={p.date} placement="photo" />
+                    </div>
                   </div>
 
-                  {/* 右：タイトル→本文→ボタン */}
-                  <div className="flex min-w-0 flex-1 flex-col gap-5 md:gap-6">
-                    <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
-                      {p.title}
-                    </h3>
-                    <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:max-w-[640px] md:text-[15px] md:leading-[1.75]">
-                      {p.summary}
-                    </p>
-                    <div className="flex justify-end pt-1 md:mt-auto md:pt-2">
-                      <a
-                        href="#faq"
-                        className="arrow-link inline-flex items-center gap-2.5 rounded-[12px] bg-white px-6 py-3 text-[13px] font-medium tracking-[0.14em] text-[#7ECFDF] shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition hover:bg-white/95 md:rounded-[14px] md:px-7"
-                      >
-                        <span className="lowercase">read more</span>
-                        <ArrowIcon />
-                      </a>
+                  {/* 右：デスクトップは日付→タイトル→説明の順で一塊のパネル */}
+                  <div className="flex min-w-0 flex-1 flex-col rounded-[18px] border border-white/20 bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:rounded-[22px] md:p-8 md:pt-7 lg:p-10 lg:pt-9">
+                    <div className="flex min-w-0 flex-col gap-3 md:gap-4">
+                      <div className="hidden md:block md:border-b md:border-white/15 md:pb-5">
+                        <AnnualDateHeading date={p.date} placement="afterSummary" />
+                      </div>
+                      <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25] md:pt-1">
+                        {p.title}
+                      </h3>
+                      <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:max-w-none md:text-[15px] md:leading-[1.75]">
+                        {p.summary}
+                      </p>
                     </div>
                   </div>
                 </article>
