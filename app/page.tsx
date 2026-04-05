@@ -97,6 +97,45 @@ function ArrowLink({
   );
 }
 
+function HeroSectionNav() {
+  const linkText =
+    "text-[11px] leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
+  return (
+    <nav aria-label="ページ内セクション" className="flex flex-col gap-2.5 md:gap-3">
+      <a
+        href="#about"
+        className="nav-link block border-l-[2px] border-[#4DC47A] py-0.5 pl-2.5"
+      >
+        <span className={linkText}>佐渡Kids生き物調査隊とは</span>
+      </a>
+      <a
+        href="#place"
+        className="nav-link block border-l-[2px] border-[#7ECFDF] py-0.5 pl-2.5"
+      >
+        <span className={linkText}>キッズのみなさんへ</span>
+      </a>
+      <a
+        href="#usecase"
+        className="nav-link block border-l-[2px] border-[#4DC47A] py-0.5 pl-2.5"
+      >
+        <span className={linkText}>年間プログラム</span>
+      </a>
+      <a
+        href="#staff"
+        className="nav-link block border-l-[2px] border-[#7ECFDF] py-0.5 pl-2.5"
+      >
+        <span className={linkText}>スタッフ紹介</span>
+      </a>
+      <a
+        href="#faq"
+        className="nav-link block border-l-[2px] border-[#4DC47A] py-0.5 pl-2.5"
+      >
+        <span className={linkText}>よくある質問</span>
+      </a>
+    </nav>
+  );
+}
+
 function PlaceSection({ id = "place", className = "" }: { id?: string; className?: string }) {
   return (
     <section
@@ -225,7 +264,7 @@ export default function Home() {
             />
           </div>
 
-          {/* Mobile — 参考モック: 上 タイトル+ロゴ / CTA、下 ナビ+言語・SNS */}
+          {/* Mobile — 上 ロゴ / CTA、下 ナビ+SNS（デスクトップ左下と同じリンク） */}
           <div className="relative z-10 flex min-h-dvh flex-col justify-between p-5 pb-8 pt-6 md:hidden">
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 shrink-0">
@@ -243,60 +282,8 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-7">
-              <nav aria-label="ページ内セクション" className="flex flex-col gap-2.5">
-                <a
-                  href="#about"
-                  className="nav-link block border-l-[2px] border-[#FB876D] py-0.5 pl-2.5"
-                >
-                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
-                    佐渡Kids生き物調査隊とは
-                  </span>
-                </a>
-                <a
-                  href="#place"
-                  className="nav-link block border-l-[2px] border-[#9ec5e8] py-0.5 pl-2.5"
-                >
-                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
-                    キッズのみなさんへ
-                  </span>
-                </a>
-                <a
-                  href="#usecase"
-                  className="nav-link block border-l-[2px] border-[#FB876D] py-0.5 pl-2.5"
-                >
-                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
-                    年間プログラム
-                  </span>
-                </a>
-                <a
-                  href="#staff"
-                  className="nav-link block border-l-[2px] border-[#9ec5e8] py-0.5 pl-2.5"
-                >
-                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
-                    スタッフ紹介
-                  </span>
-                </a>
-                <a
-                  href="#faq"
-                  className="nav-link block border-l-[2px] border-[#FB876D] py-0.5 pl-2.5"
-                >
-                  <span className="text-[11px] leading-snug tracking-[0.08em] text-white/95">
-                    よくある質問
-                  </span>
-                </a>
-              </nav>
-
-              <div className="flex items-end justify-between gap-4 border-t border-white/25 pt-6">
-                <div>
-                  <p className="font-inter text-[10px] uppercase tracking-[0.14em] text-white/55">
-                    language
-                  </p>
-                  <p className="mt-1.5 text-[12px] tracking-[0.12em]">
-                    <span className="underline decoration-white/80 underline-offset-4">JA</span>
-                    <span className="text-white/60"> / </span>
-                    <span className="text-white/70">EN</span>
-                  </p>
-                </div>
+              <HeroSectionNav />
+              <div className="flex items-end justify-start">
                 <a
                   href="https://www.instagram.com/ikimono_sado"
                   target="_blank"
@@ -342,12 +329,13 @@ export default function Home() {
               </Reveal>
             </div>
 
-            <div className="flex items-end">
+            <div className="flex w-full flex-col gap-7 pt-8">
+              <HeroSectionNav />
               <a
                 href="https://www.instagram.com/ikimono_sado"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex text-white/90 transition hover:text-white"
+                className="inline-flex shrink-0 text-white/90 transition hover:text-white"
                 aria-label="Instagram"
               >
                 <svg
