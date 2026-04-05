@@ -83,8 +83,8 @@ const COLLAGE_IMAGES = [
     src: "/ikebeji/kids-survey-36.jpg",
     alt: "佐渡Kids 生きもの調査隊 — 遊んで学んで体験する",
   },
-  { src: IKEBEJI_COLLAGE_37, alt: "仲間と学ぶ時間" },
   { src: P[2].src, alt: P[2].alt },
+  { src: IKEBEJI_COLLAGE_37, alt: "仲間と学ぶ時間" },
 ] as const;
 
 /**
@@ -248,7 +248,7 @@ function AboutHeadingBlock({
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[1]}</span>
           </h2>
         </div>
-        <p className="mt-2 text-[15px] leading-[1.65] tracking-[0.08em] lowercase text-[#222]/90">
+        <p className="mt-2 text-[15px] leading-[1.65] tracking-[0.08em] lowercase text-[#006B2B]">
           {ABOUT_KICKER}
         </p>
       </div>

@@ -60,20 +60,22 @@ export default function UseCasePanel({
   embeddedBackdrop = true,
 }: UseCasePanelProps) {
   return (
-    <section id={id} className={["px-0 py-0", className].join(" ").trim()}>
-      <div className="mx-auto max-w-[1540px]">
+    <section id={id} className={["relative px-0 py-0", className].join(" ").trim()}>
+      {embeddedBackdrop ? (
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 bg-[#7ECFDF]"
+          aria-hidden
+        />
+      ) : null}
+      <div className="relative z-10 mx-auto max-w-[1540px]">
         <div
           className={[
-            "relative z-10 overflow-hidden text-white",
+            "relative overflow-hidden text-white",
             density === "stack"
               ? "px-5 pb-24 pt-14 md:px-10 md:pb-28 md:pt-16"
               : "px-5 pb-44 pt-20 md:px-10 md:pb-52 md:pt-24",
           ].join(" ")}
         >
-          {embeddedBackdrop ? (
-            <div className="absolute inset-0 -z-10 bg-[#7ECFDF]" aria-hidden />
-          ) : null}
-
           <Reveal>
             <div>
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white/80">

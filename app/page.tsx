@@ -172,14 +172,14 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
 ──────────────────────────────────────────── */
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#e8edf5] text-[#444]">
+    <main className="relative min-h-screen bg-[#7ECFDF] text-[#444]">
       <div className="mx-auto flex max-w-[1920px] flex-col gap-0">
         <DesktopFloatingApplyCta />
 
         {/* ── HERO ──────────────────────────────────── */}
         <section
           id="site-hero"
-          className="relative min-h-dvh overflow-hidden rounded-none bg-[#e8edf5] text-white shadow-none md:min-h-0 md:bg-[#6d9ecf]"
+          className="relative min-h-dvh overflow-hidden rounded-none bg-[#7ECFDF] text-white shadow-none md:min-h-0 md:bg-[#6d9ecf]"
         >
           {/* Background slideshow */}
           <div className="absolute inset-0" aria-hidden>

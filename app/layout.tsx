@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#e8edf5]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#7ECFDF]">{children}</body>
     </html>
   );
 }
