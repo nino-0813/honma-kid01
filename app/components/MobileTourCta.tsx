@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 const HERO_ID = "site-hero";
 
@@ -52,7 +53,9 @@ export default function MobileTourCta() {
 
   const link = (
     <a
-      href="#faq"
+      href={APPLICATION_FORM_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className={[
         baseClass,
         pastHero

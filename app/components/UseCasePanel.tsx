@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/app/components/reveal";
 import { ANNUAL_PROGRAMS } from "@/app/components/usecaseData";
+import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 type UseCasePanelProps = {
   id?: string;
@@ -155,7 +156,9 @@ export default function UseCasePanel({
                 参加をご希望の方は、お気軽にお問い合わせください。
               </p>
               <a
-                href="#faq"
+                href={APPLICATION_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="arrow-link inline-flex items-center gap-3 rounded-[14px] bg-white px-8 py-4 text-[14px] tracking-[0.16em] text-[#7ECFDF] shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
               >
                 <span>お問い合わせ・お申し込み</span>

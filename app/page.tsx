@@ -5,6 +5,7 @@ import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
 import StaffMarquee from "@/app/components/StaffMarquee";
 import UseCasePanel from "@/app/components/UseCasePanel";
+import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 /* ────────────────────────────────────────────
    Data
@@ -76,9 +77,13 @@ function ArrowLink({
   label: string;
   light?: boolean;
 }) {
+  const external = href.startsWith("http");
   return (
     <a
       href={href}
+      {...(external
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
       className={[
         "button-chip inline-flex items-center justify-center gap-4 rounded-full px-8 py-5 text-[15px] tracking-[0.16em] transition-all duration-300",
         light
@@ -333,7 +338,7 @@ export default function Home() {
                 delay={180}
                 variant="right"
               >
-                <ArrowLink href="#faq" label="お申し込み" />
+                <ArrowLink href={APPLICATION_FORM_URL} label="お申し込み" />
               </Reveal>
             </div>
 
