@@ -18,35 +18,44 @@ const ABOUT_KICKER = "about Kids' Nature Exploration Team";
 const ABOUT_TITLE = "佐渡Kids生き物調査隊とは";
 /** モバイル about 見出しの改行（1行目＋2行目＝ `ABOUT_TITLE` と同じ読み） */
 const ABOUT_TITLE_MOBILE_LINES = ["佐渡Kids生き物", "調査隊とは"] as const;
-/** モバイル about 見出し周りの手描きアイコン（`public/ikebeji`） */
+/** モバイル about 見出し周りの手描きアイコン（タイトル付近・変更しない） */
 const ABOUT_MOBILE_TITLE_DECOR = {
   cloud: ikebejiBluePng("sadokids_Blue_cloud 1.png"),
   crab: ikebejiBluePng("sadokids_Blue_crab.png"),
   net: ikebejiBluePng("sadokids_Blue_insect net.png"),
 } as const;
 
-/** 下段実写エリア（3枚写真の周り）の手描き装飾 — 参照イメージのように点数を絞って余白を残す */
-const ABOUT_LOWER_DECOR_ICONS = [
+/** モバイル下段コラージュ（img1〜3 付近）の青い手描き装飾 */
+const ABOUT_LOWER_COLLAGE_BLUE_DECOR = [
   {
-    src: ikebejiGreenPng("sadokids_green_insect 2.png"),
+    src: ikebejiBluePng("sadokids_Blue_cloud 2.png"),
     boxClass:
-      "left-[38%] top-[25%] h-[96px] w-[96px] rotate-[14deg] sm:left-[39%] sm:top-[24%] sm:h-[112px] sm:w-[112px]",
+      "left-[8px] top-[10px] h-[52px] w-[76px] -rotate-[10deg] sm:left-[10px] sm:top-[12px] sm:h-[58px] sm:w-[84px]",
     motionClass: "about-decor-bob",
-    delayClass: "",
+    delayClass: "" as const,
+    w: 280,
+    h: 200,
+    sizes: "84px",
   },
   {
-    src: ikebejiGreenPng("sadokids_green_leaves 3.png"),
+    src: ikebejiBluePng("sadokids_Blue_insect 2.png"),
     boxClass:
-      "left-[6%] top-[59%] h-[76px] w-[76px] -rotate-[16deg] sm:left-[8%] sm:top-[60%] sm:h-[92px] sm:w-[92px]",
-    motionClass: "about-decor-rock",
-    delayClass: "about-decor-delay-sm",
-  },
-  {
-    src: ikebejiGreenPng("sadokids_green_lizard.png"),
-    boxClass:
-      "right-[4%] bottom-[10%] h-[96px] w-[96px] -rotate-[18deg] sm:right-[5%] sm:bottom-[11%] sm:h-[112px] sm:w-[112px]",
+      "left-[178px] top-[188px] z-0 h-[52px] w-[52px] rotate-[16deg] sm:left-[186px] sm:top-[192px] sm:h-[58px] sm:w-[58px]",
     motionClass: "about-decor-sway",
-    delayClass: "about-decor-delay-md",
+    delayClass: "about-decor-delay-sm" as const,
+    w: 240,
+    h: 240,
+    sizes: "58px",
+  },
+  {
+    src: ikebejiBluePng("sadokids_Blue_Fish.png"),
+    boxClass:
+      "left-1/2 top-[272px] z-0 h-[46px] w-[72px] -translate-x-1/2 -rotate-[8deg] sm:top-[276px] sm:h-[50px] sm:w-[78px]",
+    motionClass: "about-decor-rock",
+    delayClass: "about-decor-delay-md" as const,
+    w: 320,
+    h: 240,
+    sizes: "78px",
   },
 ] as const;
 const ABOUT_BODY =
@@ -194,8 +203,8 @@ function AboutHeadingBlock({
   if (mobileTitleFirst) {
     return (
       <div className={["text-center", className].join(" ")}>
-        <div className="relative mx-auto w-full overflow-visible px-7 pb-3 pt-8 sm:px-9 sm:pt-9">
-          <div className="pointer-events-none absolute left-[-18px] top-0 z-[-1] h-[108px] w-[108px] -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:left-[-22px] sm:top-1 sm:h-[128px] sm:w-[128px]">
+        <div className="relative isolate mx-auto w-full overflow-visible px-7 pb-3 pt-8 sm:px-9 sm:pt-9">
+          <div className="pointer-events-none absolute left-[-18px] top-0 z-0 h-[108px] w-[108px] -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:left-[-22px] sm:top-1 sm:h-[128px] sm:w-[128px]">
             <div className="relative h-full w-full about-decor-bob">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.cloud}
@@ -208,7 +217,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute right-[-18px] top-2 z-[-1] h-[128px] w-[128px] rotate-[16deg] opacity-[0.88] sm:right-[-24px] sm:top-4 sm:h-[152px] sm:w-[152px]">
+          <div className="pointer-events-none absolute right-[-18px] top-2 z-0 h-[128px] w-[128px] rotate-[16deg] opacity-[0.88] sm:right-[-24px] sm:top-4 sm:h-[152px] sm:w-[152px]">
             <div className="relative h-full w-full about-decor-sway about-decor-delay-sm">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.net}
@@ -221,7 +230,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-12 right-[-14px] z-[-1] h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-14 sm:right-[-20px] sm:h-[116px] sm:w-[116px]">
+          <div className="pointer-events-none absolute bottom-12 right-[-14px] z-0 h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-14 sm:right-[-20px] sm:h-[116px] sm:w-[116px]">
             <div className="relative h-full w-full about-decor-rock about-decor-delay-md">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.crab}
@@ -234,7 +243,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <h2 className="relative z-[1] text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.08em] text-[#006B2B]">
+          <h2 className="relative z-10 text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.08em] text-[#006B2B]">
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[0]}</span>
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[1]}</span>
           </h2>
@@ -289,6 +298,7 @@ function AboutBodyText({
   return <p className={[introColor, sizeClasses, className].join(" ")}>{ABOUT_BODY}</p>;
 }
 
+/** モバイル：英字キッカーと本文のあいだ（魚・雲2・虫2） */
 function AboutMobileCollageCanvas() {
   return (
     <>
@@ -365,12 +375,10 @@ export default function AboutCollage() {
           </Reveal>
 
           <Reveal
-            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[326px] flex-col items-center gap-6 overflow-visible text-center"
+            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[326px] flex-col items-stretch gap-6 overflow-visible text-center"
             delay={120}
           >
-            <div className="w-full overflow-visible px-1 sm:px-2">
-              <AboutHeadingBlock mobileTitleFirst className="w-full" />
-            </div>
+            <AboutHeadingBlock mobileTitleFirst className="w-full" />
             <AboutBodyText intro className="w-full text-left" />
           </Reveal>
 
@@ -380,13 +388,14 @@ export default function AboutCollage() {
             delay={40}
             className="relative isolate mt-3 min-h-[520px] w-full overflow-visible"
           >
-            {ABOUT_LOWER_DECOR_ICONS.map((item) => (
+            {ABOUT_LOWER_COLLAGE_BLUE_DECOR.map((item) => (
               <div
                 key={item.src}
                 className={[
-                  "pointer-events-none absolute z-0 opacity-[0.78]",
+                  "pointer-events-none absolute z-0 opacity-[0.9]",
                   item.boxClass,
                 ].join(" ")}
+                aria-hidden
               >
                 <div
                   className={["relative h-full w-full", item.motionClass, item.delayClass]
@@ -396,11 +405,10 @@ export default function AboutCollage() {
                   <Image
                     src={item.src}
                     alt=""
-                    width={240}
-                    height={240}
+                    width={item.w}
+                    height={item.h}
                     className="h-full w-full object-contain"
-                    sizes="(max-width:640px) 144px, 176px"
-                    aria-hidden
+                    sizes={item.sizes}
                   />
                 </div>
               </div>
