@@ -94,14 +94,14 @@ export default function UseCasePanel({
     <section id={id} className={["relative px-0 py-0", className].join(" ").trim()}>
       {embeddedBackdrop ? (
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[#006B2B]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[rgb(111,174,202)]"
           aria-hidden
         />
       ) : null}
       <div className="relative z-10 mx-auto max-w-[1540px]">
         <div
           className={[
-            "relative overflow-hidden bg-[#006B2B] text-white",
+            "relative overflow-hidden bg-[rgb(111,174,202)] text-white",
             density === "stack"
               ? "px-5 pb-24 pt-14 md:px-10 md:pb-28 md:pt-16"
               : "px-5 pb-44 pt-20 md:px-10 md:pb-52 md:pt-24",
