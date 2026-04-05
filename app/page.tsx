@@ -1,12 +1,11 @@
 import Image from "next/image";
 import AboutCollage from "@/app/components/AboutCollage";
+import DesktopFloatingApplyCta from "@/app/components/DesktopFloatingApplyCta";
 import MobileTourCta from "@/app/components/MobileTourCta";
 import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
 import StaffMarquee from "@/app/components/StaffMarquee";
 import UseCasePanel from "@/app/components/UseCasePanel";
-import { APPLICATION_FORM_URL } from "@/app/siteUrls";
-
 /* ────────────────────────────────────────────
    Data
 ──────────────────────────────────────────── */
@@ -62,62 +61,16 @@ const HERO_DESKTOP_LEFT_COL = {
   /** デスクトップヒーロー縦の最小高さ（px）— ロゴは大きいまま、枠だけ以前のコンパクトさに */
   sectionMinHeight: 820,
   /**
-   * ロゴ枠だけの左位置（px）。ナビ・Instagram は p-14 基準のまま動かさない。
+   * ロゴ枠だけの位置（px）。ナビ・Instagram は p-14 基準のまま動かさない。
+   * marginTop は負で上へ。
    */
   marginLeft: -88,
-  marginTop: 0,
+  marginTop: -36,
 } as const;
 
 /* ────────────────────────────────────────────
    Shared components
 ──────────────────────────────────────────── */
-function ArrowIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 12h16" />
-      <path d="m14 6 6 6-6 6" />
-    </svg>
-  );
-}
-
-function ArrowLink({
-  href,
-  label,
-  light = false,
-}: {
-  href: string;
-  label: string;
-  light?: boolean;
-}) {
-  const external = href.startsWith("http");
-  return (
-    <a
-      href={href}
-      {...(external
-        ? { target: "_blank", rel: "noopener noreferrer" }
-        : {})}
-      className={[
-        "button-chip inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-[14px] tracking-[0.16em] transition-all duration-300",
-        light
-          ? "border border-[#7ba6d9] bg-white text-[#4d84c5] hover:bg-[#f5faff]"
-          : "bg-[var(--cta-visit-bg)] text-white hover:bg-[var(--cta-visit-hover)]",
-      ].join(" ")}
-    >
-      <span>{label}</span>
-      <ArrowIcon />
-    </a>
-  );
-}
-
 function HeroSectionNav() {
   const linkText =
     "text-[11px] leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
@@ -258,6 +211,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#e8edf5] text-[#444]">
       <div className="mx-auto flex max-w-[1920px] flex-col gap-0">
+        <DesktopFloatingApplyCta />
 
         {/* ── HERO ──────────────────────────────────── */}
         <section
@@ -330,39 +284,29 @@ export default function Home() {
             className="relative z-10 hidden flex-col justify-between p-14 md:flex"
             style={{ minHeight: HERO_DESKTOP_LEFT_COL.sectionMinHeight }}
           >
-            <div className="flex items-start justify-between gap-8">
-              {/* ファーストビューは Reveal しない（IO が効かない / opacity:0 のままになるケースを避ける） */}
-              <div
-                className="relative z-20 min-w-0 shrink-0 self-start"
+            {/* ファーストビューは Reveal しない（IO が効かない / opacity:0 のままになるケースを避ける） */}
+            <div
+              className="relative z-20 min-w-0 shrink-0 self-start"
+              style={{
+                maxWidth: HERO_DESKTOP_LEFT_COL.maxWidth,
+                minHeight: HERO_DESKTOP_LEFT_COL.logoBoxMinHeight,
+                marginLeft: HERO_DESKTOP_LEFT_COL.marginLeft,
+                marginTop: HERO_DESKTOP_LEFT_COL.marginTop,
+              }}
+            >
+              <Image
+                src="/ikebeji/White/sadokids_White_LOGO_3.png"
+                alt="佐渡Kids生き物調査隊"
+                width={940}
+                height={780}
+                priority
+                sizes={HERO_DESKTOP_LEFT_COL.maxWidth}
+                className="block max-w-full object-contain object-left"
                 style={{
-                  maxWidth: HERO_DESKTOP_LEFT_COL.maxWidth,
-                  minHeight: HERO_DESKTOP_LEFT_COL.logoBoxMinHeight,
-                  marginLeft: HERO_DESKTOP_LEFT_COL.marginLeft,
-                  marginTop: HERO_DESKTOP_LEFT_COL.marginTop,
+                  width: HERO_DESKTOP_LEFT_COL.logoWidth,
+                  height: HERO_DESKTOP_LEFT_COL.logoHeight,
                 }}
-              >
-                <Image
-                  src="/ikebeji/White/sadokids_White_LOGO_3.png"
-                  alt="佐渡Kids生き物調査隊"
-                  width={940}
-                  height={780}
-                  priority
-                  sizes={HERO_DESKTOP_LEFT_COL.maxWidth}
-                  className="block max-w-full object-contain object-left"
-                  style={{
-                    width: HERO_DESKTOP_LEFT_COL.logoWidth,
-                    height: HERO_DESKTOP_LEFT_COL.logoHeight,
-                  }}
-                />
-              </div>
-
-              <Reveal
-                className="flex shrink-0 flex-col items-end"
-                delay={180}
-                variant="right"
-              >
-                <ArrowLink href={APPLICATION_FORM_URL} label="お申し込み" />
-              </Reveal>
+              />
             </div>
 
             <div

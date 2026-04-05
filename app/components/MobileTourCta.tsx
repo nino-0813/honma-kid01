@@ -68,7 +68,6 @@ export default function MobileTourCta() {
     </a>
   );
 
-  /* fixed 時は body へポータルして、通常のスタッキングに依存せずビューポート最前面に出す。 */
   if (pastHero && mounted) {
     return createPortal(link, document.body);
   }
