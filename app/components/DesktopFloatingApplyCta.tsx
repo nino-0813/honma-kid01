@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import FloatingApplyCtaCircle from "@/app/components/FloatingApplyCtaCircle";
-import { useUsecaseZoneActive } from "@/app/components/useUsecaseZoneActive";
+import { useUsecaseCtaActive } from "@/app/components/useUsecaseCtaActive";
 
 const MD = 768;
 
@@ -17,7 +17,7 @@ const FLOATING_CLASS =
 export default function DesktopFloatingApplyCta() {
   const [mounted, setMounted] = useState(false);
   const [desktop, setDesktop] = useState(false);
-  const usecaseZoneActive = useUsecaseZoneActive(mounted && desktop);
+  const usecaseCtaActive = useUsecaseCtaActive(mounted && desktop);
 
   useEffect(() => {
     setMounted(true);
@@ -32,7 +32,7 @@ export default function DesktopFloatingApplyCta() {
 
   return createPortal(
     <FloatingApplyCtaCircle
-      usecaseZoneActive={usecaseZoneActive}
+      usecaseZoneActive={usecaseCtaActive}
       className={FLOATING_CLASS}
     />,
     document.body,

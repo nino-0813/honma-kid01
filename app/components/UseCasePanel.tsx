@@ -128,7 +128,7 @@ export default function UseCasePanel({
           ].join(" ")}
         >
           <Reveal>
-            <div className="relative">
+            <div className="relative" data-usecase-cta-trigger>
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white">
                 yearly program
               </p>

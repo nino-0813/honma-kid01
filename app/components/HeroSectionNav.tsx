@@ -12,9 +12,21 @@ const SECTION_LINKS = [
   { href: "#faq", label: "よくある質問", accent: "#4DC47A" },
 ] as const;
 
+/** 年間プログラムブロック上（#usecase かつ #staff より手前） */
+const FLOATING_ON_USECASE_LINK =
+  "text-white underline decoration-white/35 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-white hover:decoration-white/65 md:text-[12px]";
+const FLOATING_ON_USECASE_SEP =
+  "mx-2.5 select-none text-[11px] text-white/40 md:mx-3 md:text-[12px]";
+
+/** 上記以外 — 指定色 #006B2B */
+const FLOATING_DEFAULT_LINK =
+  "text-[#006B2B] underline decoration-[#006B2B]/30 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-[#004d1f] hover:decoration-[#006B2B]/60 md:text-[12px]";
+const FLOATING_DEFAULT_SEP =
+  "mx-2.5 select-none text-[11px] text-[#006B2B]/40 md:mx-3 md:text-[12px]";
+
 /**
  * ページ内アンカー（ヒーロー内は白文字＋左ライン、固定は本文色・横並び可）
- * 固定・横並び時は年間プログラム表示中だけリンクを白に（#staff 以降は緑に戻す）。
+ * 固定・横並び時: 年間プログラム（#usecase）表示中のみ白、それ以外は #006B2B（#staff 以降は緑に戻す）。
  */
 export default function HeroSectionNav({
   variant = "hero",
@@ -35,13 +47,12 @@ export default function HeroSectionNav({
   const isFloatingRow = variant === "floating" && layout === "row";
 
   if (isFloatingRow) {
-    const linkOnGreen =
-      "text-white underline decoration-white/35 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-white hover:decoration-white/65 md:text-[12px]";
-    const linkDefault =
-      "text-[#006B2B] underline decoration-[#006B2B]/30 decoration-1 underline-offset-[6px] transition-[color,decoration-color] hover:text-[#004d1f] hover:decoration-[#006B2B]/60 md:text-[12px]";
-    const sepOnGreen = "mx-2.5 select-none text-[11px] text-white/40 md:mx-3 md:text-[12px]";
-    const sepDefault =
-      "mx-2.5 select-none text-[11px] text-[#006B2B]/40 md:mx-3 md:text-[12px]";
+    const linkClass = usecaseZoneActive
+      ? FLOATING_ON_USECASE_LINK
+      : FLOATING_DEFAULT_LINK;
+    const sepClass = usecaseZoneActive
+      ? FLOATING_ON_USECASE_SEP
+      : FLOATING_DEFAULT_SEP;
 
     return (
       <nav
@@ -51,16 +62,13 @@ export default function HeroSectionNav({
         {SECTION_LINKS.map((item, i) => (
           <span key={item.href} className="inline-flex items-center">
             {i > 0 ? (
-              <span
-                className={usecaseZoneActive ? sepOnGreen : sepDefault}
-                aria-hidden
-              >
+              <span className={sepClass} aria-hidden>
                 /
               </span>
             ) : null}
             <a
               href={item.href}
-              className={`nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] ${usecaseZoneActive ? linkOnGreen : linkDefault}`}
+              className={`nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] ${linkClass}`}
             >
               {item.label}
             </a>

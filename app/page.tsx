@@ -85,21 +85,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
         .trim()}
     >
       <div className="mx-auto max-w-[1540px]">
-        <Reveal>
-          <div>
-            <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#444]">
-              kids
-            </p>
-            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px]">
-              キッズのみなさんへ
-            </h2>
-            <p className="mt-4 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85">
-              佐渡Kids生き物調査隊は、田んぼや水辺などのフィールドで生きものと出会い、仲間と学び合う場です。ここでは「どんな時間を過ごすのか」を、三つの視点でご紹介します。日程や参加方法の詳細は、決まり次第このページでお知らせします。
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="mt-16 flex flex-col gap-24 md:gap-32">
+        <div className="flex flex-col gap-24 md:gap-32">
           {kidsAboutCards.map((card, index) => (
             <Reveal
               key={card.phaseEn}

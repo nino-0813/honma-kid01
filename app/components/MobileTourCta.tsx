@@ -4,7 +4,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 import FloatingApplyCtaCircle from "@/app/components/FloatingApplyCtaCircle";
-import { useUsecaseZoneActive } from "@/app/components/useUsecaseZoneActive";
+import { useUsecaseCtaActive } from "@/app/components/useUsecaseCtaActive";
 
 const HERO_ID = "site-hero";
 /** Tailwind `md` と揃える（これ以上は DesktopFloatingApplyCta のみ） */
@@ -67,7 +67,7 @@ export default function MobileTourCta() {
   const isMobile = useIsMobileViewport();
   const [pastHero, setPastHero] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const usecaseZoneActive = useUsecaseZoneActive(mounted && isMobile);
+  const usecaseCtaActive = useUsecaseCtaActive(mounted && isMobile);
 
   useEffect(() => setMounted(true), []);
 
@@ -104,7 +104,7 @@ export default function MobileTourCta() {
   if (pastHero && mounted) {
     return createPortal(
       <FloatingApplyCtaCircle
-        usecaseZoneActive={usecaseZoneActive}
+        usecaseZoneActive={usecaseCtaActive}
         className={MOBILE_FLOATING_CLASS}
       />,
       document.body,
