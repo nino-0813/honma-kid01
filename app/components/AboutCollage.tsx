@@ -229,7 +229,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <h2 className="relative z-[1] text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.08em] text-[#F7A89A]">
+          <h2 className="relative z-[1] text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.08em] text-[#006B2B]">
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[0]}</span>
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[1]}</span>
           </h2>
@@ -244,8 +244,8 @@ function AboutHeadingBlock({
   if (figmaDesktopCenter) {
     return (
       <div className={["text-center [&_p]:mx-auto [&_h2]:mx-auto", className].join(" ")}>
-        <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#FF8E7D]">{ABOUT_KICKER}</p>
-        <h2 className="mt-2 text-[18px] font-medium leading-[1.35] tracking-[0.08em] text-[#FF8E7D] xl:text-[20px]">
+        <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#006B2B]">{ABOUT_KICKER}</p>
+        <h2 className="mt-2 text-[18px] font-medium leading-[1.35] tracking-[0.08em] text-[#006B2B] xl:text-[20px]">
           {ABOUT_TITLE}
         </h2>
       </div>
@@ -255,7 +255,7 @@ function AboutHeadingBlock({
   return (
     <div className={className}>
       <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#444]">{ABOUT_KICKER}</p>
-      <h2 className="mt-3 text-[30px] font-medium leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[40px] xl:text-[46px]">
+      <h2 className="mt-3 text-[30px] font-medium leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[40px] xl:text-[46px]">
         {ABOUT_TITLE}
       </h2>
     </div>

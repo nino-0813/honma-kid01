@@ -79,7 +79,7 @@ export default function UseCasePanel({
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white/80">
                 annual program
               </p>
-              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#F7A89A] md:text-[46px] md:tracking-[0.06em]">
+              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px] md:tracking-[0.06em]">
                 年間プログラム
               </h2>
               <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">
@@ -129,7 +129,7 @@ export default function UseCasePanel({
 
                   {/* 右：タイトル→本文→ボタン */}
                   <div className="flex min-w-0 flex-1 flex-col gap-5 md:gap-6">
-                    <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#F7A89A] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
+                    <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-[#006B2B] md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                       {p.title}
                     </h3>
                     <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white/95 md:max-w-[640px] md:text-[15px] md:leading-[1.75]">

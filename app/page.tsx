@@ -90,7 +90,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
             <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#444]">
               kids
             </p>
-            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
+            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px]">
               キッズのみなさんへ
             </h2>
             <p className="mt-4 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85">
@@ -316,7 +316,7 @@ export default function Home() {
             <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#999] md:text-[15px]">
               staff
             </p>
-            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[46px]">
+            <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px]">
               スタッフ紹介
             </h2>
             <p className="mx-auto mt-4 max-w-[640px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85 md:mt-6">

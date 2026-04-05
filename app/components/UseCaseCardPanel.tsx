@@ -47,7 +47,7 @@ export default function UseCaseCardPanel({ card, showRecommended = true }: { car
         ) : null}
 
         <div>
-          <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#FF8E7D] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
+          <h3 className="text-[30px] leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[34px] md:leading-[1.2] md:tracking-[0.12em]">
             {card.title}
           </h3>
           <p className="mt-5 max-w-[720px] text-[15px] leading-[1.85] tracking-[0.1em] text-white/88">

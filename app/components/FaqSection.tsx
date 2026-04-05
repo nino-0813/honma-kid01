@@ -36,7 +36,7 @@ export default function FaqSection() {
         <div className="mt-14 space-y-12 md:mt-16 md:space-y-14">
           {FAQ_GROUPS.map((group) => (
             <div key={group.category}>
-              <h3 className="border-b border-white/25 pb-3 text-[15px] font-semibold leading-[1.85] tracking-[0.1em] text-[#FF8E7D]">
+              <h3 className="border-b border-white/25 pb-3 text-[15px] font-semibold leading-[1.85] tracking-[0.1em] text-[#006B2B]">
                 {group.category}
               </h3>
               <div className="mt-5 space-y-3">
@@ -46,7 +46,7 @@ export default function FaqSection() {
                     className="group rounded-[20px] border border-white/25 bg-white/[0.14] backdrop-blur-sm transition-colors open:bg-white/[0.18]"
                   >
                     <summary className="relative cursor-pointer list-none px-5 py-4 pr-10 text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white marker:content-none after:absolute after:right-4 after:top-1/2 after:-translate-y-1/2 after:text-lg after:text-white/55 after:transition-transform after:duration-200 after:content-['+'] group-open:after:rotate-45 md:px-6 md:py-5 md:pr-12 [&::-webkit-details-marker]:hidden">
-                      <span className="mr-2 font-inter text-[15px] leading-[1.85] tracking-[0.1em] text-[#FF8E7D]">
+                      <span className="mr-2 font-inter text-[15px] leading-[1.85] tracking-[0.1em] text-[#006B2B]">
                         Q.
                       </span>
                       {item.q}
