@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * 右下 CTA 専用の年間プログラム判定。
- * `data-usecase-cta-trigger` が見えた瞬間に ON、
- * `#staff` が見えた瞬間に OFF。
- * ヘッダーとは別タイミングにして、視覚的な違和感を減らす。
+ * `#usecase` セクションが見えている間は黄色のまま保持し、
+ * セクションを完全に抜けたら緑へ戻す。
  */
 export function useUsecaseCtaActive(enabled: boolean) {
   const [active, setActive] = useState(false);
@@ -15,29 +14,20 @@ export function useUsecaseCtaActive(enabled: boolean) {
   useEffect(() => {
     if (!enabled) return;
 
-    const triggerEl = document.querySelector("[data-usecase-cta-trigger]");
-    const staffEl = document.getElementById("staff");
-    if (!(triggerEl instanceof HTMLElement)) return;
+    const usecaseEl = document.getElementById("usecase");
+    if (!(usecaseEl instanceof HTMLElement)) return;
 
     const update = () => {
-      const t = triggerEl.getBoundingClientRect();
-      const s = staffEl?.getBoundingClientRect();
+      const u = usecaseEl.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      const triggerVisible =
-        Number.isFinite(t.top) &&
-        Number.isFinite(t.bottom) &&
-        t.top < vh &&
-        t.bottom > 0;
+      const usecaseVisible =
+        Number.isFinite(u.top) &&
+        Number.isFinite(u.bottom) &&
+        u.top < vh &&
+        u.bottom > 0;
 
-      const staffVisible =
-        s != null &&
-        Number.isFinite(s.top) &&
-        Number.isFinite(s.bottom) &&
-        s.top < vh &&
-        s.bottom > 0;
-
-      setActive(triggerVisible && !staffVisible);
+      setActive(usecaseVisible);
     };
 
     const schedule = () => {
