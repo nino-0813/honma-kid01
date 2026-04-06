@@ -386,7 +386,7 @@ export default function Home() {
               <div className="flex flex-col items-center gap-1.5 text-center md:items-end md:text-right">
                 <a
                   href="#"
-                  className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
+                  className="px-[15px] text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
                 >
                   プライバシーポリシー
                 </a>
@@ -395,7 +395,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <p className="max-w-[520px] text-center text-[10px] leading-[1.7] tracking-[0.08em] text-[#aaa] md:text-[11px]">
+            <p className="text-center text-[10px] leading-[1.7] tracking-[0.08em] text-[#aaa] whitespace-nowrap md:text-[11px]">
               © 2026 佐渡Kids生きもの調査隊。当サイトに掲載する文章・写真・イラストなどの無断転載を禁じます。
             </p>
           </div>
