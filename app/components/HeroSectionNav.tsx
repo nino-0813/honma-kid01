@@ -59,7 +59,7 @@ export default function HeroSectionNav({
         className="flex flex-row flex-wrap items-center justify-end gap-y-1"
       >
         {SECTION_LINKS.map((item, i) => (
-          <span key={item.href} className="inline-flex items-center">
+          <span key={item.href} className="inline-flex items-center font-semibold">
             {i > 0 ? (
               <span className={sepClass} aria-hidden>
                 /
@@ -67,13 +67,13 @@ export default function HeroSectionNav({
             ) : null}
             <a
               href={item.href}
-              className={`nav-link whitespace-nowrap py-0.5 text-[11px] leading-snug tracking-[0.12em] ${linkClass}`}
+              className={`nav-link whitespace-nowrap py-0.5 text-[11px] font-semibold leading-snug tracking-[0.12em] ${linkClass}`}
             >
               {item.label}
             </a>
           </span>
         ))}
-        <span className="inline-flex items-center">
+        <span className="inline-flex items-center font-semibold">
           <span className={sepClass} aria-hidden>
             /
           </span>

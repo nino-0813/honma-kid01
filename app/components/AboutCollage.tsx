@@ -259,7 +259,7 @@ function AboutHeadingBlock({
     return (
       <div className={["text-center [&_p]:mx-auto [&_h2]:mx-auto", className].join(" ")}>
         <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#006B2B]">{ABOUT_KICKER}</p>
-        <h2 className="mt-2 text-[18px] font-medium leading-[1.35] tracking-[0.08em] text-[#006B2B] xl:text-[20px]">
+        <h2 className="mt-2 text-[18px] font-semibold leading-[1.35] tracking-[0.08em] text-[#006B2B] xl:text-[20px]">
           {ABOUT_TITLE}
         </h2>
       </div>
@@ -288,7 +288,7 @@ function AboutBodyText({
   intro?: boolean;
 }) {
   const sizeClasses = compact
-    ? "text-[13px] leading-[2] tracking-[0.06em]"
+    ? "text-[13px] font-medium leading-[2] tracking-[0.06em]"
     : intro
       ? "text-[15px] leading-[1.65] tracking-[0.08em]"
       : "text-[16px] leading-[2] tracking-[0.06em]";
