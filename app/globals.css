@@ -1,0 +1,447 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #444444;
+  /* 見学・お申し込み CTA */
+  --cta-visit-bg: #006B2B;
+  --cta-visit-hover: #005522;
+  --cta-visit-shadow: rgba(0, 107, 43, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
+    "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  --font-inter: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
+    "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  user-select: none;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+/* ヒーロー実写スライド（5枚・30s 周期・6s ずつずらし・全幅・モバイル共通） */
+.hero-slide-mobile-1,
+.hero-slide-mobile-2,
+.hero-slide-mobile-3,
+.hero-slide-mobile-4,
+.hero-slide-mobile-5 {
+  animation: hero-fade-quad 30s infinite;
+}
+
+.hero-slide-mobile-1 {
+  animation-delay: 0s;
+}
+
+.hero-slide-mobile-2 {
+  animation-delay: 6s;
+}
+
+.hero-slide-mobile-3 {
+  animation-delay: 12s;
+}
+
+.hero-slide-mobile-4 {
+  animation-delay: 18s;
+}
+
+.hero-slide-mobile-5 {
+  animation-delay: 24s;
+}
+
+/* 次スライド（6s 遅延）のフェードインと軽く重なる */
+@keyframes hero-fade-quad {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  3% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  26% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  31% {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 800ms ease,
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 800ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+  filter: blur(10px);
+}
+
+.reveal-up {
+  transform: translateY(48px);
+}
+
+.reveal-left {
+  transform: translateX(-42px);
+}
+
+.reveal-right {
+  transform: translateX(42px);
+}
+
+.reveal-scale {
+  transform: scale(0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* About コラージュ等：ルートはそのまま、子タイルだけフェード＋軽い浮き上がり（段遅延は --about-stagger） */
+.reveal-children-root:not(.is-visible) .about-collage-photo-inner {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.96);
+}
+
+.reveal-children-root.is-visible .about-collage-photo-inner {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--reveal-delay, 0ms) + var(--about-stagger, 0ms));
+}
+
+.gentle-float {
+  animation: gentle-float 5.8s ease-in-out infinite;
+}
+
+.hero-news-card {
+  animation: card-float 4.6s ease-in-out infinite;
+}
+
+.drift {
+  animation: drift 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.drift-slow {
+  animation-duration: 9s;
+}
+
+.drift-fast {
+  animation-duration: 5.5s;
+}
+
+.nav-link,
+.arrow-link {
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    color 220ms ease;
+}
+
+.nav-link:hover {
+  opacity: 0.72;
+}
+
+.arrow-link:hover {
+  transform: translateX(4px);
+}
+
+.button-chip {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.button-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.14);
+}
+
+.button-chip svg,
+.arrow-link svg {
+  transition: transform 220ms ease;
+}
+
+.button-chip:hover svg,
+.arrow-link:hover svg {
+  transform: translateX(4px);
+}
+
+.card-interactive {
+  transition:
+    transform 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-interactive img {
+  transition: transform 700ms ease;
+}
+
+.card-interactive:hover img {
+  transform: scale(1.04);
+}
+
+.usecase-card,
+.usecase-pinned-card {
+  transition:
+    transform 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.usecase-card:hover,
+.usecase-pinned-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.1);
+}
+
+.usecase-card:hover img,
+.usecase-pinned-card:hover img {
+  transform: scale(1.03);
+}
+
+/* ────────────────────────────────────────────
+   Use Case カード entrance animation
+   .uc-card-init は .usecase-pinned-card より後に宣言することで
+   entrance 中は 0.6s ease-out が transition として優先される。
+   アニメーション完了後に JS が両クラスを除去するため、
+   以降のホバーは .usecase-pinned-card の 320ms ease が再び有効になる。
+──────────────────────────────────────────── */
+.uc-card-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.uc-card-init.uc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(1.1deg);
+  }
+}
+
+/* About セクション装飾アイコン（親の配置用 transform と分離するため内側ラッパーに付与） */
+@keyframes about-decor-bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes about-decor-sway {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(5px, -6px, 0) rotate(2.8deg);
+  }
+}
+
+@keyframes about-decor-rock {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate3d(-6px, 4px, 0);
+  }
+  66% {
+    transform: translate3d(5px, -5px, 0);
+  }
+}
+
+.about-decor-bob {
+  animation: about-decor-bob 4.9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-decor-sway {
+  animation: about-decor-sway 6.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-decor-rock {
+  animation: about-decor-rock 5.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-decor-delay-sm {
+  animation-delay: 0.85s;
+}
+
+.about-decor-delay-md {
+  animation-delay: 1.65s;
+}
+
+.about-decor-delay-lg {
+  animation-delay: 2.4s;
+}
+
+@keyframes staff-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.staff-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  animation: staff-marquee 55s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .staff-marquee-track {
+    gap: 2rem;
+  }
+}
+
+@media (hover: hover) {
+  .staff-marquee-outer:hover .staff-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .staff-marquee-outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .staff-marquee-track {
+    animation: none;
+    max-width: none;
+    overflow-x: visible;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+  }
+
+  .hero-slide {
+    animation: none;
+    transform: none;
+  }
+
+  .hero-slide-mobile-1 {
+    opacity: 1;
+  }
+
+  .hero-slide-mobile-2,
+  .hero-slide-mobile-3,
+  .hero-slide-mobile-4,
+  .hero-slide-mobile-5 {
+    opacity: 0;
+  }
+
+  .about-decor-bob,
+  .about-decor-sway,
+  .about-decor-rock {
+    animation: none;
+    will-change: auto;
+  }
+
+  .reveal,
+  .reveal-children-root .about-collage-photo-inner,
+  .gentle-float,
+  .hero-news-card,
+  .drift,
+  .button-chip,
+  .arrow-link,
+  .card-interactive,
+  .usecase-card,
+  .uc-card-init {
+    animation: none;
+    transition: none;
+    filter: none;
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
