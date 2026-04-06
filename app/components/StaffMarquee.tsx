@@ -48,7 +48,7 @@ export default function StaffMarquee() {
   const loop = [...STAFF_MEMBERS, ...STAFF_MEMBERS];
 
   return (
-    <div className="staff-marquee-outer relative overflow-hidden py-2">
+    <div className="staff-marquee-outer relative overflow-hidden py-2 touch-pan-x overscroll-contain">
       {/* 左右を軽くフェードしてカルーセル感 */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-white to-transparent md:w-16"
