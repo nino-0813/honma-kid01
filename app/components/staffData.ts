@@ -15,14 +15,14 @@ export const STAFF_MEMBERS: StaffMember[] = [
     name: "本間 涼",
     reading: "ほんま りょう",
     bio: "天然パーマのりょうくん。みんなが好きに没頭できるように、プログラム全体を担当するリーダー。",
-    image: "/images/staff-honma.jpg",
+    image: "/images/staff-kamuki.jpg",
   },
   {
     id: "s2",
     role: "生きもの調査講師",
     name: "上之山 篤人",
     reading: "うえのやま あつと",
-    bio: "kidsのOBでもある、あつと先生。生きものが好きで好きで、仕事にまでしてしまった高校生。",
+    bio: "KidsのOBでもある、あつと先生。生きものが好きで好きで、仕事にまでしてしまった高校生。",
     image: "/images/staff-uemoyama.jpg",
   },
   {
@@ -38,7 +38,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     role: "農家歌手",
     name: "荒井 瑠伽",
     reading: "あらい るか",
-    bio: "歌うのが大好きなルカ。イケベジの農業担当として、kidsの田んぼを1年間一緒につくります。",
+    bio: "歌うのが大好きなルカ。イケベジの農業担当として、Kidsの田んぼを1年間一緒につくります。",
     image: "/images/staff-ruka.jpg",
   },
   {
@@ -46,7 +46,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     role: "運営サポーター",
     name: "合田 将晃",
     reading: "ごうだ まさあき",
-    bio: "kidsを陰で支えるごうだくん。親御さんもお子さんも、わからないことはなんでも聞いてください。",
+    bio: "Kidsを陰で支えるごうだくん。親御さんもお子さんも、わからないことはなんでも聞いてください。",
     image: "/images/staff-goda.jpg",
   },
   {
@@ -55,6 +55,6 @@ export const STAFF_MEMBERS: StaffMember[] = [
     name: "嘉向 徹",
     reading: "かむき とおる",
     bio: "ごはんが大好きなとおるくん。みんなのキラキラとした瞬間をカメラで追いかけます。",
-    image: "/images/staff-kamuki.jpg",
+    image: "/images/staff-honma.jpg",
   },
 ];
