@@ -133,16 +133,16 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       <p className="font-inter text-[15px] capitalize tracking-[0.18em] text-[#6d9ecf]">
                         {card.phaseEn}
                       </p>
-                      <p className="text-[28px] leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
+                      <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
                         {card.phaseJp}
                       </p>
                     </div>
                   </div>
 
-                  <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-normal lg:leading-[1.45] lg:tracking-[0.1em]">
+                  <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
                     {card.title}
                   </h3>
-                  <p className="max-w-[560px] text-[15px] leading-[1.85] tracking-[0.1em] text-[#444]/85">
+                  <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
                     {card.description}
                   </p>
                 </div>
