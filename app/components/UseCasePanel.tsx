@@ -132,10 +132,10 @@ export default function UseCasePanel({
               <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white">
                 yearly program
               </p>
-              <h2 className="mt-4 text-[30px] leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
+              <h2 className="mt-4 text-[30px] font-bold leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
                 年間プログラム
               </h2>
-              <p className="mt-5 max-w-[820px] text-[15px] leading-[1.85] tracking-[0.1em] text-white">
+              <p className="mt-5 max-w-[820px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white">
                 2026年度は全<strong className="font-semibold text-white">8回</strong>
                 を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。開催日・対象年齢・参加方法は決まり次第お知らせします（内容は仮のイメージです）。
               </p>
@@ -203,7 +203,7 @@ export default function UseCasePanel({
                         <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                           {p.title}
                         </h3>
-                        <p className="text-[15px] leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]">
+                        <p className="text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]">
                           {p.summary}
                         </p>
                       </div>
