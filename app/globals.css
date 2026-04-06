@@ -7,15 +7,19 @@
   --cta-visit-bg: #006B2B;
   --cta-visit-hover: #005522;
   --cta-visit-shadow: rgba(0, 107, 43, 0.45);
+  /* Google Fonts（layout の stylesheet）— 和文グリフ含む Zen Kaku Gothic New */
+  --font-zen-kaku-stack:
+    "Zen Kaku Gothic New", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic", "Yu Gothic Medium", "Meiryo", ui-sans-serif,
+    system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
-    "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
-  --font-inter: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans",
-    "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  --font-sans: var(--font-zen-kaku-stack);
+  --font-inter: var(--font-zen-kaku-stack);
+  --font-zenKaku: var(--font-zen-kaku-stack);
 }
 
 * {

@@ -40,6 +40,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="h-full w-full antialiased">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* next/font の Zen Kaku は subset が latin 系のみで和文が載らないため、CSS2 で本文フォントを読み込む */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-full w-full flex flex-col bg-[#7ECFDF]">
         {children}
       </body>
