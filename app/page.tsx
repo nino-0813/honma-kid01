@@ -327,7 +327,7 @@ export default function Home() {
           <div className="mx-auto flex max-w-[1540px] flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-stretch md:gap-0">
-                <div className="flex min-h-0 flex-1 basis-0 items-center justify-center md:justify-end md:pr-6 lg:pr-10">
+                <div className="flex min-h-0 w-full items-center justify-center md:flex-1 md:basis-0 md:justify-end md:pr-6 lg:pr-10">
                   <Image
                     src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.png"
                     alt="佐渡Kids生きもの調査隊"
@@ -340,14 +340,14 @@ export default function Home() {
                   className="hidden h-[7.5rem] w-[2px] shrink-0 self-center rounded-full bg-[#dadada] md:block"
                   aria-hidden
                 />
-                <div className="flex min-h-0 max-w-[400px] flex-1 basis-0 flex-col items-center justify-center gap-2.5 text-[15px] leading-relaxed tracking-[0.06em] text-[#2B6FA8] md:max-w-none md:items-center md:pl-6 md:text-center lg:pl-10">
+                <div className="flex min-h-0 w-full max-w-[400px] flex-col items-center justify-center gap-2.5 text-center text-[15px] leading-relaxed tracking-[0.06em] text-[#2B6FA8] md:max-w-none md:flex-1 md:basis-0 md:items-center md:text-center md:pl-6 lg:pl-10">
                   <p className="font-semibold tracking-[0.12em]">お問い合わせ</p>
                   <p className="text-center text-[14px] leading-snug tracking-[0.08em]">
                     運営事務局　株式会社naco 「イケベジ」
                   </p>
                   <a
                     href="tel:05036345251"
-                    className="inline-flex items-center gap-2 transition hover:underline"
+                    className="inline-flex flex-wrap items-center justify-center gap-2 break-all text-center transition hover:underline"
                   >
                     <svg
                       className="h-[1.1em] w-[1.1em] shrink-0"
@@ -365,7 +365,7 @@ export default function Home() {
                   </a>
                   <a
                     href="mailto:info@ikevege.com"
-                    className="inline-flex items-center gap-2 transition hover:underline"
+                    className="inline-flex flex-wrap items-center justify-center gap-2 break-all text-center transition hover:underline"
                   >
                     <svg
                       className="h-[1.1em] w-[1.1em] shrink-0"
@@ -383,7 +383,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="flex flex-col items-center gap-1.5 text-center">
+              <div className="flex flex-col items-center gap-1.5 text-center md:items-end md:text-right">
                 <a
                   href="#"
                   className="text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
