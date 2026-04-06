@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #444444;
+  --color-white: #ffffff;
   /* 見学・お申し込み CTA */
   --cta-visit-bg: #006B2B;
   --cta-visit-hover: #005522;

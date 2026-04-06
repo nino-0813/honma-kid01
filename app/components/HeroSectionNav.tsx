@@ -6,9 +6,9 @@ type HeroSectionNavVariant = "hero" | "floating";
 
 const SECTION_LINKS = [
   { href: "#about", label: "佐渡Kids生きもの調査隊", accent: "#4DC47A" },
-  { href: "#usecase", label: "年間プログラム", accent: "#4DC47A" },
-  { href: "#staff", label: "スタッフ紹介", accent: "#F7F54D" },
-  { href: "#faq", label: "よくある質問", accent: "#4DC47A" },
+  { href: "#usecase", label: "年間プログラム", accent: "#F7F54D" },
+  { href: "#staff", label: "スタッフ紹介", accent: "#4DC47A" },
+  { href: "#faq", label: "よくある質問", accent: "#F7F54D" },
 ] as const;
 
 /** 年間プログラムブロック上（#usecase かつ #staff より手前） */
@@ -39,7 +39,7 @@ export default function HeroSectionNav({
   );
 
   const linkTextHero =
-    "text-[11px] leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
+    "text-[11px] font-semibold leading-snug tracking-[0.08em] text-white/95 md:text-[12px]";
   const linkTextFloating =
     "text-[11px] leading-snug tracking-[0.12em] text-[#444] md:text-[12px]";
 
