@@ -64,7 +64,7 @@ export default function FaqSection() {
           ))}
         </div>
 
-        <p className="mt-12 text-center text-[15px] leading-[1.85] tracking-[0.1em] text-white/80 md:mt-14">
+        <p className="mt-12 text-center text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white/80 md:mt-14">
           その他のご質問は、募集のご案内時に記載の連絡先までお問い合わせください。
         </p>
       </div>
