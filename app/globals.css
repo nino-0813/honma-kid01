@@ -371,9 +371,16 @@ img {
   }
 }
 
-/* 自動マルquee上のスワイプでページ（縦スクロール）が動かないようにする */
+/* スマホ: マルquee上からもページ縦スクロール可能にする */
 .staff-marquee-outer {
-  touch-action: none;
+  touch-action: pan-y;
+}
+
+/* md以上: 横方向の指操作でページが大きく動きにくくする */
+@media (min-width: 768px) {
+  .staff-marquee-outer {
+    touch-action: none;
+  }
 }
 
 .staff-marquee-track {
