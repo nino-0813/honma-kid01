@@ -62,7 +62,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[431px] top-[-96px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[431px] top-[-96px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:0ms]",
     },
   },
   {
@@ -79,7 +79,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[835px] top-[-125px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[835px] top-[-125px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:220ms]",
     },
   },
   {
@@ -96,7 +96,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[411px] top-[-115px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[411px] top-[-115px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:440ms]",
     },
   },
   {
@@ -112,7 +112,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[849px] top-[-131px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[849px] top-[-131px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:660ms]",
     },
   },
   {
@@ -129,7 +129,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[429px] top-[-103px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[429px] top-[-103px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:880ms]",
     },
   },
   {
@@ -146,7 +146,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[865px] top-[-125px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[865px] top-[-125px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:1100ms]",
     },
   },
   {
@@ -163,7 +163,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[421px] top-[-114px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[421px] top-[-114px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:1320ms]",
     },
   },
   {
@@ -179,7 +179,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
       height: 180,
       sizes: "230px",
       className:
-        "absolute left-[865px] top-[-129px] z-20 h-[180px] w-[230px] object-contain",
+        "absolute left-[865px] top-[-129px] z-20 h-[180px] w-[230px] object-contain gentle-float will-change-transform [animation-delay:1540ms]",
     },
   },
 ];
