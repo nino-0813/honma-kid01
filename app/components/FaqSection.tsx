@@ -28,7 +28,7 @@ export default function FaqSection() {
           <p className="font-inter text-[16px] uppercase tracking-[0.16em] text-white/80">
             FAQ
           </p>
-          <h2 className="mt-3 text-[30px] leading-[1.15] tracking-[0.08em] text-white md:text-[46px]">
+          <h2 className="mt-3 text-[30px] font-medium leading-[1.15] tracking-[0.08em] text-white md:text-[46px]">
             よくある質問
           </h2>
         </div>
@@ -36,7 +36,7 @@ export default function FaqSection() {
         <div className="mt-14 space-y-12 md:mt-16 md:space-y-14">
           {FAQ_GROUPS.map((group) => (
             <div key={group.category}>
-              <h3 className="border-b border-white/25 pb-3 text-[15px] font-semibold leading-[1.85] tracking-[0.1em] text-[#7ECFDF]">
+              <h3 className="border-b border-white/25 pb-3 text-[15px] font-semibold leading-[1.85] tracking-[0.1em] text-white">
                 {group.category}
               </h3>
               <div className="mt-5 space-y-3">
