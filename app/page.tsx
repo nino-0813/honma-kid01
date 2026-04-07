@@ -139,7 +139,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor="#F7F54D"
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[15px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[16px]">
+                        <p className="text-[16px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[17px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -158,7 +158,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor={index === 1 ? "#4DC47A" : "#7ECFDF"}
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[15px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[16px]">
+                        <p className="text-[16px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[17px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -203,7 +203,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <p className="text-[15px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[16px]">
+                    <p className="text-[16px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[18px]">
                       {card.phaseJp}
                     </p>
 
