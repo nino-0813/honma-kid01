@@ -10,11 +10,11 @@ import FaqSection from "@/app/components/FaqSection";
 import StaffMarquee from "@/app/components/StaffMarquee";
 import UseCasePanel from "@/app/components/UseCasePanel";
 
-function ikebejiGreenIconPath(filename: string): string {
-  return `/ikebeji/green/${encodeURIComponent(filename)}`;
+function ikebejiBlueIconPath(filename: string): string {
+  return `/ikebeji/Blue/${encodeURIComponent(filename)}`;
 }
 
-/** #place 先頭（Wildlife）— lg 以上の装飾アイコン（absolute + gentle-float） */
+/** #place 先頭（Wildlife）— lg 以上の装飾アイコン（absolute + gentle-float・水色） */
 const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   file: string;
   className: string;
@@ -22,21 +22,21 @@ const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   height: number;
 }[] = [
   {
-    file: "sadokids_green_Butterfly.png",
+    file: "sadokids_Blue_Butterfly.png",
     className:
       "absolute left-[593px] top-[-83px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:0ms]",
     width: 460,
     height: 360,
   },
   {
-    file: "sadokids_green_insect 1.png",
+    file: "sadokids_Blue_insect 1.png",
     className:
-      "absolute left-[672px] top-[527px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
+      "absolute left-[685px] top-[483px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
     width: 460,
     height: 360,
   },
   {
-    file: "sadokids_green_toki.png",
+    file: "sadokids_Blue_toki.png",
     className:
       "absolute left-[579px] top-[1023px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
     width: 460,
@@ -139,7 +139,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor="#F7F54D"
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[16px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[17px]">
+                        <p className="text-[18px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[20px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -158,7 +158,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor={index === 1 ? "#4DC47A" : "#7ECFDF"}
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[16px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[17px]">
+                        <p className="text-[18px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[20px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -203,7 +203,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <p className="text-[16px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[18px]">
+                    <p className="text-[18px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[22px]">
                       {card.phaseJp}
                     </p>
 
@@ -219,7 +219,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                     ? PLACE_WILDLIFE_DESKTOP_DECOR.map((item) => (
                         <Image
                           key={item.file}
-                          src={ikebejiGreenIconPath(item.file)}
+                          src={ikebejiBlueIconPath(item.file)}
                           alt=""
                           width={item.width}
                           height={item.height}
