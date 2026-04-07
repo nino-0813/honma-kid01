@@ -243,7 +243,7 @@ function AboutHeadingBlock({
             </div>
           </div>
           <h2 className="relative z-10 text-center text-[clamp(20px,6vw,32px)] font-bold leading-[1.2] tracking-[0.08em] text-[#006B2B]">
-            <span className="-translate-x-1 mx-auto block max-w-full whitespace-nowrap">
+            <span className="-translate-x-3 mx-auto block max-w-full whitespace-nowrap">
               {ABOUT_TITLE}
             </span>
           </h2>
