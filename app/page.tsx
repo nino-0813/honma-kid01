@@ -139,7 +139,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor="#F7F54D"
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[15px] font-medium leading-snug tracking-[0.09em] md:text-[16px]">
+                        <p className="text-[15px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[16px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -161,7 +161,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         className={index % 2 !== 0 ? "lg:order-2" : ""}
                       />
                       <div className="flex flex-col gap-5">
-                        <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
+                        <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#006B2B]">
                           {card.phaseJp}
                         </span>
                         <div className="mt-4 border-t border-[#111]" aria-hidden />
@@ -207,7 +207,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
+                    <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#006B2B] md:text-[32px]">
                       {card.phaseJp}
                     </p>
 

@@ -111,6 +111,25 @@ img {
   }
 }
 
+/* `prefers-reduced-motion` 時も全スライドを順に表示（ズームのみ省略・透明度は維持） */
+@keyframes hero-fade-opacity-only {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 1;
+  }
+  31% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .reveal {
   opacity: 0;
   transition:
@@ -419,19 +438,38 @@ img {
   }
 
   .hero-slide {
-    animation: none;
     transform: none;
   }
 
-  .hero-slide-mobile-1 {
-    opacity: 1;
-  }
-
+  .hero-slide-mobile-1,
   .hero-slide-mobile-2,
   .hero-slide-mobile-3,
   .hero-slide-mobile-4,
   .hero-slide-mobile-5 {
-    opacity: 0;
+    animation-name: hero-fade-opacity-only;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+  }
+
+  .hero-slide-mobile-1 {
+    animation-delay: 0s;
+  }
+
+  .hero-slide-mobile-2 {
+    animation-delay: 6s;
+  }
+
+  .hero-slide-mobile-3 {
+    animation-delay: 12s;
+  }
+
+  .hero-slide-mobile-4 {
+    animation-delay: 18s;
+  }
+
+  .hero-slide-mobile-5 {
+    animation-delay: 24s;
   }
 
   .about-decor-bob,
