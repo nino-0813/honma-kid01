@@ -572,13 +572,15 @@ export default function AboutCollage() {
         </div>
 
         <Reveal
-          className="absolute left-1/2 top-[42%] z-20 flex max-w-[520px] -translate-x-1/2 flex-col items-start gap-5 xl:max-w-[560px] xl:gap-6"
+          className="absolute inset-0 z-20 flex items-center justify-center"
           delay={80}
         >
-          <div className="w-full shrink-0">
-            <AboutHeadingBlock figmaDesktopCenter figmaDesktopStack />
+          <div className="flex w-full max-w-[520px] flex-col items-start gap-5 xl:max-w-[560px] xl:gap-6">
+            <div className="w-full shrink-0">
+              <AboutHeadingBlock figmaDesktopCenter figmaDesktopStack />
+            </div>
+            <AboutBodyText compact className="w-full max-w-none shrink-0 pt-0.5" />
           </div>
-          <AboutBodyText compact className="w-full max-w-none shrink-0 pt-0.5" />
         </Reveal>
       </Reveal>
     </section>
