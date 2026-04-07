@@ -76,10 +76,10 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "4月",
     date: "4月26日",
     weekdayJa: "日",
-    title: "入隊式・田んぼの準備・生きもの調査",
+    title: "入隊式・田んぼの準備",
     summary:
       "田んぼに水が入り冬のあいだじっとしていた生きものたちがいっせいに動き出して、とてもにぎやかになるよ。ニホンアマガエルみたいなカエルが元気に動き回って、水に落ちた虫を食べるヒメアメンボも見られるかも。",
-    image: "/ikebeji/入隊式・田んぼの準備・生きもの調査.png",
+    image: "/ikebeji/1_0.png",
     imageObjectPositionClass: "object-[30%_center]",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%201.png",
@@ -95,10 +95,10 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "5月",
     date: "5月31日",
     weekdayJa: "日",
-    title: "田植え・生きもの調査",
+    title: "田植え",
     detail:
       "田植えのころになると、ドジョウがよく見られるようになるよ。そして、そのドジョウを食べるサギみたいな鳥もやってくるんだ。水の中の虫やカメムシの仲間もふえて、ヤゴやハシリグモ、コモリグモも見つけやすくなるよ。",
-    image: "/ikebeji/taue%20.png",
+    image: "/ikebeji/2_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_ちょうちょ.png",
       width: 230,
@@ -113,7 +113,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "6月",
     date: "6月21日",
     weekdayJa: "日",
-    title: "田んぼの草とり・生きもの調査",
+    title: "田んぼの管理",
     detail:
       "6月になると、虫たちがもっとたくさん見られるよ。コガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。それから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
     image: "/ikebeji/3_0.png",
@@ -131,7 +131,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "8月",
     date: "8月9日",
     weekdayJa: "日",
-    title: "川の生きもの調査",
+    title: "夏休みスペシャル",
     detail:
       "川に行くと、田んぼとはちがう生きものがたくさん。アユやヤマメみたいな魚や、ウキゴリ、ヨシノボリもくらしているんだ。虫では、ヘビトンボの子どもや、石や葉っぱでおうちを作るトビケラの仲間もいるよ。",
     image: "/ikebeji/4_0.png",
@@ -149,7 +149,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "10月",
     date: "10月24日",
     weekdayJa: "土",
-    title: "稲刈り・生きもの調査",
+    title: "稲刈り",
     detail:
       "秋になると、夏のあいだ山にいたアキアカネが田んぼにおりてきて、赤ちゃんをふやしはじめるよ。田んぼの上がトンボでいっぱいになることもあるんだ。ウスバキトンボやノシメトンボも見られて、秋の終わりごろには水におなかをつけてたまごをうむよ。",
     image: "/ikebeji/5_0.png",
@@ -167,7 +167,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "11月",
     date: "11月22日",
     weekdayJa: "日",
-    title: "収穫祭・お米販売準備",
+    title: "収穫祭",
     detail:
       "自分たちでつくったお米と他のお米を食べ比べてみよう。お米の勉強をみんなでして、お米を買ってもらう人たちに作り手としてどんなことが伝えられるか一緒に考えてみよう。あったかい豚汁と自分たちでつくったご飯は最高だよね。",
     image: "/ikebeji/6_0.png",
@@ -184,7 +184,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y7",
     label: "12月",
     date: "12月",
-    title: "お米販売",
+    title: "お米を届ける",
     detail:
       "この1年学んできたことを発表してみよう。佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。どんな人たちが買ってくれるか、楽しみだね。",
     image: "/ikebeji/7_0.png",
