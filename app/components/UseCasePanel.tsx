@@ -164,7 +164,7 @@ export default function UseCasePanel({
                     alt=""
                     width={1440}
                     height={810}
-                    className="h-auto w-full object-contain object-center"
+                    className="h-auto w-full origin-top object-contain object-center max-md:scale-[1.08] md:scale-100"
                     aria-hidden
                   />
                   <a
