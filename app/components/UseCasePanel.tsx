@@ -36,7 +36,7 @@ function resolveNearImageIcon(
 }
 
 const ANNUAL_PROGRAM_BODY_CLASS =
-  "text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:text-[15px] md:leading-[1.75]";
+  "pr-2 text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:pr-0 md:text-[15px] md:leading-[1.75]";
 
 type UseCasePanelProps = {
   id?: string;

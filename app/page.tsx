@@ -207,7 +207,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       {card.phaseJp}
                     </p>
 
-                    <h3 className="text-[clamp(24px,3.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em] text-[#444] lg:leading-[1.2] lg:tracking-[0.12em]">
+                    <h3 className="max-w-[560px] text-[clamp(24px,3.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em] text-[#444] lg:leading-[1.2] lg:tracking-[0.12em]">
                       {card.title}
                     </h3>
                     <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
