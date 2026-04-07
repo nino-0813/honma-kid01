@@ -152,7 +152,7 @@ export default function UseCasePanel({
               </h2>
               <p className="mt-5 max-w-[820px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white">
                 2026年度は全<strong className="font-semibold text-white">8回</strong>
-                を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。開催日・対象年齢・参加方法は決まり次第お知らせします（内容は仮のイメージです）。
+                を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。
               </p>
             </div>
           </Reveal>
@@ -187,6 +187,21 @@ export default function UseCasePanel({
 
             {ANNUAL_PROGRAMS.map((p, index) => {
               const nearIcon = resolveNearImageIcon(p.nearImageIcon);
+              const showFrame = p.showImageFrame !== false;
+              const useContain = p.imageFit === "contain";
+              const fitClass = useContain ? "object-contain" : "object-cover";
+              const coverFocus =
+                useContain || !p.imageObjectPosition
+                  ? ""
+                  : p.imageObjectPosition === "left"
+                    ? "object-left"
+                    : p.imageObjectPosition === "right"
+                      ? "object-right"
+                      : "";
+              const objectPositionClass =
+                !useContain && p.imageObjectPositionClass
+                  ? p.imageObjectPositionClass
+                  : coverFocus;
               return (
                 <Reveal key={p.id} delay={(index % 4) * 60} variant={index % 2 === 0 ? "left" : "right"}>
                   <article
@@ -198,14 +213,33 @@ export default function UseCasePanel({
                   >
                     {/* 写真＋任意の装飾アイコン（モバイルは常に先頭／デスクトップは交互に左右） */}
                     <div className="relative w-full shrink-0 md:w-[min(42%,480px)] lg:w-[min(44%,520px)]">
-                      <div className="relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0 lg:rounded-[20px]">
-                        <div className="relative aspect-[16/10] w-full">
+                      <div
+                        className={
+                          showFrame
+                            ? "relative overflow-hidden rounded-[16px] ring-2 ring-white ring-offset-0 lg:rounded-[20px]"
+                            : "relative overflow-hidden rounded-[16px] lg:rounded-[20px]"
+                        }
+                      >
+                        <div
+                          className={[
+                            "relative aspect-[16/10] w-full",
+                            useContain ? "bg-[rgb(111,174,202)]" : "",
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                        >
                           <Image
                             src={p.image}
                             alt={p.title}
                             width={1200}
                             height={750}
-                            className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                            className={[
+                              "h-full w-full transition duration-500 ease-out group-hover:scale-[1.02]",
+                              fitClass,
+                              objectPositionClass,
+                            ]
+                              .filter(Boolean)
+                              .join(" ")}
                             sizes="(max-width: 767px) 100vw, 480px"
                           />
                         </div>
@@ -240,7 +274,9 @@ export default function UseCasePanel({
                         <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                           {p.title}
                         </h3>
-                        <p className={ANNUAL_PROGRAM_BODY_CLASS}>{p.summary}</p>
+                        {p.summary ? (
+                          <p className={ANNUAL_PROGRAM_BODY_CLASS}>{p.summary}</p>
+                        ) : null}
                         {p.detail ? <p className={ANNUAL_PROGRAM_BODY_CLASS}>{p.detail}</p> : null}
                       </div>
                     </div>

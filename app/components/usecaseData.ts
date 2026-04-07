@@ -39,7 +39,8 @@ export type AnnualProgramItem = {
   label: string;
   date: string;
   title: string;
-  summary: string;
+  /** 1段落目（任意・y1 のみなど） */
+  summary?: string;
   image: string;
   /** 装飾 PNG。文字列＝パスのみ／オブジェクトで位置・サイズを調整 */
   nearImageIcon?: string | NearImageIconConfig;
@@ -49,6 +50,14 @@ export type AnnualProgramItem = {
   weekdayJa?: string;
   /** `summary` に続く本文（任意・2段落目） */
   detail?: string;
+  /** `object-cover` の基準（横長で片側だけ見せたいとき） */
+  imageObjectPosition?: "left" | "center" | "right";
+  /** `object-position` を上書き（例: `object-[42%_center]` で左寄りの微調整） */
+  imageObjectPositionClass?: string;
+  /** `contain`＝枠内に全体表示（横長ポスターなど）。既定は `cover` */
+  imageFit?: "cover" | "contain";
+  /** false で白 ring・角丸なし（既定は枠あり） */
+  showImageFrame?: boolean;
 };
 
 /** 年間プログラム1回目（y1）の直前に表示する募集情報 */
@@ -70,7 +79,8 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "入隊式・田んぼの準備・生きもの調査",
     summary:
       "田んぼに水が入り冬のあいだじっとしていた生きものたちがいっせいに動き出して、とてもにぎやかになるよ。ニホンアマガエルみたいなカエルが元気に動き回って、水に落ちた虫を食べるヒメアメンボも見られるかも。",
-    image: "/ikebeji/4-26-entry-rice-prep-survey.jpg",
+    image: "/ikebeji/入隊式・田んぼの準備・生きもの調査.png",
+    imageObjectPositionClass: "object-[30%_center]",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%201.png",
       width: 230,
@@ -86,11 +96,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     date: "5月31日",
     weekdayJa: "日",
     title: "田植え・生きもの調査",
-    summary:
-      "稲が育ちはじめた田んぼ周りを歩き、昆虫や鳥の気配を拾い上げます。",
     detail:
       "田植えのころになると、ドジョウがよく見られるようになるよ。そして、そのドジョウを食べるサギみたいな鳥もやってくるんだ。水の中の虫やカメムシの仲間もふえて、ヤゴやハシリグモ、コモリグモも見つけやすくなるよ。",
-    image: "/ikebeji/5-31-rice-planting-survey.jpg",
+    image: "/ikebeji/taue%20.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_ちょうちょ.png",
       width: 230,
@@ -106,8 +114,6 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     date: "6月21日",
     weekdayJa: "日",
     title: "田んぼの草とり・生きもの調査",
-    summary:
-      "水路やため池のそばで、水温や水草とともに誰が暮らしているか観察します。",
     detail:
       "6月になると、虫たちがもっとたくさん見られるよ。コガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。それから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
     image: "/ikebeji/kids-survey-19.jpg",
@@ -126,7 +132,6 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     date: "8月9日",
     weekdayJa: "日",
     title: "川の生きもの調査",
-    summary: "時間を少し長めにとり、昼と夕方で見え方の違いを比べる回です。",
     detail:
       "川に行くと、田んぼとはちがう生きものがたくさん。アユやヤマメみたいな魚や、ウキゴリ、ヨシノボリもくらしているんだ。虫では、ヘビトンボの子どもや、石や葉っぱでおうちを作るトビケラの仲間もいるよ。",
     image: "/ikebeji/8-9-river-life-survey.jpg",
@@ -145,8 +150,6 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     date: "10月24日",
     weekdayJa: "土",
     title: "稲刈り・生きもの調査",
-    summary:
-      "稲穂が出てくる季節。食べものをめぐる生きものたちのつながりを調べます。",
     detail:
       "秋になると、夏のあいだ山にいたアキアカネが田んぼにおりてきて、赤ちゃんをふやしはじめるよ。田んぼの上がトンボでいっぱいになることもあるんだ。ウスバキトンボやノシメトンボも見られて、秋の終わりごろには水におなかをつけてたまごをうむよ。",
     image: "/ikebeji/10-24-rice-harvest-survey.jpg",
@@ -165,8 +168,6 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     date: "11月22日",
     weekdayJa: "日",
     title: "収穫祭・お米販売準備",
-    summary:
-      "春の記録と見比べ、同じ場所で何が変わったかを隊員同士で話し合います。",
     detail:
       "自分たちでつくったお米と他のお米を食べ比べてみよう。お米の勉強をみんなでして、お米を買ってもらう人たちに作り手としてどんなことが伝えられるか一緒に考えてみよう。あったかい豚汁と自分たちでつくったご飯は最高だよね。",
     image: "/ikebeji/kids-survey-22.jpg",
@@ -184,8 +185,6 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     label: "12月",
     date: "12月",
     title: "お米販売",
-    summary:
-      "一年の観察を振り返り、写真やスケッチをまとめるワークに取り組みます。",
     detail:
       "この1年学んできたことを発表してみよう。佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。どんな人たちが買ってくれるか、楽しみだね。",
     image: "/ikebeji/12-rice-sale.jpg",
@@ -201,9 +200,8 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
   {
     id: "y8",
     label: "2月",
-    date: "2月下旬",
+    date: "2月",
     title: "卒隊式・修了式",
-    summary: "簡単な発表の時間と、次年度に向けたアイデア出し。",
     detail:
       "一緒に学んできたお友だちともお別れ。また次の年も一緒に遊ぼうね。最後はみんなで餅つきをしたりして思いっきり楽しもう！",
     image: "/ikebeji/2-late-winter-graduation.jpg",
