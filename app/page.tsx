@@ -203,7 +203,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <p className="text-[18px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[22px]">
+                    <p className="text-[18px] font-semibold leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[22px]">
                       {card.phaseJp}
                     </p>
 
