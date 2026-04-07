@@ -8,8 +8,6 @@ type Props = {
   imageAlt: string;
   /** 池状装飾（写真背後）の背景色 */
   accentColor?: string;
-  /** 1〜3 など装飾数字 */
-  phaseNumber?: string;
   /** 1枚目は stack、2・3枚目は grid 内の画像カラム */
   layout?: "stack" | "grid";
   className?: string;
@@ -20,7 +18,6 @@ export default function PlaceWildlifeFirstMedia({
   imageSrc,
   imageAlt,
   accentColor = "#C8C878",
-  phaseNumber = "1",
   layout = "stack",
   className = "",
 }: Props) {
@@ -97,13 +94,6 @@ export default function PlaceWildlifeFirstMedia({
         }}
         aria-hidden
       />
-      <span
-        className="absolute -left-px -top-[21px] z-20 h-[60px] font-serif text-[3.25rem] font-normal leading-none tracking-tight text-[#1a1a1a] transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] md:text-[clamp(4rem,10vw,5.5rem)]"
-        style={{ transform: settled ? "translateY(0)" : "translateY(-0.5rem)" }}
-        aria-hidden
-      >
-        {phaseNumber}
-      </span>
       <div className={frameRounded}>
         <Image
           src={imageSrc}

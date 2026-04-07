@@ -151,24 +151,20 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       </div>
                     </article>
                   ) : (
-                    <article className="grid grid-cols-1 items-start gap-6">
+                    <article className="relative flex w-full flex-col gap-10 md:gap-14">
                       <PlaceWildlifeFirstMedia
-                        layout="grid"
-                        phaseNumber={String(index + 1)}
                         imageSrc={card.image}
                         imageAlt={card.title}
                         accentColor={index === 1 ? "#4DC47A" : "#7ECFDF"}
-                        className={index % 2 !== 0 ? "lg:order-2" : ""}
                       />
-                      <div className="flex flex-col gap-5">
-                        <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#006B2B]">
+                      <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
+                        <p className="text-[15px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[16px]">
                           {card.phaseJp}
-                        </span>
-                        <div className="mt-4 border-t border-[#111]" aria-hidden />
-                        <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444]">
+                        </p>
+                        <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
                           {card.title}
-                        </h3>
-                        <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
+                        </h2>
+                        <p className="text-[15px] font-normal leading-[1.9] tracking-[0.07em] text-[#223344]/88">
                           {card.description}
                         </p>
                       </div>

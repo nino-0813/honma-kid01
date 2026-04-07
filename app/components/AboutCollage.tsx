@@ -271,7 +271,7 @@ function AboutHeadingBlock({
           <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#006B2B]">{ABOUT_KICKER}</p>
         )}
         {figmaDesktopStack && (
-          <p className="mb-2.5 font-inter text-[11px] font-medium uppercase tracking-[0.36em] text-[#006B2B]/75 xl:mb-3 xl:text-[12px]">
+          <p className="mb-2.5 font-inter text-[11px] font-medium uppercase tracking-[0.36em] text-[#999] xl:mb-3 xl:text-[12px]">
             ABOUT
           </p>
         )}
