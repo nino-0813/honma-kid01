@@ -63,7 +63,7 @@ function AnnualDateHeading({
   const num =
     "text-[64px] font-medium tabular-nums leading-none tracking-tight md:text-[clamp(90px,10.5vw,126px)]";
   const weekday =
-    "-ml-1.5 shrink-0 text-[clamp(26px,3.2vw,36px)] font-medium leading-none tracking-tighter text-white/90 md:-ml-2.5 md:text-[clamp(44px,4.5vw,58px)]";
+    "-ml-2.5 shrink-0 text-[clamp(26px,3.2vw,36px)] font-medium leading-none tracking-tighter text-white/90 md:-ml-4 md:text-[clamp(44px,4.5vw,58px)]";
 
   const full = /^(\d+)月(\d+)日$/.exec(date);
   if (full) {
