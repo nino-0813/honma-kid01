@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from "react";
 type Props = {
   imageSrc: string;
   imageAlt: string;
+  /** 池状装飾（写真背後）の背景色 */
+  accentColor?: string;
   /** 1〜3 など装飾数字 */
   phaseNumber?: string;
   /** 1枚目は stack、2・3枚目は grid 内の画像カラム */
@@ -17,6 +19,7 @@ type Props = {
 export default function PlaceWildlifeFirstMedia({
   imageSrc,
   imageAlt,
+  accentColor = "#C8C878",
   phaseNumber = "1",
   layout = "stack",
   className = "",
@@ -80,8 +83,9 @@ export default function PlaceWildlifeFirstMedia({
   return (
     <div ref={rootRef} className={shell}>
       <div
-        className="pointer-events-none absolute z-0 w-[min(72%,580px)] rounded-[40px] bg-[#C8C878]"
+        className="pointer-events-none absolute z-0 w-[min(72%,580px)] rounded-[40px]"
         style={{
+          backgroundColor: accentColor,
           aspectRatio: "4 / 3",
           right: "max(-4%, -1.5rem)",
           top: settled ? "10%" : "max(-14%, -3.5rem)",

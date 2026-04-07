@@ -72,7 +72,7 @@ const P = ABOUT_MOBILE_COLLAGE_PHOTOS;
 
 /** モバイル下段3枚と同じファイル（デスクトップ大コラージュの一部枠で使用） */
 const IKEBEJI_COLLAGE_17 = "/ikebeji/kids-survey-17.jpg";
-const IKEBEJI_COLLAGE_37 = "/ikebeji/kids-survey-37.jpg";
+const IKEBEJI_COLLAGE_37 = "/ikebeji/068_20220526__S5_5742.JPG";
 
 /** デスクトップ Figma コラージュ6枠（`<CollagePhoto>` の参照順） */
 const COLLAGE_IMAGES = [
@@ -469,7 +469,7 @@ export default function AboutCollage() {
               <div className="about-collage-photo-inner relative h-full w-full overflow-hidden rounded-[22px] shadow-[0_18px_42px_-18px_rgba(27,53,90,0.28)] ring-1 ring-[#dbe3ef]">
                 <Image
                   id="img3"
-                  src="/ikebeji/kids-survey-37.jpg"
+                  src={IKEBEJI_COLLAGE_37}
                   alt=""
                   width={148}
                   height={116}

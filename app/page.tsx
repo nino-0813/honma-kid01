@@ -4,11 +4,44 @@ import DesktopFloatingApplyCta from "@/app/components/DesktopFloatingApplyCta";
 import DesktopSectionNavFollow from "@/app/components/DesktopSectionNavFollow";
 import HeroSectionNav from "@/app/components/HeroSectionNav";
 import MobileTourCta from "@/app/components/MobileTourCta";
-import PlaceWildlifeFirstMedia from "@/app/components/PlaceWildlifeFirstMedia";
 import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
 import StaffMarquee from "@/app/components/StaffMarquee";
 import UseCasePanel from "@/app/components/UseCasePanel";
+
+function ikebejiGreenIconPath(filename: string): string {
+  return `/ikebeji/green/${encodeURIComponent(filename)}`;
+}
+
+/** #place 先頭（Wildlife）— lg 以上の装飾アイコン（absolute + gentle-float） */
+const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
+  file: string;
+  className: string;
+  width: number;
+  height: number;
+}[] = [
+  {
+    file: "sadokids_green_Butterfly.png",
+    className:
+      "absolute left-[593px] top-[-83px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:0ms]",
+    width: 460,
+    height: 360,
+  },
+  {
+    file: "sadokids_green_insect 1.png",
+    className:
+      "absolute left-[653px] top-[410px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
+    width: 460,
+    height: 360,
+  },
+  {
+    file: "sadokids_green_toki.png",
+    className:
+      "absolute left-[574px] top-[940px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
+    width: 460,
+    height: 360,
+  },
+];
 
 /* ────────────────────────────────────────────
    Data
@@ -21,7 +54,7 @@ const kidsAboutCards = [
     title: "しゃがんでのぞく、生きものの世界",
     description:
       "佐渡ヶ島の田んぼや水辺には、虫をはじめ、鳥やカエル、水の中の小さな生きものたちまで、思っている以上にたくさんの命が息づいています。しゃがみこんで水の中をのぞくたび、草むらに目を向けるたび、新しい発見がある。季節の移り変わりの中で生きものたちは、それぞれが命を全うする姿を見せてくれます。その姿が、子どもたちの好奇心をそっとひらき、生きものの世界の奥深さや面白さへと誘っていきます。",
-    image: "/ikebeji/kids-survey-32.jpg",
+    image: "/ikebeji/069_20220526__S5_5756.JPG",
   },
   {
     phaseEn: "Rice & life",
@@ -37,7 +70,7 @@ const kidsAboutCards = [
     title: "好きが広がる仲間との出会い",
     description:
       "見つけたことを話したり、教え合ったり、やってみたい気持ちを一緒にふくらませたり。佐渡Kids生きもの調査隊には、どんな小さな関心も大切に扱って、みんなで学びを育てていく文化があります。大切にしているのは、教えることよりも、その子らしい「好き」や「知りたい」がのびのびと動き出すこと。仲間や講師とともに過ごす中で、ひとりではたどり着けなかった発見や学びが、少しずつ深まっていきます。",
-    image: "/ikebeji/kids-survey-29.jpg",
+    image: "/ikebeji/１.png",
   },
 ];
 
@@ -94,77 +127,82 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
               delay={index * 80}
               variant={index % 2 === 0 ? "left" : "right"}
             >
-              {index === 0 ? (
-                <article className="relative flex w-full flex-col gap-10 md:gap-14">
-                  <PlaceWildlifeFirstMedia imageSrc={card.image} imageAlt={card.title} />
-                  <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                    <p className="font-inter text-[13px] font-medium capitalize tracking-[0.2em] text-[#223344]/75 md:text-[14px]">
-                      {card.phaseEn}
-                    </p>
-                    <p className="text-[15px] font-medium leading-snug tracking-[0.09em] md:text-[16px]">
-                      {card.phaseJp}
-                    </p>
-                    <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
-                      {card.title}
-                    </h2>
-                    <p className="text-[15px] font-normal leading-[1.9] tracking-[0.07em] text-[#223344]/88">
-                      {card.description}
-                    </p>
-                  </div>
-                </article>
-              ) : (
-                <article
+              <article
+                className={[
+                  "grid items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-16",
+                  index === 0 ? "relative overflow-visible lg:pt-10" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                <div
                   className={[
-                    "grid items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-16",
+                    "card-interactive overflow-hidden rounded-3xl lg:rounded-[24px]",
+                    index % 2 !== 0 ? "lg:order-2" : "",
                   ].join(" ")}
                 >
-                  <PlaceWildlifeFirstMedia
-                    layout="grid"
-                    phaseNumber={String(index + 1)}
-                    imageSrc={card.image}
-                    imageAlt={card.title}
-                    className={index % 2 !== 0 ? "lg:order-2" : ""}
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    width={1810}
+                    height={1280}
+                    className="h-auto w-full object-cover transition-transform duration-700 ease-out"
                   />
-                  <div
-                    className={[
-                      "flex flex-col gap-5",
-                      index % 2 !== 0 ? "lg:order-1 lg:pl-8 xl:pl-16" : "",
-                    ]
-                      .filter(Boolean)
-                      .join(" ")}
-                  >
-                    <div className="lg:hidden">
-                      <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                        <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
-                          {card.phaseJp}
-                        </span>
-                        <span className="font-inter text-[12px] capitalize tracking-[0.1em] text-[#444]">
-                          {card.phaseEn}
-                        </span>
-                      </div>
-                      <div className="mt-4 border-t border-[#111]" aria-hidden />
+                </div>
+                <div
+                  className={[
+                    "flex flex-col gap-5",
+                    index % 2 !== 0 ? "lg:order-1 lg:pl-8 xl:pl-16" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  <div className="lg:hidden">
+                    <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                      <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
+                        {card.phaseJp}
+                      </span>
+                      <span className="font-inter text-[12px] capitalize tracking-[0.1em] text-[#444]">
+                        {card.phaseEn}
+                      </span>
                     </div>
-
-                    <div className="hidden lg:block">
-                      <div className="space-y-1">
-                        <p className="font-inter text-[15px] capitalize tracking-[0.18em] text-[#6d9ecf]">
-                          {card.phaseEn}
-                        </p>
-                        <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
-                          {card.phaseJp}
-                        </p>
-                      </div>
-                    </div>
-
-                    <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
-                      {card.title}
-                    </h3>
-                    <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
-                      {card.description}
-                    </p>
+                    <div className="mt-4 border-t border-[#111]" aria-hidden />
                   </div>
-                </article>
-              )}
+
+                  <div className="hidden lg:block">
+                    <div className="space-y-1">
+                      <p className="font-inter text-[15px] capitalize tracking-[0.18em] text-[#6d9ecf]">
+                        {card.phaseEn}
+                      </p>
+                      <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
+                        {card.phaseJp}
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
+                    {card.title}
+                  </h3>
+                  <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
+                    {card.description}
+                  </p>
+                </div>
+
+                {index === 0
+                  ? PLACE_WILDLIFE_DESKTOP_DECOR.map((item) => (
+                      <Image
+                        key={item.file}
+                        src={ikebejiGreenIconPath(item.file)}
+                        alt=""
+                        width={item.width}
+                        height={item.height}
+                        className={["hidden lg:block", item.className].join(" ")}
+                        sizes="230px"
+                        aria-hidden
+                      />
+                    ))
+                  : null}
+              </article>
             </Reveal>
           ))}
         </div>
