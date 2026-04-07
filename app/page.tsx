@@ -13,16 +13,7 @@ function ikebejiGreenIconPath(filename: string): string {
   return `/ikebeji/green/${encodeURIComponent(filename)}`;
 }
 
-/**
- * #place 先頭（Wildlife）— 年間プログラムの article 装飾と同型（absolute + gentle-float + delay）
- * lg 未満は下段のシンプル横並びを表示。
- */
-const PLACE_WILDLIFE_MOBILE_FILES = [
-  "sadokids_green_Butterfly.png",
-  "sadokids_green_insect 1.png",
-  "sadokids_green_toki.png",
-] as const;
-
+/** #place 先頭（Wildlife）— lg 以上の装飾アイコン（absolute + gentle-float） */
 const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   file: string;
   className: string;
@@ -193,28 +184,6 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                   <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
                     {card.title}
                   </h3>
-                  {index === 0 ? (
-                    <div
-                      className="flex flex-wrap items-center justify-center gap-4 sm:justify-start lg:hidden"
-                      aria-hidden
-                    >
-                      {PLACE_WILDLIFE_MOBILE_FILES.map((file) => (
-                        <div
-                          key={file}
-                          className="flex h-[80px] w-[80px] items-center justify-center"
-                        >
-                          <Image
-                            src={ikebejiGreenIconPath(file)}
-                            alt=""
-                            width={200}
-                            height={200}
-                            className="h-full w-full object-contain opacity-[0.88] [filter:drop-shadow(0_6px_14px_rgba(30,55,90,0.12))]"
-                            sizes="80px"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
                   <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
                     {card.description}
                   </p>
