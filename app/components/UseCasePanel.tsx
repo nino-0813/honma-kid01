@@ -183,7 +183,7 @@ export default function UseCasePanel({
                     rel="noopener noreferrer"
                     className={[
                       "z-20 mt-6 inline-flex min-h-[52px] w-full max-w-md shrink-0 items-center justify-center self-center rounded-full bg-white px-8 py-3.5 text-[16px] font-semibold leading-none tracking-[0.08em] text-[#006B2B] shadow-[0_10px_28px_-6px_rgba(0,0,0,0.28)] transition hover:bg-white/95 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.32)] sm:max-w-lg md:bg-[#006B2B] md:text-white md:hover:bg-[#005529]",
-                      "md:absolute md:left-[428px] md:top-[330px] md:mt-0 md:w-auto md:max-w-none md:min-h-[58px] md:px-12 md:py-4 md:text-[18px]",
+                      "md:absolute md:left-[428px] md:top-[310px] md:mt-0 md:w-auto md:max-w-none md:min-h-[58px] md:px-12 md:py-4 md:text-[18px]",
                     ].join(" ")}
                   >
                     お申し込みはこちら
