@@ -4,11 +4,6 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import Reveal from "@/app/components/reveal";
 
-/** `public/ikebeji/green` 内のファイル名（スペース含む）を URL パスに */
-function ikebejiGreenPng(filename: string): string {
-  return `/ikebeji/green/${encodeURIComponent(filename)}`;
-}
-
 /** `public/ikebeji/Blue` 内のファイル名（スペース含む）を URL パスに */
 function ikebejiBluePng(filename: string): string {
   return `/ikebeji/Blue/${encodeURIComponent(filename)}`;
@@ -147,7 +142,7 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
   },
   {
     kind: "icon",
-    src: ikebejiGreenPng("sadokids_green_rice.png"),
+    src: ikebejiBluePng("sadokids_Blue_rice.png"),
     boxClass: "left-[-18px] top-[112px] z-0 h-[124px] w-[284px] -rotate-[7deg] opacity-[0.82]",
     width: 596,
     height: 278,
@@ -155,7 +150,7 @@ const ABOUT_MOBILE_COLLAGE_LAYERS: readonly AboutMobileCollageLayer[] = [
   },
   {
     kind: "icon",
-    src: ikebejiGreenPng("sadokids_green_Butterfly.png"),
+    src: ikebejiBluePng("sadokids_Blue_Butterfly.png"),
     boxClass: "left-[40%] top-[216px] z-0 h-[188px] w-[144px] rotate-[10deg] opacity-[0.82]",
     width: 288,
     height: 428,
@@ -206,8 +201,8 @@ function AboutHeadingBlock({
   if (mobileTitleFirst) {
     return (
       <div className={["text-center", className].join(" ")}>
-        <div className="relative isolate mx-auto w-full overflow-visible px-7 pb-3 pt-8 sm:px-9 sm:pt-9">
-          <div className="pointer-events-none absolute left-[-18px] top-0 z-0 h-[108px] w-[108px] -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:left-[-22px] sm:top-1 sm:h-[128px] sm:w-[128px]">
+        <div className="relative isolate mx-auto w-full overflow-visible px-10 pb-10 pt-10 sm:px-12 sm:pb-12 sm:pt-11">
+          <div className="pointer-events-none absolute left-[-22px] top-0 z-0 h-[108px] w-[108px] -translate-y-1 -rotate-[8deg] opacity-[0.88] sm:left-[-26px] sm:top-1 sm:h-[128px] sm:w-[128px]">
             <div className="relative h-full w-full about-decor-bob">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.cloud}
@@ -220,7 +215,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute right-[-18px] top-2 z-0 h-[128px] w-[128px] rotate-[16deg] opacity-[0.88] sm:right-[-24px] sm:top-4 sm:h-[152px] sm:w-[152px]">
+          <div className="pointer-events-none absolute right-[-22px] top-2 z-0 h-[128px] w-[128px] rotate-[16deg] opacity-[0.88] sm:right-[-28px] sm:top-4 sm:h-[152px] sm:w-[152px]">
             <div className="relative h-full w-full about-decor-sway about-decor-delay-sm">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.net}
@@ -233,7 +228,7 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-12 right-[-14px] z-0 h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-14 sm:right-[-20px] sm:h-[116px] sm:w-[116px]">
+          <div className="pointer-events-none absolute bottom-8 right-[-18px] z-0 h-[100px] w-[100px] -rotate-[12deg] opacity-[0.9] sm:bottom-10 sm:right-[-24px] sm:h-[116px] sm:w-[116px]">
             <div className="relative h-full w-full about-decor-rock about-decor-delay-md">
               <Image
                 src={ABOUT_MOBILE_TITLE_DECOR.crab}
@@ -246,8 +241,8 @@ function AboutHeadingBlock({
               />
             </div>
           </div>
-          <h2 className="relative z-10 text-[clamp(19px,5.2vw,30px)] font-medium leading-[1.2] tracking-[0.08em] text-[#006B2B]">
-            <span className="block">{ABOUT_TITLE_MOBILE_LINES[0]}</span>
+          <h2 className="relative z-10 text-[clamp(24px,7vw,36px)] font-bold leading-[1.2] tracking-[0.08em] text-[#006B2B]">
+            <span className="block whitespace-nowrap">{ABOUT_TITLE_MOBILE_LINES[0]}</span>
             <span className="block">{ABOUT_TITLE_MOBILE_LINES[1]}</span>
           </h2>
         </div>
@@ -397,7 +392,7 @@ export default function AboutCollage() {
           </Reveal>
 
           <Reveal
-            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[326px] flex-col items-stretch gap-6 overflow-visible text-center"
+            className="relative z-10 mx-auto mt-6 mb-12 flex w-full max-w-[390px] flex-col items-stretch gap-6 overflow-visible text-center"
             delay={120}
           >
             <AboutHeadingBlock mobileTitleFirst className="w-full" />
