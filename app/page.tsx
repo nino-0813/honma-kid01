@@ -14,28 +14,28 @@ import UseCasePanel from "@/app/components/UseCasePanel";
 /** #place — キッズ・調査隊の雰囲気を伝える説明ブロック（文言は仮） */
 const kidsAboutCards = [
   {
-    phaseEn: "nature",
-    phaseJp: "自然の中で",
-    title: "外のフィールドが、いちばんの教室",
+    phaseEn: "Wildlife",
+    phaseJp: "生きものと同じ目線に",
+    title: "しゃがんでのぞく、生きものの世界",
     description:
-      "佐渡の田んぼや水路、湿地をゆっくり歩きながら、生きもののすみかやあとを観察します。ネットや観察ノートで、見つけたものを写真やスケッチに残していきます。安全に楽しむための服装や持ち物は、開催前にお知らせします。",
+      "佐渡ヶ島の田んぼや水辺には、虫をはじめ、鳥やカエル、水の中の小さな生きものたちまで、思っている以上にたくさんの命が息づいています。しゃがみこんで水の中をのぞくたび、草むらに目を向けるたび、新しい発見がある。季節の移り変わりの中で生きものたちは、それぞれが命を全うする姿を見せてくれます。その姿が、子どもたちの好奇心をそっとひらき、生きものの世界の奥深さや面白さへと誘っていきます。",
     image: "/ikebeji/kids-survey-32.jpg",
   },
   {
-    phaseEn: "together",
-    phaseJp: "みんなと一緒に",
-    title: "スタッフや仲間と話しながら、「わからない」を楽しむ",
+    phaseEn: "Rice & life",
+    phaseJp: "田んぼまるごと、学びの場",
+    title: "暮らしと食と命のつながり",
     description:
-      "図鑑やアプリを手に、名前や特徴を調べたり、「なぜここにいるの？」を話し合ったりします。正解を急がず、子どものペースで進めます。初めての子も、生きものが好きな子も、それぞれの見え方を尊重します。",
-    image: "/ikebeji/kids-survey-29.jpg",
+      "日本の水田には5,000種以上の生きものがいるともいわれています。そのお米の産地である佐渡ヶ島では、約20年にわたって生きものを育む農法が大切に育てられてきました。いまでは、世界でも有数の生物多様性先進地域となりました。田んぼに立って感じる生きものたちの声。食と命のつながりを深めるお米づくりの世界。目には見えない豊かな循環を、歩いて、動いて、味わって、感じていきます。",
+    image: "/ikebeji/kids-survey-27.jpg",
   },
   {
-    phaseEn: "next",
-    phaseJp: "つぎにつなげて",
-    title: "記録や発表を通して、次の「見たい」につなげる",
+    phaseEn: "Together",
+    phaseJp: "ひとりじゃないから、もっと面白い",
+    title: "好きが広がる仲間との出会い",
     description:
-      "季節ごとに写真やメモをそろえ、隊員同士で簡単に発表する時間ももちます。うまくまとまらなくても大丈夫。次のテーマや調査へつなげていきます。参加費や対象年齢などの詳細は、決まり次第お知らせ予定です。",
-    image: "/ikebeji/kids-survey-27.jpg",
+      "見つけたことを話したり、教え合ったり、やってみたい気持ちを一緒にふくらませたり。佐渡Kids生きもの調査隊には、どんな小さな関心も大切に扱って、みんなで学びを育てていく文化があります。大切にしているのは、教えることよりも、その子らしい「好き」や「知りたい」がのびのびと動き出すこと。仲間や講師とともに過ごす中で、ひとりではたどり着けなかった発見や学びが、少しずつ深まっていきます。",
+    image: "/ikebeji/kids-survey-29.jpg",
   },
 ];
 
@@ -303,8 +303,8 @@ export default function Home() {
           className="bg-white px-5 py-20 md:px-10 md:py-24"
         >
           <div className="mx-auto max-w-[1540px] text-center">
-            <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-[#999] md:text-[15px]">
-              staff
+            <p className="font-inter text-[16px] tracking-[0.16em] text-[#999] md:text-[15px]">
+              Staff
             </p>
             <h2 className="mt-3 text-[30px] font-medium leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px]">
               スタッフ紹介

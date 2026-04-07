@@ -387,19 +387,15 @@ img {
   display: flex;
   width: max-content;
   gap: 1.5rem;
-  animation: staff-marquee 55s linear infinite;
+  /* スマホはやや速め、md以上は従来どおり */
+  animation: staff-marquee 40s linear infinite;
   will-change: transform;
 }
 
 @media (min-width: 768px) {
   .staff-marquee-track {
     gap: 2rem;
-  }
-}
-
-@media (hover: hover) {
-  .staff-marquee-outer:hover .staff-marquee-track {
-    animation-play-state: paused;
+    animation-duration: 55s;
   }
 }
 

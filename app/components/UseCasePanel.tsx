@@ -50,23 +50,34 @@ type UseCasePanelProps = {
 /**
  * パネル先頭用日付。モバイルは従来写真下サイズの約2倍（数字64px・月/日32px）、md以上は従来の大きい表示。
  */
-function AnnualDateHeading({ date }: { date: string }) {
+function AnnualDateHeading({
+  date,
+  weekdayJa,
+}: {
+  date: string;
+  weekdayJa?: string;
+}) {
   const mt = "mt-0";
   const suffix =
     "text-[32px] leading-none tracking-[0.06em] md:text-[clamp(51px,5.7vw,66px)]";
   const num =
     "text-[64px] font-medium tabular-nums leading-none tracking-tight md:text-[clamp(90px,10.5vw,126px)]";
+  const weekday =
+    "ml-2 shrink-0 text-[clamp(26px,3.2vw,36px)] font-medium leading-none tracking-[0.06em] text-white/90 md:ml-3 md:text-[clamp(44px,4.5vw,58px)]";
 
   const full = /^(\d+)月(\d+)日$/.exec(date);
   if (full) {
     return (
       <p
-        className={`${mt} flex w-full flex-wrap items-baseline justify-start leading-none text-white`}
+        className={`${mt} flex w-full flex-wrap items-baseline justify-start gap-x-0 gap-y-1 leading-none text-white`}
       >
         <span className={num}>{full[1]}</span>
         <span className={suffix}>月</span>
         <span className={num}>{full[2]}</span>
         <span className={suffix}>日</span>
+        {weekdayJa ? (
+          <span className={weekday}>（{weekdayJa}）</span>
+        ) : null}
       </p>
     );
   }
@@ -222,7 +233,7 @@ export default function UseCasePanel({
                           .filter(Boolean)
                           .join(" ")}
                       >
-                        <AnnualDateHeading date={p.date} />
+                        <AnnualDateHeading date={p.date} weekdayJa={p.weekdayJa} />
                         <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                           {p.title}
                         </h3>

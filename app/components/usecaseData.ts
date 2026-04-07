@@ -45,6 +45,8 @@ export type AnnualProgramItem = {
   nearImageIcon?: string | NearImageIconConfig;
   /** 記事右下付近の昆虫装飾（回ごとに className で個別指定） */
   articleInsectDecoration?: ArticleInsectDecoration;
+  /** 開催日の曜日（「日」「土」など）。`date` が「◯月◯日」のときだけ表示 */
+  weekdayJa?: string;
 };
 
 /** 年間プログラム1回目（y1）の直前に表示する募集情報 */
@@ -62,9 +64,10 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y1",
     label: "4月",
     date: "4月26日",
+    weekdayJa: "日",
     title: "入隊式・田んぼの準備・生きもの調査",
     summary:
-      "水田に水が入りはじめるころ。泥の中や水面を観察し、春だけの顔ぶれを記録します。",
+      "田んぼに水が入り冬のあいだじっとしていた生きものたちがいっせいに動き出して、とてもにぎやかになるよ。ニホンアマガエルみたいなカエルが元気に動き回って、水に落ちた虫を食べるヒメアメンボも見られるかも。",
     image: "/ikebeji/4-26-entry-rice-prep-survey.jpg",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%201.png",
@@ -79,6 +82,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y2",
     label: "5月",
     date: "5月31日",
+    weekdayJa: "日",
     title: "田植え・生きもの調査",
     summary:
       "稲が育ちはじめた田んぼ周りを歩き、昆虫や鳥の気配を拾い上げます。",
@@ -96,6 +100,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y3",
     label: "6月",
     date: "6月21日",
+    weekdayJa: "日",
     title: "田んぼの草とり・生きもの調査",
     summary:
       "水路やため池のそばで、水温や水草とともに誰が暮らしているか観察します。",
@@ -113,6 +118,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y4",
     label: "8月",
     date: "8月9日",
+    weekdayJa: "日",
     title: "川の生きもの調査",
     summary: "時間を少し長めにとり、昼と夕方で見え方の違いを比べる回です。",
     image: "/ikebeji/8-9-river-life-survey.jpg",
@@ -129,6 +135,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y5",
     label: "10月",
     date: "10月24日",
+    weekdayJa: "土",
     title: "稲刈り・生きもの調査",
     summary:
       "稲穂が出てくる季節。食べものをめぐる生きものたちのつながりを調べます。",
@@ -146,6 +153,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     id: "y6",
     label: "11月",
     date: "11月22日",
+    weekdayJa: "日",
     title: "収穫祭・お米販売準備",
     summary:
       "春の記録と見比べ、同じ場所で何が変わったかを隊員同士で話し合います。",

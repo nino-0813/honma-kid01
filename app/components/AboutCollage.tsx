@@ -15,9 +15,9 @@ function ikebejiBluePng(filename: string): string {
 }
 
 const ABOUT_KICKER = "about Kids' Nature Exploration Team";
-const ABOUT_TITLE = "佐渡Kids生き物調査隊とは";
+const ABOUT_TITLE = "遊んで、学んで、体験する";
 /** モバイル about 見出しの改行（1行目＋2行目＝ `ABOUT_TITLE` と同じ読み） */
-const ABOUT_TITLE_MOBILE_LINES = ["佐渡Kids生き物", "調査隊とは"] as const;
+const ABOUT_TITLE_MOBILE_LINES = ["遊んで、学んで、", "体験する"] as const;
 /** モバイル about 見出し周りの手描きアイコン（タイトル付近・変更しない） */
 const ABOUT_MOBILE_TITLE_DECOR = {
   cloud: ikebejiBluePng("sadokids_Blue_cloud 1.png"),
@@ -59,7 +59,7 @@ const ABOUT_LOWER_COLLAGE_BLUE_DECOR = [
   },
 ] as const;
 const ABOUT_BODY =
-  "佐渡の田んぼや水辺をフィールドに、生きものたちと出会いながら観察・記録する子ども向けの野外プログラムです。季節ごとの調査テーマを決め、ネットや図鑑とあわせて「なぜ？」を一緒に掘り下げていきます。体験内容や日程は調整中のため、ここに載せている説明は仮のイメージです。正式な募集要項は追ってお知らせします。";
+  "佐渡Kids生きもの調査隊は、佐渡ヶ島の田んぼや水辺をフィールドに、子どもたちが生きものと出会い、学んでいく1年間のプログラムです。さがして、見つけて、没頭する。友だちと共に「なぜ？」を深めていく。専門性の高い講師や仲間たちと一緒にかけがえのない一年を歩みます。";
 
 /** 上段コラージュ共通の実写3枚（ASCII パス — デプロイ先 Linux でも確実に解決する） */
 const ABOUT_MOBILE_COLLAGE_PHOTOS = [

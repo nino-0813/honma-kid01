@@ -30,7 +30,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     role: "サポート講師",
     name: "佐々木 邦基",
     reading: "ささき くにもと",
-    bio: "お米作りからお酒まで作るくにもと先生。農家の視点から生きものについて解説してくれます。",
+    bio: "お米からお酒まで作るくにもと先生。農家の視点から生きものについて解説してくれます。",
     image: "/images/staff-sasaki.png",
   },
   {
