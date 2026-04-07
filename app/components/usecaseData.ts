@@ -69,10 +69,10 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "入隊式・田んぼの準備",
     summary:
       "田んぼに水が入り冬のあいだじっとしていた生きものたちがいっせいに動き出して、とてもにぎやかになるよ。\nニホンアマガエルみたいなカエルが元気に動き回って、水に落ちた虫を食べるヒメアメンボも見られるかも。",
-    image: "/ikebeji/1_0.png",
+    image: "/ikebeji/1_0.webp",
     imageObjectPositionClass: "object-[30%_center]",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_insect%201.png",
+      src: "/ikebeji/White/sadokids_png_White_insect%201.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -88,9 +88,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "田植え",
     detail:
       "田植えのころになると、ドジョウがよく見られるようになるよ。そして、そのドジョウを食べるサギみたいな鳥もやってくるんだ。水の中の虫やカメムシの仲間もふえて、ヤゴやハシリグモ、コモリグモも見つけやすくなるよ。",
-    image: "/ikebeji/2_0.png",
+    image: "/ikebeji/2_0.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_ちょうちょ.png",
+      src: "/ikebeji/White/sadokids_png_White_ちょうちょ.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -106,9 +106,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "田んぼの管理",
     detail:
       "6月になると、虫たちがもっとたくさん見られるよ。\nコガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。\nそれから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
-    image: "/ikebeji/3_01.png",
+    image: "/ikebeji/3_01.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_insect%20net.png",
+      src: "/ikebeji/White/sadokids_png_White_insect%20net.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -124,9 +124,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "夏休みスペシャル",
     detail:
       "川に行くと、田んぼとはちがう生きものがたくさん。アユやヤマメみたいな魚や、ウキゴリ、ヨシノボリもくらしているんだ。虫では、ヘビトンボの子どもや、石や葉っぱでおうちを作るトビケラの仲間もいるよ。",
-    image: "/ikebeji/4_0.png",
+    image: "/ikebeji/4_0.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_Fish.png",
+      src: "/ikebeji/White/sadokids_png_White_Fish.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -142,9 +142,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "稲刈り",
     detail:
       "秋になると、夏のあいだ山にいたアキアカネが田んぼにおりてきて、赤ちゃんをふやしはじめるよ。\n田んぼの上がトンボでいっぱいになることもあるんだ。\nウスバキトンボやノシメトンボも見られて、秋の終わりごろには水におなかをつけてたまごをうむよ。",
-    image: "/ikebeji/5_0.png",
+    image: "/ikebeji/5_0.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_insect%202.png",
+      src: "/ikebeji/White/sadokids_png_White_insect%202.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -160,9 +160,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "収穫祭",
     detail:
       "自分たちでつくったお米と他のお米を食べ比べてみよう。お米の勉強をみんなでして、お米を買ってもらう人たちに作り手としてどんなことが伝えられるか一緒に考えてみよう。あったかい豚汁と自分たちでつくったご飯は最高だよね。",
-    image: "/ikebeji/6_02.png",
+    image: "/ikebeji/6_02.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_rice.png",
+      src: "/ikebeji/White/sadokids_png_White_rice.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -177,9 +177,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "お米を届ける",
     detail:
       "この1年学んできたことを発表してみよう。\n佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。\nどんな人たちが買ってくれるか、楽しみだね。",
-    image: "/ikebeji/7_0.3png.png",
+    image: "/ikebeji/7_0.3png.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_toki.png",
+      src: "/ikebeji/White/sadokids_png_White_toki.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -194,9 +194,9 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "卒隊式・修了式",
     detail:
       "一緒に学んできたお友だちともお別れ。また次の年も一緒に遊ぼうね。最後はみんなで餅つきをしたりして思いっきり楽しもう！",
-    image: "/ikebeji/8_0.4png.png",
+    image: "/ikebeji/8_0.4png.webp",
     articleInsectDecoration: {
-      src: "/ikebeji/White/sadokids_png_White_flower%202.png",
+      src: "/ikebeji/White/sadokids_png_White_flower%202.webp",
       width: 230,
       height: 180,
       sizes: "230px",
@@ -217,7 +217,7 @@ export const USECASE_CARDS: UseCaseCard[] = [
       "Interested in community activities or events",
       "Looking to create a space outside of home",
     ],
-    image: "/figma-assets/usecase-1-23bd32.png",
+    image: "/figma-assets/usecase-1-23bd32.webp",
     id: "membership",
   },
   {
@@ -230,7 +230,7 @@ export const USECASE_CARDS: UseCaseCard[] = [
       "Want a cozy place to relax on your day off",
       "Seeking casual neighborhood connections",
     ],
-    image: "/figma-assets/usecase-2-d783d7.png",
+    image: "/figma-assets/usecase-2-d783d7.webp",
     id: "dropin",
   },
   {
@@ -242,7 +242,7 @@ export const USECASE_CARDS: UseCaseCard[] = [
       "Grab a quick refreshment after your bath",
       "Bring the neighborhood mood with you",
     ],
-    image: "/figma-assets/usecase-3-48e433.png",
+    image: "/figma-assets/usecase-3-48e433.webp",
     id: "takeaway",
   },
 ];

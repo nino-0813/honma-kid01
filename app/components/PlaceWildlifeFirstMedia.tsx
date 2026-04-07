@@ -67,7 +67,7 @@ export default function PlaceWildlifeFirstMedia({
 
   const shell =
     layout === "stack"
-      ? "relative mx-auto w-full max-w-[min(100%,920px)] overflow-visible px-1 pb-2 pt-10 md:px-0 md:pt-14"
+      ? "relative mx-auto w-full max-w-[min(100%,920px)] overflow-visible px-1 pb-2 pt-6 md:px-0 md:pt-14"
       : ["relative w-full overflow-visible px-0 pb-1 pt-6 md:pt-8", className]
           .filter(Boolean)
           .join(" ");

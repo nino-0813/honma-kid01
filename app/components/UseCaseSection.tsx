@@ -14,7 +14,7 @@ const CARDS = [
       "Interested in community activities or events",
       "Looking to create a space outside of home",
     ],
-    image: "/figma-assets/usecase-1-23bd32.png",
+    image: "/figma-assets/usecase-1-23bd32.webp",
     id: "membership",
   },
   {
@@ -27,7 +27,7 @@ const CARDS = [
       "Want a cozy place to relax on your day off",
       "Seeking casual neighborhood connections",
     ],
-    image: "/figma-assets/usecase-2-d783d7.png",
+    image: "/figma-assets/usecase-2-d783d7.webp",
     id: "dropin",
   },
   {
@@ -39,7 +39,7 @@ const CARDS = [
       "Grab a quick refreshment after your bath",
       "Bring the neighborhood mood with you",
     ],
-    image: "/figma-assets/usecase-3-48e433.png",
+    image: "/figma-assets/usecase-3-48e433.webp",
     id: "takeaway",
   },
 ] as const;

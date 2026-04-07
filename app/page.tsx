@@ -22,21 +22,21 @@ const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   height: number;
 }[] = [
   {
-    file: "sadokids_Blue_Butterfly.png",
+    file: "sadokids_Blue_Butterfly.webp",
     className:
       "absolute left-[593px] top-[-83px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:0ms]",
     width: 460,
     height: 360,
   },
   {
-    file: "sadokids_Blue_insect 1.png",
+    file: "sadokids_Blue_insect 1.webp",
     className:
       "absolute left-[685px] top-[483px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
     width: 460,
     height: 360,
   },
   {
-    file: "sadokids_Blue_toki.png",
+    file: "sadokids_Blue_toki.webp",
     className:
       "absolute left-[579px] top-[1023px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
     width: 460,
@@ -55,7 +55,7 @@ const kidsAboutCards = [
     title: "しゃがんでのぞく、生きものの世界",
     description:
       "佐渡ヶ島の田んぼや水辺には、虫をはじめ、鳥やカエル、水の中の小さな生きものたちまで、思っている以上にたくさんの命が息づいています。しゃがみこんで水の中をのぞくたび、草むらに目を向けるたび、新しい発見がある。季節の移り変わりの中で生きものたちは、それぞれが命を全うする姿を見せてくれます。その姿が、子どもたちの好奇心をそっとひらき、生きものの世界の奥深さや面白さへと誘っていきます。",
-    image: "/ikebeji/069_20220526__S5_5756.JPG",
+    image: "/ikebeji/069_20220526__S5_5756.webp",
   },
   {
     phaseEn: "Rice & life",
@@ -63,7 +63,7 @@ const kidsAboutCards = [
     title: "暮らしと食と命のつながり",
     description:
       "日本の水田には5,000種以上の生きものがいるともいわれています。そのお米の産地である佐渡ヶ島では、約20年にわたって生きものを育む農法が大切に育てられてきました。いまでは、世界でも有数の生物多様性先進地域となりました。田んぼに立って感じる生きものたちの声。食と命のつながりを深めるお米づくりの世界。目には見えない豊かな循環を、歩いて、動いて、味わって、感じていきます。",
-    image: "/ikebeji/kids-survey-27.jpg",
+    image: "/ikebeji/kids-survey-27.webp",
   },
   {
     phaseEn: "Together",
@@ -71,17 +71,17 @@ const kidsAboutCards = [
     title: "好きが広がる仲間との出会い",
     description:
       "見つけたことを話したり、教え合ったり、やってみたい気持ちを一緒にふくらませたり。佐渡Kids生きもの調査隊には、どんな小さな関心も大切に扱って、みんなで学びを育てていく文化があります。大切にしているのは、教えることよりも、その子らしい「好き」や「知りたい」がのびのびと動き出すこと。仲間や講師とともに過ごす中で、ひとりではたどり着けなかった発見や学びが、少しずつ深まっていきます。",
-    image: "/ikebeji/１.png",
+    image: "/ikebeji/１.webp",
   },
 ];
 
 /** ヒーロー背景スライド（5枚・`globals.css` の `hero-fade-quad` 30s 周期）— すべて ASCII パス（Linux デプロイ向け） */
 const HERO_SLIDESHOW_IMAGES = [
-  "/ikebeji/kids-survey-01.jpg",
-  "/ikebeji/kids-survey-09.jpg",
-  "/ikebeji/kids-survey-19.jpg",
-  "/ikebeji/kids-survey-20.jpg",
-  "/ikebeji/kids-survey-22.jpg",
+  "/ikebeji/kids-survey-01.webp",
+  "/ikebeji/kids-survey-09.webp",
+  "/ikebeji/kids-survey-19.webp",
+  "/ikebeji/kids-survey-20.webp",
+  "/ikebeji/kids-survey-22.webp",
 ] as const;
 
 /**
@@ -114,7 +114,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
     <section
       id={id}
       className={[
-        "rounded-none bg-transparent px-5 py-20 md:px-10 md:py-24",
+        "rounded-none bg-transparent px-5 pt-12 pb-20 md:px-10 md:py-24",
         className,
       ]
         .join(" ")
@@ -279,7 +279,7 @@ export default function Home() {
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0 shrink-0 -ml-[26px]">
                 <Image
-                  src="/ikebeji/White/sadokids_White_LOGO_3.png"
+                  src="/ikebeji/White/sadokids_White_LOGO_3.webp"
                   alt="佐渡Kids生き物調査隊"
                   width={940}
                   height={780}
@@ -330,7 +330,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/ikebeji/White/sadokids_White_LOGO_3.png"
+                src="/ikebeji/White/sadokids_White_LOGO_3.webp"
                 alt="佐渡Kids生き物調査隊"
                 width={940}
                 height={780}
@@ -413,7 +413,7 @@ export default function Home() {
               <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-stretch md:gap-0">
                 <div className="flex min-h-0 w-full items-center justify-center md:flex-1 md:basis-0 md:justify-end md:pr-6 lg:pr-10">
                   <Image
-                    src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.png"
+                    src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.webp"
                     alt="佐渡Kids生きもの調査隊"
                     width={940}
                     height={780}

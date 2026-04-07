@@ -9,7 +9,7 @@ export default function FaqSection() {
     >
       <div className="pointer-events-none absolute inset-0">
         <Image
-          src="/images/photo1.jpg"
+          src="/images/photo1.webp"
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 1400px"

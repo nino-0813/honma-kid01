@@ -12,7 +12,7 @@ const ACTIVE_LINE_PX = 96;
  * `#usecase` が高いと y=ACTIVE_LINE がセクション内に残り続けるため、
  * 「スタッフに入った」の判定は `#staff` の矩形だけで切る。
  */
-const STAFF_TOP_OFF_PX = 720;
+const STAFF_TOP_OFF_PX = ACTIVE_LINE_PX;
 
 /**
  * 固定ヘッダーが差しかかっているセクションを矩形ベースで判定する。

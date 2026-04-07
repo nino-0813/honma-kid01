@@ -136,7 +136,7 @@ export default function UseCasePanel({
             "relative w-full overflow-hidden bg-[rgb(111,174,202)] text-white",
             density === "stack"
               ? "px-5 pb-24 pt-14 md:px-10 md:pb-28 md:pt-16"
-              : "px-5 pb-44 pt-20 md:px-10 md:pb-52 md:pt-24",
+              : "px-5 pb-28 pt-20 md:px-10 md:pb-36 md:pt-24",
           ].join(" ")}
         >
           <Reveal>
@@ -299,7 +299,7 @@ export default function UseCasePanel({
                       <Image
                         src={
                           p.articleInsectDecoration.src ??
-                          "/ikebeji/green/sadokids_green_insect%201.png"
+                          "/ikebeji/green/sadokids_green_insect%201.webp"
                         }
                         alt=""
                         width={p.articleInsectDecoration.width ?? 230}
