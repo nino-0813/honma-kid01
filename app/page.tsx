@@ -8,6 +8,50 @@ import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
 import StaffMarquee from "@/app/components/StaffMarquee";
 import UseCasePanel from "@/app/components/UseCasePanel";
+
+function ikebejiGreenIconPath(filename: string): string {
+  return `/ikebeji/green/${encodeURIComponent(filename)}`;
+}
+
+/**
+ * #place 先頭（Wildlife）— 年間プログラムの article 装飾と同型（absolute + gentle-float + delay）
+ * lg 未満は下段のシンプル横並びを表示。
+ */
+const PLACE_WILDLIFE_MOBILE_FILES = [
+  "sadokids_green_Butterfly.png",
+  "sadokids_green_insect 1.png",
+  "sadokids_green_toki.png",
+] as const;
+
+const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
+  file: string;
+  className: string;
+  width: number;
+  height: number;
+}[] = [
+  {
+    file: "sadokids_green_Butterfly.png",
+    className:
+      "absolute left-[628px] top-[-77px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:0ms]",
+    width: 460,
+    height: 360,
+  },
+  {
+    file: "sadokids_green_insect 1.png",
+    className:
+      "absolute left-[610px] top-[-96px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
+    width: 460,
+    height: 360,
+  },
+  {
+    file: "sadokids_green_toki.png",
+    className:
+      "absolute left-[617px] top-[1002px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
+    width: 460,
+    height: 360,
+  },
+];
+
 /* ────────────────────────────────────────────
    Data
 ──────────────────────────────────────────── */
@@ -92,7 +136,14 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
               delay={index * 80}
               variant={index % 2 === 0 ? "left" : "right"}
             >
-              <article className="grid items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <article
+                className={[
+                  "grid items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-16",
+                  index === 0 ? "relative overflow-visible lg:pt-10" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
                 <div
                   className={[
                     "card-interactive overflow-hidden rounded-3xl lg:rounded-[24px]",
@@ -142,10 +193,47 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                   <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
                     {card.title}
                   </h3>
+                  {index === 0 ? (
+                    <div
+                      className="flex flex-wrap items-center justify-center gap-4 sm:justify-start lg:hidden"
+                      aria-hidden
+                    >
+                      {PLACE_WILDLIFE_MOBILE_FILES.map((file) => (
+                        <div
+                          key={file}
+                          className="flex h-[80px] w-[80px] items-center justify-center"
+                        >
+                          <Image
+                            src={ikebejiGreenIconPath(file)}
+                            alt=""
+                            width={200}
+                            height={200}
+                            className="h-full w-full object-contain opacity-[0.88] [filter:drop-shadow(0_6px_14px_rgba(30,55,90,0.12))]"
+                            sizes="80px"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
                     {card.description}
                   </p>
                 </div>
+
+                {index === 0
+                  ? PLACE_WILDLIFE_DESKTOP_DECOR.map((item) => (
+                      <Image
+                        key={item.file}
+                        src={ikebejiGreenIconPath(item.file)}
+                        alt=""
+                        width={item.width}
+                        height={item.height}
+                        className={["hidden lg:block", item.className].join(" ")}
+                        sizes="230px"
+                        aria-hidden
+                      />
+                    ))
+                  : null}
               </article>
             </Reveal>
           ))}
