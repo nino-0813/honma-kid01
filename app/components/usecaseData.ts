@@ -78,7 +78,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     weekdayJa: "日",
     title: "入隊式・田んぼの準備",
     summary:
-      "田んぼに水が入り冬のあいだじっとしていた生きものたちがいっせいに動き出して、とてもにぎやかになるよ。ニホンアマガエルみたいなカエルが元気に動き回って、水に落ちた虫を食べるヒメアメンボも見られるかも。",
+      "田んぼに水が入り冬のあいだじっとしていた生きものたちがいっせいに動き出して、とてもにぎやかになるよ。\nニホンアマガエルみたいなカエルが元気に動き回って、水に落ちた虫を食べるヒメアメンボも見られるかも。",
     image: "/ikebeji/1_0.png",
     imageObjectPositionClass: "object-[30%_center]",
     articleInsectDecoration: {
@@ -115,7 +115,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     weekdayJa: "日",
     title: "田んぼの管理",
     detail:
-      "6月になると、虫たちがもっとたくさん見られるよ。コガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。それから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
+      "6月になると、虫たちがもっとたくさん見られるよ。\nコガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。\nそれから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
     image: "/ikebeji/3_01.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%20net.png",
@@ -151,7 +151,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     weekdayJa: "土",
     title: "稲刈り",
     detail:
-      "秋になると、夏のあいだ山にいたアキアカネが田んぼにおりてきて、赤ちゃんをふやしはじめるよ。田んぼの上がトンボでいっぱいになることもあるんだ。ウスバキトンボやノシメトンボも見られて、秋の終わりごろには水におなかをつけてたまごをうむよ。",
+      "秋になると、夏のあいだ山にいたアキアカネが田んぼにおりてきて、赤ちゃんをふやしはじめるよ。\n田んぼの上がトンボでいっぱいになることもあるんだ。\nウスバキトンボやノシメトンボも見られて、秋の終わりごろには水におなかをつけてたまごをうむよ。",
     image: "/ikebeji/5_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%202.png",
@@ -186,7 +186,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     date: "12月",
     title: "お米を届ける",
     detail:
-      "この1年学んできたことを発表してみよう。佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。どんな人たちが買ってくれるか、楽しみだね。",
+      "この1年学んできたことを発表してみよう。\n佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。\nどんな人たちが買ってくれるか、楽しみだね。",
     image: "/ikebeji/7_0.3png.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_toki.png",

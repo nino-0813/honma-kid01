@@ -263,17 +263,22 @@ function AboutHeadingBlock({
       <div
         className={
           figmaDesktopStack
-            ? ["w-full text-left", className].filter(Boolean).join(" ")
+            ? ["w-full text-center", className].filter(Boolean).join(" ")
             : ["text-center [&_p]:mx-auto [&_h2]:mx-auto", className].filter(Boolean).join(" ")
         }
       >
         {!figmaDesktopStack && (
           <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#006B2B]">{ABOUT_KICKER}</p>
         )}
+        {figmaDesktopStack && (
+          <p className="mb-2.5 font-inter text-[11px] font-medium uppercase tracking-[0.36em] text-[#006B2B]/75 xl:mb-3 xl:text-[12px]">
+            ABOUT
+          </p>
+        )}
         <h2
           className={
             figmaDesktopStack
-              ? "text-[26px] font-semibold leading-[1.2] tracking-[0.08em] text-[#006B2B] xl:text-[34px]"
+              ? "text-[30px] font-semibold leading-[1.2] tracking-[0.08em] text-[#006B2B] xl:text-[40px]"
               : "mt-2 text-[18px] font-semibold leading-[1.35] tracking-[0.08em] text-[#006B2B] xl:text-[20px]"
           }
         >
@@ -305,7 +310,7 @@ function AboutBodyText({
   intro?: boolean;
 }) {
   const sizeClasses = compact
-    ? "max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em]"
+    ? "max-w-[560px] text-[16px] font-medium leading-[1.85] tracking-[0.1em] xl:text-[17px]"
     : intro
       ? "text-[15px] leading-[1.65] tracking-[0.08em]"
       : "text-[16px] leading-[2] tracking-[0.06em]";
@@ -575,11 +580,11 @@ export default function AboutCollage() {
           className="absolute inset-0 z-20 flex items-center justify-center"
           delay={80}
         >
-          <div className="flex w-full max-w-[520px] flex-col items-start gap-5 xl:max-w-[560px] xl:gap-6">
+          <div className="flex w-full max-w-[520px] flex-col items-center gap-5 xl:max-w-[560px] xl:gap-6">
             <div className="w-full shrink-0">
               <AboutHeadingBlock figmaDesktopCenter figmaDesktopStack />
             </div>
-            <AboutBodyText compact className="w-full shrink-0 pt-0.5" />
+            <AboutBodyText compact className="w-full shrink-0 pt-0.5 text-left" />
           </div>
         </Reveal>
       </Reveal>

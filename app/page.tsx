@@ -139,9 +139,6 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor="#F7F54D"
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="font-inter text-[13px] font-medium capitalize tracking-[0.2em] text-[#223344]/75 md:text-[14px]">
-                          {card.phaseEn}
-                        </p>
                         <p className="text-[15px] font-medium leading-snug tracking-[0.09em] md:text-[16px]">
                           {card.phaseJp}
                         </p>
@@ -164,14 +161,9 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         className={index % 2 !== 0 ? "lg:order-2" : ""}
                       />
                       <div className="flex flex-col gap-5">
-                        <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                          <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
-                            {card.phaseJp}
-                          </span>
-                          <span className="font-inter text-[12px] capitalize tracking-[0.1em] text-[#444]">
-                            {card.phaseEn}
-                          </span>
-                        </div>
+                        <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
+                          {card.phaseJp}
+                        </span>
                         <div className="mt-4 border-t border-[#111]" aria-hidden />
                         <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444]">
                           {card.title}
@@ -215,14 +207,9 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <div className="space-y-1">
-                      <p className="font-inter text-[15px] capitalize tracking-[0.18em] text-[#6d9ecf]">
-                        {card.phaseEn}
-                      </p>
-                      <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
-                        {card.phaseJp}
-                      </p>
-                    </div>
+                    <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#444] md:text-[32px]">
+                      {card.phaseJp}
+                    </p>
 
                     <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
                       {card.title}
