@@ -364,7 +364,7 @@ export default function Home() {
                     050-3634-5251
                   </a>
                   <a
-                    href="mailto:info@ikevege.com"
+                    href="mailto:contact@ikimono-sado.com"
                     className="inline-flex flex-wrap items-center justify-center gap-2 break-all text-center transition hover:underline"
                   >
                     <svg
@@ -379,7 +379,7 @@ export default function Home() {
                       <rect x="3" y="5" width="18" height="14" rx="2" />
                       <path d="m3 7 9 5 9-5" />
                     </svg>
-                    info@ikevege.com
+                    contact@ikimono-sado.com
                   </a>
                 </div>
               </div>
@@ -390,13 +390,10 @@ export default function Home() {
                 >
                   プライバシーポリシー
                 </a>
-                <p className="font-inter text-[14px] tracking-[0.16em] text-[#888]">
-                  2026 佐渡Kids生きもの調査隊
-                </p>
               </div>
             </div>
             <p className="mx-auto w-full max-w-[520px] text-center text-[10px] leading-[1.7] tracking-[0.08em] text-[#aaa] md:whitespace-nowrap md:text-[11px]">
-              © 2026 佐渡Kids生きもの調査隊。当サイトに掲載する文章・写真・イラストなどの無断転載を禁じます。
+              © 2026 株式会社naco 「イケベジ」。当サイトに掲載する文章・写真・イラストなどの無断転載を禁じます。
             </p>
           </div>
         </footer>

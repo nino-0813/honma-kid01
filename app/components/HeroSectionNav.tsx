@@ -25,7 +25,7 @@ const FLOATING_DEFAULT_SEP =
 
 /**
  * ページ内アンカー（ヒーロー内は白文字＋左ライン、固定は本文色・横並び可）
- * 固定・横並び時: 年間プログラム（#usecase）表示中のみ白、それ以外は #006B2B（#staff 以降は緑に戻す）。
+ * 固定・横並び時: 年間プログラム（#usecase）または FAQ（#faq）表示中は白、それ以外は #006B2B（#staff など）。
  */
 export default function HeroSectionNav({
   variant = "hero",
@@ -34,7 +34,8 @@ export default function HeroSectionNav({
   variant?: HeroSectionNavVariant;
   layout?: "column" | "row";
 }) {
-  const usecaseZoneActive = useUsecaseZoneActive(
+  /** 年間プログラム表示中、または FAQ セクション表示中は白 */
+  const floatingNavLight = useUsecaseZoneActive(
     variant === "floating" && layout === "row",
   );
 
@@ -46,10 +47,10 @@ export default function HeroSectionNav({
   const isFloatingRow = variant === "floating" && layout === "row";
 
   if (isFloatingRow) {
-    const linkClass = usecaseZoneActive
+    const linkClass = floatingNavLight
       ? FLOATING_ON_USECASE_LINK
       : FLOATING_DEFAULT_LINK;
-    const sepClass = usecaseZoneActive
+    const sepClass = floatingNavLight
       ? FLOATING_ON_USECASE_SEP
       : FLOATING_DEFAULT_SEP;
 
@@ -82,7 +83,7 @@ export default function HeroSectionNav({
             target="_blank"
             rel="noopener noreferrer"
             className={
-              usecaseZoneActive
+              floatingNavLight
                 ? "inline-flex shrink-0 py-0.5 text-white transition-opacity hover:opacity-90"
                 : "inline-flex shrink-0 py-0.5 text-[#006B2B] transition-opacity hover:opacity-80"
             }

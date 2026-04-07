@@ -193,11 +193,14 @@ function CollagePhoto({
 function AboutHeadingBlock({
   className = "",
   figmaDesktopCenter = false,
+  /** デスクトップコラージュ：見出しを本文の上に積むときの左揃え */
+  figmaDesktopStack = false,
   /** モバイル：大見出し→英字サブ（参照モック順） */
   mobileTitleFirst = false,
 }: {
   className?: string;
   figmaDesktopCenter?: boolean;
+  figmaDesktopStack?: boolean;
   mobileTitleFirst?: boolean;
 }) {
   if (mobileTitleFirst) {
@@ -257,9 +260,23 @@ function AboutHeadingBlock({
 
   if (figmaDesktopCenter) {
     return (
-      <div className={["text-center [&_p]:mx-auto [&_h2]:mx-auto", className].join(" ")}>
-        <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#006B2B]">{ABOUT_KICKER}</p>
-        <h2 className="mt-2 text-[18px] font-semibold leading-[1.35] tracking-[0.08em] text-[#006B2B] xl:text-[20px]">
+      <div
+        className={
+          figmaDesktopStack
+            ? ["w-full text-left", className].filter(Boolean).join(" ")
+            : ["text-center [&_p]:mx-auto [&_h2]:mx-auto", className].filter(Boolean).join(" ")
+        }
+      >
+        {!figmaDesktopStack && (
+          <p className="font-inter text-[14px] lowercase tracking-[0.12em] text-[#006B2B]">{ABOUT_KICKER}</p>
+        )}
+        <h2
+          className={
+            figmaDesktopStack
+              ? "text-[26px] font-semibold leading-[1.2] tracking-[0.08em] text-[#006B2B] xl:text-[34px]"
+              : "mt-2 text-[18px] font-semibold leading-[1.35] tracking-[0.08em] text-[#006B2B] xl:text-[20px]"
+          }
+        >
           {ABOUT_TITLE}
         </h2>
       </div>
@@ -555,13 +572,13 @@ export default function AboutCollage() {
         </div>
 
         <Reveal
-          className="absolute left-1/2 top-[42%] z-20 flex max-w-[520px] -translate-x-1/2 flex-row items-start gap-5 xl:max-w-[560px] xl:gap-6"
+          className="absolute left-1/2 top-[42%] z-20 flex max-w-[520px] -translate-x-1/2 flex-col items-start gap-5 xl:max-w-[560px] xl:gap-6"
           delay={80}
         >
-          <div className="w-[min(168px,42%)] shrink-0 xl:w-[180px]">
-            <AboutHeadingBlock figmaDesktopCenter />
+          <div className="w-full shrink-0">
+            <AboutHeadingBlock figmaDesktopCenter figmaDesktopStack />
           </div>
-          <AboutBodyText compact className="max-w-[270px] shrink-0 pt-0.5 xl:max-w-[300px]" />
+          <AboutBodyText compact className="w-full max-w-none shrink-0 pt-0.5" />
         </Reveal>
       </Reveal>
     </section>

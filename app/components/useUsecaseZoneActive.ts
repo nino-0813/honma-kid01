@@ -16,8 +16,9 @@ const STAFF_TOP_OFF_PX = 720;
 
 /**
  * 固定ヘッダーが差しかかっているセクションを矩形ベースで判定する。
- * ON: `#usecase` が ACTIVE_LINE をまたいでいる（入りは従来どおり）。
- * OFF: 上に加え、`#staff` が画面上部付近に入ったら必ず false。
+ * ON（白文字）:
+ * - `#usecase` が ACTIVE_LINE をまたいでいて、かつ `#staff` 上部判定でない
+ * - または `#faq` が ACTIVE_LINE をまたいでいる
  */
 export function useUsecaseZoneActive(enabled: boolean) {
   const [active, setActive] = useState(false);
@@ -33,6 +34,8 @@ export function useUsecaseZoneActive(enabled: boolean) {
     const update = () => {
       const u = usecaseEl.getBoundingClientRect();
       const s = staffEl?.getBoundingClientRect();
+      const faqEl = document.getElementById("faq");
+      const f = faqEl?.getBoundingClientRect();
 
       const usecaseClaimsLine =
         Number.isFinite(u.top) &&
@@ -45,7 +48,16 @@ export function useUsecaseZoneActive(enabled: boolean) {
         Number.isFinite(s.top) &&
         s.top < STAFF_TOP_OFF_PX;
 
-      setActive(usecaseClaimsLine && !staffEnteredUpperViewport);
+      const usecaseLight = usecaseClaimsLine && !staffEnteredUpperViewport;
+
+      const faqClaimsLine =
+        f != null &&
+        Number.isFinite(f.top) &&
+        Number.isFinite(f.bottom) &&
+        f.top <= ACTIVE_LINE_PX &&
+        f.bottom > ACTIVE_LINE_PX;
+
+      setActive(usecaseLight || faqClaimsLine);
     };
 
     const schedule = () => {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Reveal from "@/app/components/reveal";
 import {
   ANNUAL_PROGRAMS,
+  USECASE_RECRUITMENT_NOTICE_LINES,
   type NearImageIconConfig,
 } from "@/app/components/usecaseData";
 
@@ -129,8 +130,8 @@ export default function UseCasePanel({
         >
           <Reveal>
             <div className="relative" data-usecase-cta-trigger>
-              <p className="font-inter text-[16px] lowercase tracking-[0.16em] text-white">
-                yearly program
+              <p className="font-inter text-[16px] tracking-[0.16em] text-white">
+                Program
               </p>
               <h2 className="mt-4 text-[30px] font-bold leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
                 年間プログラム
@@ -148,6 +149,28 @@ export default function UseCasePanel({
               density === "stack" ? "mt-10" : "mt-12 md:mt-14",
             ].join(" ")}
           >
+            <Reveal delay={0} variant="left">
+              <aside
+                className="w-full max-w-[820px] rounded-[16px] border border-white/25 bg-white/10 px-5 py-4 md:px-7 md:py-5"
+                aria-label="募集情報"
+              >
+                <div className="flex flex-col gap-2 text-[14px] font-medium leading-[1.75] tracking-[0.08em] text-white md:gap-2.5 md:text-[15px]">
+                  {USECASE_RECRUITMENT_NOTICE_LINES.map((line, i) => (
+                    <p
+                      key={`recruit-${i}`}
+                      className={
+                        line.startsWith("※")
+                          ? "text-[13px] leading-[1.7] text-white/90 md:text-[14px]"
+                          : ""
+                      }
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </aside>
+            </Reveal>
+
             {ANNUAL_PROGRAMS.map((p, index) => {
               const nearIcon = resolveNearImageIcon(p.nearImageIcon);
               return (
