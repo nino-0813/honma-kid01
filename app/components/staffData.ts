@@ -39,7 +39,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     name: "荒井 ルカ",
     reading: "あらい るか",
     bio: "歌うのが大好きなルカ。イケベジの農業担当として、Kidsの田んぼを1年間一緒につくります。",
-    image: "/images/staff-ruka.jpg",
+    image: "/images/LINE_ALBUM_ルカ写真_260406_9-2.jpg",
   },
   {
     id: "s5",
