@@ -39,7 +39,7 @@ const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   {
     file: "sadokids_green_insect 1.png",
     className:
-      "absolute left-[618px] top-[375px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
+      "absolute left-[653px] top-[410px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
     width: 460,
     height: 360,
   },
