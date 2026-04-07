@@ -32,21 +32,21 @@ const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   {
     file: "sadokids_green_Butterfly.png",
     className:
-      "absolute left-[628px] top-[-77px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:0ms]",
+      "absolute left-[593px] top-[-83px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:0ms]",
     width: 460,
     height: 360,
   },
   {
     file: "sadokids_green_insect 1.png",
     className:
-      "absolute left-[610px] top-[-96px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
+      "absolute left-[618px] top-[375px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
     width: 460,
     height: 360,
   },
   {
     file: "sadokids_green_toki.png",
     className:
-      "absolute left-[617px] top-[1002px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
+      "absolute left-[574px] top-[940px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
     width: 460,
     height: 360,
   },
