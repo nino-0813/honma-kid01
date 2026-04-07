@@ -300,12 +300,12 @@ function AboutBodyText({
   intro = false,
 }: {
   className?: string;
-  /** デスクトップコラージュ：本文を小さく・行間ゆったり */
+  /** デスクトップコラージュ：本文を #place 本文と同トーンに合わせる */
   compact?: boolean;
   intro?: boolean;
 }) {
   const sizeClasses = compact
-    ? "text-[13px] font-medium leading-[2] tracking-[0.06em]"
+    ? "max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em]"
     : intro
       ? "text-[15px] leading-[1.65] tracking-[0.08em]"
       : "text-[16px] leading-[2] tracking-[0.06em]";
@@ -579,7 +579,7 @@ export default function AboutCollage() {
             <div className="w-full shrink-0">
               <AboutHeadingBlock figmaDesktopCenter figmaDesktopStack />
             </div>
-            <AboutBodyText compact className="w-full max-w-none shrink-0 pt-0.5" />
+            <AboutBodyText compact className="w-full shrink-0 pt-0.5" />
           </div>
         </Reveal>
       </Reveal>
