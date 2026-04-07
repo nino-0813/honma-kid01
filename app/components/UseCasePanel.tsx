@@ -36,7 +36,7 @@ function resolveNearImageIcon(
 }
 
 const ANNUAL_PROGRAM_BODY_CLASS =
-  "whitespace-pre-line text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]";
+  "text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:text-[15px] md:leading-[1.75]";
 
 type UseCasePanelProps = {
   id?: string;
@@ -141,26 +141,28 @@ export default function UseCasePanel({
         >
           <Reveal>
             <div className="relative px-3 md:px-6" data-usecase-cta-trigger>
-              <p className="font-inter text-[16px] tracking-[0.16em] text-white">
-                PROGRAM
-              </p>
-              <div className="mt-4 w-fit max-w-full">
-                <h2 className="text-[30px] font-bold leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
-                  年間プログラム
-                </h2>
-                <div
-                  className="mt-3 h-[3px] w-full rounded-full bg-[#4DC47A] md:mt-4 md:h-1"
-                  aria-hidden
-                />
+              <div className="flex flex-col items-center text-center">
+                <p className="font-inter text-[16px] tracking-[0.16em] text-white">
+                  PROGRAM
+                </p>
+                <div className="mt-4 w-fit max-w-full">
+                  <h2 className="text-[30px] font-bold leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
+                    年間プログラム
+                  </h2>
+                  <div
+                    className="mt-3 h-[3px] w-full rounded-full bg-[#4DC47A] md:mt-4 md:h-1"
+                    aria-hidden
+                  />
+                </div>
+                <p className="mt-5 w-full max-w-[820px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white">
+                  2026年度は全<strong className="font-semibold text-white">8回</strong>
+                  を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。
+                </p>
               </div>
-              <p className="mt-5 max-w-[820px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white">
-                2026年度は全<strong className="font-semibold text-white">8回</strong>
-                を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。
-              </p>
               <div className="relative mt-8 w-full overflow-visible md:mt-10">
                 <div className="relative mx-auto flex w-full max-w-[min(100%,820px)] flex-col items-center overflow-visible">
                   <Image
-                    src="/ikebeji/222.svg"
+                    src="/ikebeji/5.svg"
                     alt=""
                     width={1440}
                     height={810}
@@ -172,9 +174,8 @@ export default function UseCasePanel({
                     target="_blank"
                     rel="noopener noreferrer"
                     className={[
-                      "z-20 mt-6 inline-flex min-h-[52px] w-full max-w-md items-center justify-center rounded-full bg-white px-8 py-3.5 text-[16px] font-semibold leading-none tracking-[0.08em] text-[#006B2B] shadow-[0_10px_28px_-6px_rgba(0,0,0,0.28)] transition hover:bg-white/95 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.32)] sm:max-w-lg",
-                      "md:absolute md:left-[385px] md:top-[330px] md:mt-0 md:w-auto md:max-w-none md:min-h-[58px] md:px-12 md:py-4 md:text-[18px]",
-                      "gentle-float will-change-transform [animation-delay:0ms]",
+                      "z-20 mt-6 inline-flex min-h-[52px] w-full max-w-md shrink-0 items-center justify-center self-center rounded-full bg-[#006B2B] px-8 py-3.5 text-[16px] font-semibold leading-none tracking-[0.08em] text-white shadow-[0_10px_28px_-6px_rgba(0,0,0,0.28)] transition hover:bg-[#005529] hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.32)] sm:max-w-lg",
+                      "md:absolute md:left-[428px] md:top-[330px] md:mt-0 md:w-auto md:max-w-none md:min-h-[58px] md:px-12 md:py-4 md:text-[18px]",
                     ].join(" ")}
                   >
                     お申し込みはこちら
@@ -269,7 +270,7 @@ export default function UseCasePanel({
                     <div className="flex min-w-0 flex-1 flex-col">
                       <div
                         className={[
-                          "flex min-w-0 flex-col gap-5 text-left md:gap-4",
+                          "flex w-full min-w-0 flex-col gap-5 text-left md:gap-4",
                           index % 2 !== 0 ? "md:pl-8 xl:pl-16" : "",
                         ]
                           .filter(Boolean)
