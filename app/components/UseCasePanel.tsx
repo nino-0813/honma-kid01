@@ -38,6 +38,9 @@ function resolveNearImageIcon(
   };
 }
 
+const ANNUAL_PROGRAM_BODY_CLASS =
+  "text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]";
+
 type UseCasePanelProps = {
   id?: string;
   className?: string;
@@ -237,9 +240,8 @@ export default function UseCasePanel({
                         <h3 className="text-[clamp(20px,4.2vw,26px)] font-semibold leading-snug tracking-[0.06em] text-white md:text-[clamp(22px,2vw,28px)] md:leading-[1.25]">
                           {p.title}
                         </h3>
-                        <p className="text-[15px] font-medium leading-[1.65] tracking-[0.08em] text-white md:max-w-none md:text-[15px] md:leading-[1.75]">
-                          {p.summary}
-                        </p>
+                        <p className={ANNUAL_PROGRAM_BODY_CLASS}>{p.summary}</p>
+                        {p.detail ? <p className={ANNUAL_PROGRAM_BODY_CLASS}>{p.detail}</p> : null}
                       </div>
                     </div>
 
