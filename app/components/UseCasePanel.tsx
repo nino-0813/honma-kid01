@@ -136,7 +136,7 @@ export default function UseCasePanel({
             "relative w-full overflow-hidden bg-[rgb(111,174,202)] text-white",
             density === "stack"
               ? "px-5 pb-24 pt-14 md:px-10 md:pb-28 md:pt-16"
-              : "px-5 pb-28 pt-20 md:px-10 md:pb-36 md:pt-24",
+              : "px-8 pb-28 pt-20 md:px-10 md:pb-36 md:pt-24",
           ].join(" ")}
         >
           <Reveal>

@@ -114,7 +114,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
     <section
       id={id}
       className={[
-        "rounded-none bg-transparent px-5 pt-12 pb-20 md:px-10 md:py-24",
+        "rounded-none bg-transparent px-8 pt-12 pb-20 md:px-10 md:py-24",
         className,
       ]
         .join(" ")
