@@ -162,7 +162,7 @@ export default function UseCasePanel({
               <div className="relative mt-8 w-full overflow-visible md:mt-10">
                 <div className="relative mx-auto flex w-full max-w-[min(100%,820px)] flex-col items-center overflow-visible">
                   <Image
-                    src="/ikebeji/444.svg"
+                    src="/ikebeji/555.svg"
                     alt=""
                     width={1440}
                     height={810}
