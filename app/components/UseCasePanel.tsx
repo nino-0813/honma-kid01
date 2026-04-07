@@ -162,11 +162,19 @@ export default function UseCasePanel({
               <div className="relative mt-8 w-full overflow-visible md:mt-10">
                 <div className="relative mx-auto flex w-full max-w-[min(100%,820px)] flex-col items-center overflow-visible">
                   <Image
+                    src="/ikebeji/444.svg"
+                    alt=""
+                    width={1440}
+                    height={810}
+                    className="h-auto w-full origin-top object-contain object-center scale-[1.08] md:hidden"
+                    aria-hidden
+                  />
+                  <Image
                     src="/ikebeji/5.svg"
                     alt=""
                     width={1440}
                     height={810}
-                    className="h-auto w-full origin-top object-contain object-center max-md:scale-[1.08] md:scale-100"
+                    className="hidden h-auto w-full origin-top object-contain object-center md:block md:scale-100"
                     aria-hidden
                   />
                   <a
@@ -174,7 +182,7 @@ export default function UseCasePanel({
                     target="_blank"
                     rel="noopener noreferrer"
                     className={[
-                      "z-20 mt-6 inline-flex min-h-[52px] w-full max-w-md shrink-0 items-center justify-center self-center rounded-full bg-[#006B2B] px-8 py-3.5 text-[16px] font-semibold leading-none tracking-[0.08em] text-white shadow-[0_10px_28px_-6px_rgba(0,0,0,0.28)] transition hover:bg-[#005529] hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.32)] sm:max-w-lg",
+                      "z-20 mt-6 inline-flex min-h-[52px] w-full max-w-md shrink-0 items-center justify-center self-center rounded-full bg-white px-8 py-3.5 text-[16px] font-semibold leading-none tracking-[0.08em] text-[#006B2B] shadow-[0_10px_28px_-6px_rgba(0,0,0,0.28)] transition hover:bg-white/95 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.32)] sm:max-w-lg md:bg-[#006B2B] md:text-white md:hover:bg-[#005529]",
                       "md:absolute md:left-[428px] md:top-[330px] md:mt-0 md:w-auto md:max-w-none md:min-h-[58px] md:px-12 md:py-4 md:text-[18px]",
                     ].join(" ")}
                   >
