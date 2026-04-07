@@ -4,6 +4,7 @@ import DesktopFloatingApplyCta from "@/app/components/DesktopFloatingApplyCta";
 import DesktopSectionNavFollow from "@/app/components/DesktopSectionNavFollow";
 import HeroSectionNav from "@/app/components/HeroSectionNav";
 import MobileTourCta from "@/app/components/MobileTourCta";
+import PlaceWildlifeFirstMedia from "@/app/components/PlaceWildlifeFirstMedia";
 import Reveal from "@/app/components/reveal";
 import FaqSection from "@/app/components/FaqSection";
 import StaffMarquee from "@/app/components/StaffMarquee";
@@ -30,14 +31,14 @@ const PLACE_WILDLIFE_DESKTOP_DECOR: readonly {
   {
     file: "sadokids_green_insect 1.png",
     className:
-      "absolute left-[653px] top-[410px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
+      "absolute left-[672px] top-[527px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:220ms]",
     width: 460,
     height: 360,
   },
   {
     file: "sadokids_green_toki.png",
     className:
-      "absolute left-[574px] top-[940px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
+      "absolute left-[579px] top-[1023px] z-30 h-[180px] w-[230px] object-contain opacity-90 gentle-float will-change-transform [animation-delay:440ms]",
     width: 460,
     height: 360,
   },
@@ -127,49 +128,93 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
               delay={index * 80}
               variant={index % 2 === 0 ? "left" : "right"}
             >
-              <article
-                className={[
-                  "grid items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-16",
-                  index === 0 ? "relative overflow-visible lg:pt-10" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-              >
-                <div
-                  className={[
-                    "card-interactive overflow-hidden rounded-3xl lg:rounded-[24px]",
-                    index % 2 !== 0 ? "lg:order-2" : "",
-                  ].join(" ")}
-                >
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    width={1810}
-                    height={1280}
-                    className="h-auto w-full object-cover transition-transform duration-700 ease-out"
-                  />
+              <>
+                {/* スマホ：池カラー＋スクロール演出（PlaceWildlifeFirstMedia） */}
+                <div className="lg:hidden">
+                  {index === 0 ? (
+                    <article className="relative flex w-full flex-col gap-10 md:gap-14">
+                      <PlaceWildlifeFirstMedia
+                        imageSrc={card.image}
+                        imageAlt={card.title}
+                        accentColor="#F7F54D"
+                      />
+                      <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
+                        <p className="font-inter text-[13px] font-medium capitalize tracking-[0.2em] text-[#223344]/75 md:text-[14px]">
+                          {card.phaseEn}
+                        </p>
+                        <p className="text-[15px] font-medium leading-snug tracking-[0.09em] md:text-[16px]">
+                          {card.phaseJp}
+                        </p>
+                        <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
+                          {card.title}
+                        </h2>
+                        <p className="text-[15px] font-normal leading-[1.9] tracking-[0.07em] text-[#223344]/88">
+                          {card.description}
+                        </p>
+                      </div>
+                    </article>
+                  ) : (
+                    <article className="grid grid-cols-1 items-start gap-6">
+                      <PlaceWildlifeFirstMedia
+                        layout="grid"
+                        phaseNumber={String(index + 1)}
+                        imageSrc={card.image}
+                        imageAlt={card.title}
+                        accentColor={index === 1 ? "#4DC47A" : "#7ECFDF"}
+                        className={index % 2 !== 0 ? "lg:order-2" : ""}
+                      />
+                      <div className="flex flex-col gap-5">
+                        <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                          <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
+                            {card.phaseJp}
+                          </span>
+                          <span className="font-inter text-[12px] capitalize tracking-[0.1em] text-[#444]">
+                            {card.phaseEn}
+                          </span>
+                        </div>
+                        <div className="mt-4 border-t border-[#111]" aria-hidden />
+                        <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444]">
+                          {card.title}
+                        </h3>
+                        <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
+                          {card.description}
+                        </p>
+                      </div>
+                    </article>
+                  )}
                 </div>
-                <div
+
+                {/* デスクトップ：写真＋テキスト（装飾は1枚目のみ） */}
+                <article
                   className={[
-                    "flex flex-col gap-5",
-                    index % 2 !== 0 ? "lg:order-1 lg:pl-8 xl:pl-16" : "",
+                    "hidden items-start gap-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16",
+                    index === 0 ? "relative overflow-visible lg:pt-10" : "",
                   ]
                     .filter(Boolean)
                     .join(" ")}
                 >
-                  <div className="lg:hidden">
-                    <div className="flex flex-row flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                      <span className="text-[30px] font-semibold leading-none tracking-[0.08em] text-[#444]">
-                        {card.phaseJp}
-                      </span>
-                      <span className="font-inter text-[12px] capitalize tracking-[0.1em] text-[#444]">
-                        {card.phaseEn}
-                      </span>
-                    </div>
-                    <div className="mt-4 border-t border-[#111]" aria-hidden />
+                  <div
+                    className={[
+                      "card-interactive overflow-hidden rounded-3xl lg:rounded-[24px]",
+                      index % 2 !== 0 ? "lg:order-2" : "",
+                    ].join(" ")}
+                  >
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      width={1810}
+                      height={1280}
+                      className="h-auto w-full object-cover transition-transform duration-700 ease-out"
+                    />
                   </div>
-
-                  <div className="hidden lg:block">
+                  <div
+                    className={[
+                      "flex flex-col gap-5",
+                      index % 2 !== 0 ? "lg:order-1 lg:pl-8 xl:pl-16" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
                     <div className="space-y-1">
                       <p className="font-inter text-[15px] capitalize tracking-[0.18em] text-[#6d9ecf]">
                         {card.phaseEn}
@@ -178,31 +223,31 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         {card.phaseJp}
                       </p>
                     </div>
+
+                    <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
+                      {card.title}
+                    </h3>
+                    <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
+                      {card.description}
+                    </p>
                   </div>
 
-                  <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
-                    {card.title}
-                  </h3>
-                  <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
-                    {card.description}
-                  </p>
-                </div>
-
-                {index === 0
-                  ? PLACE_WILDLIFE_DESKTOP_DECOR.map((item) => (
-                      <Image
-                        key={item.file}
-                        src={ikebejiGreenIconPath(item.file)}
-                        alt=""
-                        width={item.width}
-                        height={item.height}
-                        className={["hidden lg:block", item.className].join(" ")}
-                        sizes="230px"
-                        aria-hidden
-                      />
-                    ))
-                  : null}
-              </article>
+                  {index === 0
+                    ? PLACE_WILDLIFE_DESKTOP_DECOR.map((item) => (
+                        <Image
+                          key={item.file}
+                          src={ikebejiGreenIconPath(item.file)}
+                          alt=""
+                          width={item.width}
+                          height={item.height}
+                          className={item.className}
+                          sizes="230px"
+                          aria-hidden
+                        />
+                      ))
+                    : null}
+                </article>
+              </>
             </Reveal>
           ))}
         </div>
