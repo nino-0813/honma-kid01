@@ -116,7 +116,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "田んぼの草とり・生きもの調査",
     detail:
       "6月になると、虫たちがもっとたくさん見られるよ。コガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。それから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
-    image: "/ikebeji/kids-survey-19.jpg",
+    image: "/ikebeji/3_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%20net.png",
       width: 230,
@@ -134,7 +134,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "川の生きもの調査",
     detail:
       "川に行くと、田んぼとはちがう生きものがたくさん。アユやヤマメみたいな魚や、ウキゴリ、ヨシノボリもくらしているんだ。虫では、ヘビトンボの子どもや、石や葉っぱでおうちを作るトビケラの仲間もいるよ。",
-    image: "/ikebeji/8-9-river-life-survey.jpg",
+    image: "/ikebeji/4_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_Fish.png",
       width: 230,
@@ -152,7 +152,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "稲刈り・生きもの調査",
     detail:
       "秋になると、夏のあいだ山にいたアキアカネが田んぼにおりてきて、赤ちゃんをふやしはじめるよ。田んぼの上がトンボでいっぱいになることもあるんだ。ウスバキトンボやノシメトンボも見られて、秋の終わりごろには水におなかをつけてたまごをうむよ。",
-    image: "/ikebeji/10-24-rice-harvest-survey.jpg",
+    image: "/ikebeji/5_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%202.png",
       width: 230,
@@ -170,7 +170,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "収穫祭・お米販売準備",
     detail:
       "自分たちでつくったお米と他のお米を食べ比べてみよう。お米の勉強をみんなでして、お米を買ってもらう人たちに作り手としてどんなことが伝えられるか一緒に考えてみよう。あったかい豚汁と自分たちでつくったご飯は最高だよね。",
-    image: "/ikebeji/kids-survey-22.jpg",
+    image: "/ikebeji/6_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_rice.png",
       width: 230,
@@ -187,7 +187,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "お米販売",
     detail:
       "この1年学んできたことを発表してみよう。佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。どんな人たちが買ってくれるか、楽しみだね。",
-    image: "/ikebeji/12-rice-sale.jpg",
+    image: "/ikebeji/7_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_toki.png",
       width: 230,
@@ -204,7 +204,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "卒隊式・修了式",
     detail:
       "一緒に学んできたお友だちともお別れ。また次の年も一緒に遊ぼうね。最後はみんなで餅つきをしたりして思いっきり楽しもう！",
-    image: "/ikebeji/2-late-winter-graduation.jpg",
+    image: "/ikebeji/8_0.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_flower%202.png",
       width: 230,
