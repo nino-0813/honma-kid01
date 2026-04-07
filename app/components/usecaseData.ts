@@ -116,7 +116,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "田んぼの管理",
     detail:
       "6月になると、虫たちがもっとたくさん見られるよ。コガムシやヒメゲンゴロウみたいな水の中の虫や、ミズカマキリ、コミズムシもいるよ。それから、トンボの子どもであるヤゴが大人のトンボになる時期でもあるんだ。",
-    image: "/ikebeji/3_0.png",
+    image: "/ikebeji/3_01.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_insect%20net.png",
       width: 230,
@@ -170,7 +170,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "収穫祭",
     detail:
       "自分たちでつくったお米と他のお米を食べ比べてみよう。お米の勉強をみんなでして、お米を買ってもらう人たちに作り手としてどんなことが伝えられるか一緒に考えてみよう。あったかい豚汁と自分たちでつくったご飯は最高だよね。",
-    image: "/ikebeji/6_0.png",
+    image: "/ikebeji/6_02.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_rice.png",
       width: 230,
@@ -187,7 +187,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "お米を届ける",
     detail:
       "この1年学んできたことを発表してみよう。佐渡の人だけでなく、都会の人たちにも佐渡の魅力と美味しいお米を教えてあげよう。どんな人たちが買ってくれるか、楽しみだね。",
-    image: "/ikebeji/7_0.png",
+    image: "/ikebeji/7_0.3png.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_toki.png",
       width: 230,
@@ -204,7 +204,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "卒隊式・修了式",
     detail:
       "一緒に学んできたお友だちともお別れ。また次の年も一緒に遊ぼうね。最後はみんなで餅つきをしたりして思いっきり楽しもう！",
-    image: "/ikebeji/8_0.png",
+    image: "/ikebeji/8_0.4png.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_flower%202.png",
       width: 230,
