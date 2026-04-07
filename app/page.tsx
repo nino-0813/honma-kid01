@@ -431,7 +431,16 @@ export default function Home() {
                 <div className="flex min-h-0 w-full max-w-[400px] flex-col items-center justify-center gap-2.5 text-center text-[15px] leading-relaxed tracking-[0.06em] text-[#2B6FA8] md:max-w-none md:flex-1 md:basis-0 md:items-center md:text-center md:pl-6 lg:pl-10">
                   <p className="font-semibold tracking-[0.12em]">お問い合わせ</p>
                   <p className="text-center text-[14px] leading-snug tracking-[0.08em]">
-                    運営事務局　株式会社naco 「イケベジ」
+                    運営事務局　株式会社naco 「
+                    <a
+                      href="https://www.ikevege.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-inherit underline-offset-2 transition hover:underline"
+                    >
+                      イケベジ
+                    </a>
+                    」
                   </p>
                   <a
                     href="tel:05036345251"
