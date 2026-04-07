@@ -60,16 +60,6 @@ export type AnnualProgramItem = {
   showImageFrame?: boolean;
 };
 
-/** 年間プログラム1回目（y1）の直前に表示する募集情報 */
-export const USECASE_RECRUITMENT_NOTICE_LINES: readonly string[] = [
-  "参加費 無料",
-  "定員 40名",
-  "対象 小学1年〜6年生",
-  "※小学1年〜2年生は保護者同伴必須",
-  "〆切 4月24日（金）",
-  "年間を通して活動することが条件となります。",
-];
-
 export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
   {
     id: "y1",

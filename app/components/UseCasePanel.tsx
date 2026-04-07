@@ -1,10 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/app/components/reveal";
-import {
-  ANNUAL_PROGRAMS,
-  USECASE_RECRUITMENT_NOTICE_LINES,
-  type NearImageIconConfig,
-} from "@/app/components/usecaseData";
+import { ANNUAL_PROGRAMS, type NearImageIconConfig } from "@/app/components/usecaseData";
+import { APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 /**
  * 写真の角に「はみ出して重なる」既定レイアウト（参考: 上辺・角付近に白線画を載せる）。
@@ -160,6 +157,30 @@ export default function UseCasePanel({
                 2026年度は全<strong className="font-semibold text-white">8回</strong>
                 を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。
               </p>
+              <div className="relative mt-8 w-full overflow-visible md:mt-10">
+                <div className="relative mx-auto flex w-full max-w-[min(100%,820px)] flex-col items-center overflow-visible">
+                  <Image
+                    src="/ikebeji/222.svg"
+                    alt=""
+                    width={1440}
+                    height={810}
+                    className="h-auto w-full object-contain object-center"
+                    aria-hidden
+                  />
+                  <a
+                    href={APPLICATION_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={[
+                      "z-20 mt-6 inline-flex min-h-[52px] w-full max-w-md items-center justify-center rounded-full bg-white px-8 py-3.5 text-[16px] font-semibold leading-none tracking-[0.08em] text-[#006B2B] shadow-[0_10px_28px_-6px_rgba(0,0,0,0.28)] transition hover:bg-white/95 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.32)] sm:max-w-lg",
+                      "md:absolute md:left-[385px] md:top-[330px] md:mt-0 md:w-auto md:max-w-none md:min-h-[58px] md:px-12 md:py-4 md:text-[18px]",
+                      "gentle-float will-change-transform [animation-delay:0ms]",
+                    ].join(" ")}
+                  >
+                    お申し込みはこちら
+                  </a>
+                </div>
+              </div>
             </div>
           </Reveal>
 
@@ -169,28 +190,6 @@ export default function UseCasePanel({
               density === "stack" ? "mt-10" : "mt-12 md:mt-14",
             ].join(" ")}
           >
-            <Reveal delay={0} variant="left">
-              <aside
-                className="w-full max-w-[820px] rounded-[16px] border border-white/25 bg-white/10 px-5 py-4 md:px-7 md:py-5"
-                aria-label="募集情報"
-              >
-                <div className="flex flex-col gap-2 text-[14px] font-medium leading-[1.75] tracking-[0.08em] text-white md:gap-2.5 md:text-[15px]">
-                  {USECASE_RECRUITMENT_NOTICE_LINES.map((line, i) => (
-                    <p
-                      key={`recruit-${i}`}
-                      className={
-                        line.startsWith("※")
-                          ? "text-[13px] leading-[1.7] text-white/90 md:text-[14px]"
-                          : ""
-                      }
-                    >
-                      {line}
-                    </p>
-                  ))}
-                </div>
-              </aside>
-            </Reveal>
-
             {ANNUAL_PROGRAMS.map((p, index) => {
               const nearIcon = resolveNearImageIcon(p.nearImageIcon);
               const showFrame = p.showImageFrame !== false;
