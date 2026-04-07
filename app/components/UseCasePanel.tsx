@@ -66,7 +66,7 @@ function AnnualDateHeading({
   const num =
     "text-[64px] font-medium tabular-nums leading-none tracking-tight md:text-[clamp(90px,10.5vw,126px)]";
   const weekday =
-    "ml-2 shrink-0 text-[clamp(26px,3.2vw,36px)] font-medium leading-none tracking-[0.06em] text-white/90 md:ml-3 md:text-[clamp(44px,4.5vw,58px)]";
+    "-ml-1.5 shrink-0 text-[clamp(26px,3.2vw,36px)] font-medium leading-none tracking-tighter text-white/90 md:-ml-2.5 md:text-[clamp(44px,4.5vw,58px)]";
 
   const full = /^(\d+)月(\d+)日$/.exec(date);
   if (full) {
@@ -143,13 +143,19 @@ export default function UseCasePanel({
           ].join(" ")}
         >
           <Reveal>
-            <div className="relative" data-usecase-cta-trigger>
+            <div className="relative px-3 md:px-6" data-usecase-cta-trigger>
               <p className="font-inter text-[16px] tracking-[0.16em] text-white">
-                Program
+                PROGRAM
               </p>
-              <h2 className="mt-4 text-[30px] font-bold leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
-                年間プログラム
-              </h2>
+              <div className="mt-4 w-fit max-w-full">
+                <h2 className="text-[30px] font-bold leading-[1.15] tracking-[0.08em] text-white md:text-[46px] md:tracking-[0.06em]">
+                  年間プログラム
+                </h2>
+                <div
+                  className="mt-3 h-[3px] w-full rounded-full bg-[#4DC47A] md:mt-4 md:h-1"
+                  aria-hidden
+                />
+              </div>
               <p className="mt-5 max-w-[820px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-white">
                 2026年度は全<strong className="font-semibold text-white">8回</strong>
                 を予定しています。季節に合わせて田んぼ・水辺などのフィールドで観察と記録を重ねます。

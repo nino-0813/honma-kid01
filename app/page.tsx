@@ -201,17 +201,17 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                   </div>
                   <div
                     className={[
-                      "flex flex-col gap-5",
+                      "flex max-w-full flex-col gap-4 md:gap-5 lg:max-w-[720px]",
                       index % 2 !== 0 ? "lg:order-1 lg:pl-8 xl:pl-16" : "",
                     ]
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <p className="text-[28px] font-bold leading-none tracking-[0.08em] text-[#006B2B] md:text-[32px]">
+                    <p className="text-[15px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] lg:text-[16px]">
                       {card.phaseJp}
                     </p>
 
-                    <h3 className="text-[18px] font-semibold leading-[1.5] tracking-[0.08em] text-[#444] lg:text-[24px] lg:font-semibold lg:leading-[1.45] lg:tracking-[0.1em]">
+                    <h3 className="text-[clamp(24px,3.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em] text-[#444] lg:leading-[1.2] lg:tracking-[0.12em]">
                       {card.title}
                     </h3>
                     <p className="max-w-[560px] text-[15px] font-medium leading-[1.85] tracking-[0.1em] text-[#444]/85">
@@ -392,7 +392,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-[1540px] text-center">
             <p className="font-inter text-[16px] tracking-[0.16em] text-[#999] md:text-[15px]">
-              Staff
+              STAFF
             </p>
             <h2 className="mt-3 text-[30px] font-medium leading-[1.15] tracking-[0.08em] text-[#006B2B] md:text-[46px]">
               スタッフ紹介
