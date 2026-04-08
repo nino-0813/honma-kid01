@@ -194,8 +194,7 @@ export const ANNUAL_PROGRAMS: AnnualProgramItem[] = [
     title: "卒隊式・修了式",
     detail:
       "一緒に学んできたお友だちともお別れ。また次の年も一緒に遊ぼうね。最後はみんなで餅つきをしたりして思いっきり楽しもう！",
-    image:
-      "/ikebeji/%E3%82%B5%E3%83%95%E3%82%99%E5%85%A5%E9%9A%8A%E5%BC%8F%E3%83%BB%E7%94%B0%E3%82%93%E3%81%BB%E3%82%99%E3%81%AE%E6%BA%96%E5%82%99%E3%83%BB%E7%94%9F%E3%81%8D%E3%82%82%E3%81%AE%E8%AA%BF%E6%9F%BB%20%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB.png",
+    image: "/ikebeji/annual-program-y8-title.png",
     articleInsectDecoration: {
       src: "/ikebeji/White/sadokids_png_White_flower%202.webp",
       width: 230,
