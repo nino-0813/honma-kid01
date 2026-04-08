@@ -280,7 +280,7 @@ export default function Home() {
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0 shrink-0 -ml-[26px]">
                 <Image
-                  src="/ikebeji/White/sadokids_White_LOGO_3.webp"
+                  src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.webp"
                   alt="佐渡Kids生き物調査隊"
                   width={940}
                   height={780}
@@ -331,7 +331,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/ikebeji/White/sadokids_White_LOGO_3.webp"
+                src="/ikebeji/White/sadokids_rogo_symbol_LOGO_3.webp"
                 alt="佐渡Kids生き物調査隊"
                 width={940}
                 height={780}
