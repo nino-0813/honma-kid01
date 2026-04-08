@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import AboutCollage from "@/app/components/AboutCollage";
 import DesktopFloatingApplyCta from "@/app/components/DesktopFloatingApplyCta";
 import DesktopSectionNavFollow from "@/app/components/DesktopSectionNavFollow";
@@ -139,7 +140,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor="#F7F54D"
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[18px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[20px]">
+                        <p className="text-[18px] font-semibold leading-snug tracking-[0.09em] text-[#006B2B] md:text-[20px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -158,7 +159,7 @@ function PlaceSection({ id = "place", className = "" }: { id?: string; className
                         accentColor={index === 1 ? "#4DC47A" : "#7ECFDF"}
                       />
                       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-4 text-left text-[#223344] md:gap-5">
-                        <p className="text-[18px] font-medium leading-snug tracking-[0.09em] text-[#006B2B] md:text-[20px]">
+                        <p className="text-[18px] font-semibold leading-snug tracking-[0.09em] text-[#006B2B] md:text-[20px]">
                           {card.phaseJp}
                         </p>
                         <h2 className="text-[clamp(24px,6.2vw,44px)] font-bold leading-[1.22] tracking-[0.12em]">
@@ -477,12 +478,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col items-center gap-1.5 text-center md:items-end md:text-right">
-                <a
-                  href="#"
+                <Link
+                  href="/privacy"
                   className="px-[15px] text-[14px] tracking-[0.16em] text-[#444] transition hover:text-[#111] hover:underline"
                 >
                   プライバシーポリシー
-                </a>
+                </Link>
               </div>
             </div>
             <p className="mx-auto w-full max-w-[520px] text-center text-[10px] leading-[1.7] tracking-[0.08em] text-[#aaa] md:whitespace-nowrap md:text-[11px]">
