@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { Suspense } from "react";
+import GtagPageView from "@/app/components/GtagPageView";
+import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 import "./globals.css";
 
 const siteUrl = "https://honma-kid01.vercel.app";
@@ -54,6 +58,25 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full w-full flex flex-col bg-[#7ECFDF]">
+        {GA_MEASUREMENT_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
+              `}
+            </Script>
+            <Suspense fallback={null}>
+              <GtagPageView />
+            </Suspense>
+          </>
+        ) : null}
         {children}
       </body>
     </html>
