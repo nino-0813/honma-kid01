@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { APPLICATION_FORM_URL } from "@/app/siteUrls";
+import { APPLICATION_FORM_DISABLED, APPLICATION_FORM_URL } from "@/app/siteUrls";
 
 /** 通常表示（年間プログラムゾーン外） */
 export const CTA_IMAGE_DEFAULT =
@@ -29,6 +29,43 @@ export default function FloatingApplyCtaCircle({
   className,
   sizes = "(min-width: 1024px) 148px, (min-width: 768px) 132px, 120px",
 }: FloatingApplyCtaCircleProps) {
+  const inner = (
+    <span className="relative block h-full w-full overflow-hidden rounded-full">
+      <span className="absolute inset-0">
+        <Image
+          src={CTA_IMAGE_DEFAULT}
+          alt=""
+          fill
+          className={`${imgClass} ${usecaseZoneActive ? "opacity-0" : "opacity-100"}`}
+          sizes={sizes}
+          priority={false}
+        />
+      </span>
+      <span className="absolute inset-0">
+        <Image
+          src={CTA_IMAGE_IN_USECASE}
+          alt=""
+          fill
+          className={`${imgClass} ${usecaseZoneActive ? "opacity-100" : "opacity-0"}`}
+          sizes={sizes}
+          priority={false}
+        />
+      </span>
+    </span>
+  );
+
+  if (APPLICATION_FORM_DISABLED) {
+    return (
+      <span
+        aria-label="お申し込み（現在は受付を終了しています）"
+        aria-disabled="true"
+        className={className}
+      >
+        {inner}
+      </span>
+    );
+  }
+
   return (
     <a
       href={APPLICATION_FORM_URL}
@@ -37,28 +74,7 @@ export default function FloatingApplyCtaCircle({
       aria-label="お申し込み（外部フォームが開きます）"
       className={className}
     >
-      <span className="relative block h-full w-full overflow-hidden rounded-full">
-        <span className="absolute inset-0">
-          <Image
-            src={CTA_IMAGE_DEFAULT}
-            alt=""
-            fill
-            className={`${imgClass} ${usecaseZoneActive ? "opacity-0" : "opacity-100"}`}
-            sizes={sizes}
-            priority={false}
-          />
-        </span>
-        <span className="absolute inset-0">
-          <Image
-            src={CTA_IMAGE_IN_USECASE}
-            alt=""
-            fill
-            className={`${imgClass} ${usecaseZoneActive ? "opacity-100" : "opacity-0"}`}
-            sizes={sizes}
-            priority={false}
-          />
-        </span>
-      </span>
+      {inner}
     </a>
   );
 }

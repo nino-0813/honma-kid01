@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { APPLICATION_FORM_URL } from "@/app/siteUrls";
+import { APPLICATION_FORM_DISABLED, APPLICATION_FORM_URL } from "@/app/siteUrls";
 import FloatingApplyCtaCircle from "@/app/components/FloatingApplyCtaCircle";
 import { useUsecaseCtaActive } from "@/app/components/useUsecaseCtaActive";
 
@@ -89,7 +89,16 @@ export default function MobileTourCta() {
 
   if (!isMobile) return null;
 
-  const heroLink = (
+  const heroLink = APPLICATION_FORM_DISABLED ? (
+    <span
+      aria-label="お申し込み（現在は受付を終了しています）"
+      aria-disabled="true"
+      className={`${heroLinkClass} shadow-[0_8px_24px_rgba(0,0,0,0.2)]`}
+    >
+      お申し込み
+      <ArrowIcon />
+    </span>
+  ) : (
     <a
       href={APPLICATION_FORM_URL}
       target="_blank"
