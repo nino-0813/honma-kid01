@@ -5,10 +5,10 @@ import { APPLICATION_FORM_DISABLED, APPLICATION_FORM_URL } from "@/app/siteUrls"
 
 /** 通常表示（年間プログラムゾーン外） */
 export const CTA_IMAGE_DEFAULT =
-  "/ikebeji/sadokids_HP_green_symbol%20green%20dark.png";
+  encodeURI("/ikebeji/sadokids_HP_green_symbol green dark toiawase.png");
 /** 年間プログラムゾーン表示中 */
 export const CTA_IMAGE_IN_USECASE =
-  "/ikebeji/sadokids_HP_green_symbol%204.png";
+  encodeURI("/ikebeji/sadokids_HP_green_symbol 4 のコピー.png");
 
 const imgClass =
   "pointer-events-none origin-center scale-[1.92] object-cover object-center transition-opacity duration-200 ease-out";
@@ -56,13 +56,18 @@ export default function FloatingApplyCtaCircle({
 
   if (APPLICATION_FORM_DISABLED) {
     return (
-      <span
-        aria-label="お申し込み（現在は受付を終了しています）"
-        aria-disabled="true"
+      <button
+        type="button"
+        aria-label="お問い合わせへ移動"
         className={className}
+        onClick={() => {
+          document
+            .getElementById("site-footer")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
       >
         {inner}
-      </span>
+      </button>
     );
   }
 

@@ -408,7 +408,10 @@ export default function Home() {
         <FaqSection />
 
         {/* ── FOOTER ─────────────────────────────────── */}
-        <footer className="rounded-none bg-white px-5 pb-[120px] pt-10 text-[#222] sm:pb-24 md:px-10">
+        <footer
+          id="site-footer"
+          className="rounded-none bg-white px-5 pb-[120px] pt-10 text-[#222] sm:pb-24 md:px-10"
+        >
           <div className="mx-auto flex max-w-[1540px] flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-stretch md:gap-0">
