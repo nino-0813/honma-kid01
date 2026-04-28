@@ -10,6 +10,21 @@ const nextConfig: NextConfig = {
     localPatterns: [{ pathname: "/**" }],
     qualities: [60, 65, 70, 75, 80, 85, 90, 100],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "honma-kid01.vercel.app",
+          },
+        ],
+        destination: "https://www.ikimono-sado.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

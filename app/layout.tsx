@@ -6,13 +6,14 @@ import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 import "./globals.css";
 
 const siteUrl = "https://honma-kid01.vercel.app";
+const canonicalHost = "https://www.ikimono-sado.com";
 
 const siteName = "佐渡Kids生き物調査隊";
 const siteDescription =
   "佐渡の田んぼや水辺をフィールドに、生きものと出会い観察・記録を楽しむ子ども向けの野外プログラムです。年間の活動内容、スタッフ紹介、参加に関するよくある質問などを掲載しています。";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(canonicalHost),
   title: {
     default: siteName,
     template: `%s｜${siteName}`,
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: canonicalHost,
     locale: "ja_JP",
     siteName,
     title: siteName,

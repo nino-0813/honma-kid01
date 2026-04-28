@@ -1,5 +1,12 @@
 import ScrollJackPin from "@/app/components/ScrollJackPin";
 import UseCasePanel from "@/app/components/UseCasePanel";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/usecase",
+  },
+};
 
 export default function UseCasePage() {
   return (
